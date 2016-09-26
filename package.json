@@ -19,5 +19,16 @@
   "files": [
     "toml.js",
     "toml-stringify.js"
-  ]
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iarna/iarna-toml.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iarna/iarna-toml/issues"
+  },
+  "homepage": "https://github.com/iarna/iarna-toml#readme"
 }
