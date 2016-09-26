@@ -1,0 +1,23 @@
+{
+  "name": "@iarna/toml",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tap test"
+  },
+  "keywords": [],
+  "author": "Rebecca Turner <me@re-becca.org> (http://re-becca.org/)",
+  "license": "ISC",
+  "description": "JSON-like bindings for TOML.",
+  "dependencies": {
+    "toml": "^2.3.0"
+  },
+  "devDependencies": {
+    "standard": "^8.1.0",
+    "tap": "^7.1.2"
+  },
+  "files": [
+    "toml.js",
+    "toml-stringify.js"
+  ]
+}
