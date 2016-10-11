@@ -50,7 +50,10 @@ function stringifyObject (prefix, indent, obj, multilineOk) {
   var result = []
   var inlineIndent = indent || ''
   inlineKeys.forEach(function (key) {
-    result.push(inlineIndent + stringifyKey(key) + ' = ' + stringifyInline(obj[key], multilineOk))
+    var type = tomlType(obj[key])
+    if (type !== 'undefined' && type !== 'null') {
+      result.push(inlineIndent + stringifyKey(key) + ' = ' + stringifyInline(obj[key], multilineOk))
+    }
   })
   if (result.length) result.push('')
   var complexIndent = prefix && inlineKeys.length ? indent + '  ' : ''
@@ -68,6 +71,8 @@ function isType (type) {
 
 function isInline (value) {
   switch (tomlType(value)) {
+    case 'undefined':
+    case 'null':
     case 'string':
     case 'integer':
     case 'float':
@@ -85,9 +90,9 @@ function isInline (value) {
 
 function tomlType (value) {
   if (value === undefined) {
-    return typeError('undefined')
+    return 'undefined'
   } else if (value === null) {
-    return typeError('null')
+    return 'null'
   } else if (Number.isInteger(value)) {
     return 'integer'
   } else if (typeof value === 'number') {
