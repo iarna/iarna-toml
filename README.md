@@ -22,6 +22,14 @@ var str = TOML.stringify(obj)
 
 The parser is provided by [`toml`](https://npmjs.com/package/toml). We provide our own stringifier.
 
+## toJSON
+
+If available, `TOML.stringify` will call the `toJSON` method on objects to transform
+them before trying to serialize them, much as `JSON.stringify` does.
+
+There is one exception to this, `toJSON` is not called for `Date` objects
+because `JSON` represents dates as strings and TOML can represent them natively.
+
 ## What's Missing
 
 * Any way to produce comments. As a JSON stand-in I'm not too worried about this.
