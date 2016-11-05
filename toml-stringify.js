@@ -6,6 +6,7 @@ function stringify (obj) {
   if (obj === undefined) throw typeError('undefined')
   if (typeof obj !== 'object') throw typeError(typeof obj)
 
+  if (obj.toJSON) obj = obj.toJSON()
   return stringifyObject('', '', obj, true)
 }
 
@@ -36,7 +37,20 @@ function getComplexKeys (obj) {
   })
 }
 
+function toJSON (obj) {
+  let nobj = Array.isArray(obj) ? [] : {}
+  for (let prop of Object.keys(obj)) {
+    if (obj[prop] && obj[prop].toJSON && !(obj[prop] instanceof Date)) {
+      nobj[prop] = obj[prop].toJSON()
+    } else {
+      nobj[prop] = obj[prop]
+    }
+  }
+  return nobj
+}
+
 function stringifyObject (prefix, indent, obj, multilineOk) {
+  obj = toJSON(obj)
   validateValues(obj)
   var inlineKeys
   var complexKeys
@@ -198,6 +212,7 @@ function validateArray (values) {
 }
 
 function stringifyInlineArray (values) {
+  values = toJSON(values)
   validateArray(values)
   var result = '['
   var stringified = values.map(stringifyInline)
@@ -210,6 +225,7 @@ function stringifyInlineArray (values) {
 }
 
 function stringifyInlineTable (value) {
+  value = toJSON(value)
   var result = []
   Object.keys(value).forEach(function (key) {
     result.push(stringifyKey(key) + ' = ' + stringifyInline(value[key], false))
@@ -229,6 +245,7 @@ function stringifyComplex (prefix, indent, key, value) {
 }
 
 function stringifyArrayOfTables (prefix, indent, key, values) {
+  values = toJSON(values)
   validateArray(values)
   var firstValueType = tomlType(values[0])
   if (firstValueType !== 'table') throw typeError(firstValueType)
