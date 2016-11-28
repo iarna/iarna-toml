@@ -65,7 +65,7 @@ function stringifyObject (prefix, indent, obj, multilineOk) {
   var inlineIndent = indent || ''
   inlineKeys.forEach(function (key) {
     var type = tomlType(obj[key])
-    if (type !== 'undefined' && type !== 'null') {
+    if (type !== 'undefined' && type !== 'null' && type !== 'nan') {
       result.push(inlineIndent + stringifyKey(key) + ' = ' + stringifyInline(obj[key], multilineOk))
     }
   })
@@ -87,6 +87,7 @@ function isInline (value) {
   switch (tomlType(value)) {
     case 'undefined':
     case 'null':
+    case 'nan':
     case 'string':
     case 'integer':
     case 'float':
@@ -107,6 +108,8 @@ function tomlType (value) {
     return 'undefined'
   } else if (value === null) {
     return 'null'
+  } else if ((typeof value === 'number' || value instanceof Date) && isNaN(value)) {
+    return 'nan'
   } else if (Number.isInteger(value)) {
     return 'integer'
   } else if (typeof value === 'number') {
