@@ -7,6 +7,7 @@ function stringify (obj) {
   if (typeof obj !== 'object') throw typeError(typeof obj)
 
   if (obj.toJSON) obj = obj.toJSON()
+  if (obj == null) return null
   return stringifyObject('', '', obj, true)
 }
 
