@@ -1,3 +1,8 @@
+# v1.2.0
+
+* Return null when passed in null as the top level object.
+* Detect and skip invalid dates and numbers
+
 # v1.1.0
 
 * toJSON transformations are now honored (for everything except Date objects, as JSON represents them as strings).
