@@ -20,7 +20,7 @@ var str = TOML.stringify(obj)
 */
 ```
 
-The parser is provided by [`toml`](https://npmjs.com/package/toml). We provide our own stringifier.
+The parser is provided by [`toml-j0.4`](https://npmjs.com/package/toml-j0.4). We provide our own stringifier.
 
 ## toJSON
 
