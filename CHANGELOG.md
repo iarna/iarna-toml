@@ -4,7 +4,8 @@
 
 # v1.3.0
 
-* Switch from `toml` to `toml-j0.4`, which is on the order of 20x faster.
+* Switch from `toml` to `toml-j0.4`, which is between 20x and 200x faster.
+  (The larger the input, the faster it is compared to `toml`).
 
 # v1.2.0
 
