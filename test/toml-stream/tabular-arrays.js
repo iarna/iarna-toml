@@ -1,5 +1,5 @@
 var test = require('tap').test
-var toml = require('toml')
+var toml = require('toml-j0.4')
 var toTOMLString = require('./to-toml-string.js')
 
 test('arrays of tables to TOML', function (t) {

@@ -1,5 +1,5 @@
 var test = require('tap').test
-var toml = require('toml')
+var toml = require('toml-j0.4')
 var stringify = require('../../toml-stringify.js')
 
 test('integer TOML values', function (t) {

@@ -10,7 +10,7 @@
   "license": "ISC",
   "description": "JSON-like bindings for TOML.",
   "dependencies": {
-    "toml": "^2.3.0"
+    "toml-j0.4": "^1.0.10"
   },
   "devDependencies": {
     "standard": "^8.1.0",
