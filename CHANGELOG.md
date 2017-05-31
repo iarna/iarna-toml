@@ -1,3 +1,11 @@
+# v1.3.1
+
+* Update docs with new toml module.
+
+# v1.3.0
+
+* Switch from `toml` to `toml-j0.4`, which is on the order of 20x faster.
+
 # v1.2.0
 
 * Return null when passed in null as the top level object.
