@@ -41,7 +41,7 @@ function getComplexKeys (obj) {
 function toJSON (obj) {
   let nobj = Array.isArray(obj) ? [] : {}
   for (let prop of Object.keys(obj)) {
-    if (obj[prop] && obj[prop].toJSON && !(obj[prop] instanceof Date)) {
+    if (obj[prop] && obj[prop].toJSON && !('toISOString' in obj[prop])) {
       nobj[prop] = obj[prop].toJSON()
     } else {
       nobj[prop] = obj[prop]
@@ -109,18 +109,24 @@ function tomlType (value) {
     return 'undefined'
   } else if (value === null) {
     return 'null'
-  } else if ((typeof value === 'number' || value instanceof Date) && isNaN(value)) {
-    return 'nan'
   } else if (Number.isInteger(value)) {
     return 'integer'
   } else if (typeof value === 'number') {
-    return 'float'
+    if (isNaN(value)) {
+      return 'nan'
+    } else {
+      return 'float'
+    }
   } else if (typeof value === 'boolean') {
     return 'boolean'
   } else if (typeof value === 'string') {
     return 'string'
-  } else if (value instanceof Date) {
-    return 'datetime'
+  } else if ('toISOString' in value) {
+    if (isNaN(value)) {
+      return 'nan'
+    } else {
+      return 'datetime'
+    }
   } else if (Array.isArray(value)) {
     return 'array'
   } else {
