@@ -1,3 +1,9 @@
+# 1.5.0
+
+* A brand new TOML parser, from scratch, that performs like `toml-j0.4`
+  without the crashes and with vastly better error messages.
+* 100% test coverage for both the new parser and the existing stringifier. Some subtle bugs squashed!
+
 # v1.4.2
 
 * Revert fallback due to its having issues with the same files.  (New plan

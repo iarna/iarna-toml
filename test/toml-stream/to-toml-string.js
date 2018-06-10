@@ -1,5 +1,5 @@
 'use strict'
-var stringify = require('../../toml-stringify.js')
+var stringify = require('../../stringify.js')
 module.exports = function (input, cb) {
   try {
     cb(null, stringify(input))

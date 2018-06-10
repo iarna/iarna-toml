@@ -3,16 +3,17 @@ module.exports = stringify
 
 function stringify (obj) {
   if (obj === null) throw typeError('null')
-  if (obj === undefined) throw typeError('undefined')
+  if (obj === void (0)) throw typeError('undefined')
   if (typeof obj !== 'object') throw typeError(typeof obj)
 
   if (obj.toJSON) obj = obj.toJSON()
   if (obj == null) return null
-  return stringifyObject('', '', obj, true)
+  const type = tomlType(obj)
+  if (type !== 'table') throw typeError(type)
+  return stringifyObject('', '', obj)
 }
 
 function typeError (type) {
-  if (type instanceof Error) return type
   return new Error('Can only stringify objects, not ' + type)
 }
 
@@ -20,22 +21,11 @@ function arrayOneTypeError () {
   return new Error("Array values can't have mixed types")
 }
 
-function validateValues (obj) {
-  Object.keys(obj).forEach(function (key) {
-    var type = tomlType(obj[key])
-    if (type instanceof Error) throw type
-  })
-}
-
 function getInlineKeys (obj) {
-  return Object.keys(obj).filter(function (key) {
-    return isInline(obj[key])
-  })
+  return Object.keys(obj).filter(key => isInline(obj[key]))
 }
 function getComplexKeys (obj) {
-  return Object.keys(obj).filter(function (key) {
-    return !isInline(obj[key])
-  })
+  return Object.keys(obj).filter(key => !isInline(obj[key]))
 }
 
 function toJSON (obj) {
@@ -50,29 +40,23 @@ function toJSON (obj) {
   return nobj
 }
 
-function stringifyObject (prefix, indent, obj, multilineOk) {
+function stringifyObject (prefix, indent, obj) {
   obj = toJSON(obj)
-  validateValues(obj)
   var inlineKeys
   var complexKeys
-  if (multilineOk) {
-    inlineKeys = getInlineKeys(obj)
-    complexKeys = getComplexKeys(obj)
-  } else {
-    inlineKeys = Object.keys(obj)
-    complexKeys = []
-  }
+  inlineKeys = getInlineKeys(obj)
+  complexKeys = getComplexKeys(obj)
   var result = []
   var inlineIndent = indent || ''
-  inlineKeys.forEach(function (key) {
+  inlineKeys.forEach(key => {
     var type = tomlType(obj[key])
     if (type !== 'undefined' && type !== 'null' && type !== 'nan') {
-      result.push(inlineIndent + stringifyKey(key) + ' = ' + stringifyInline(obj[key], multilineOk))
+      result.push(inlineIndent + stringifyKey(key) + ' = ' + stringifyInline(obj[key], true))
     }
   })
   if (result.length) result.push('')
   var complexIndent = prefix && inlineKeys.length ? indent + '  ' : ''
-  complexKeys.forEach(function (key) {
+  complexKeys.forEach(key => {
     result.push(stringifyComplex(prefix, complexIndent, key, obj[key]))
   })
   return result.join('\n')
@@ -88,17 +72,18 @@ function isInline (value) {
   switch (tomlType(value)) {
     case 'undefined':
     case 'null':
-    case 'nan':
-    case 'string':
     case 'integer':
+    case 'nan':
     case 'float':
     case 'boolean':
+    case 'string':
     case 'datetime':
       return true
     case 'array':
       return !value.length || tomlType(value[0]) !== 'table'
     case 'table':
       return !(Object.keys(value).length)
+    /* istanbul ignore next */
     default:
       return false
   }
@@ -161,7 +146,7 @@ function escapeString (str) {
 }
 
 function stringifyMultilineString (str) {
-  return '"""\n' + str.split(/\n/).map(function (str) {
+  return '"""\n' + str.split(/\n/).map(str => {
     return escapeString(str).replace(/"(?="")/g, '\\"')
   }).join('\n') + '"""'
 }
@@ -183,9 +168,10 @@ function stringifyInline (value, multilineOk) {
     case 'datetime':
       return stringifyDatetime(value)
     case 'array':
-      return stringifyInlineArray(value)
+      return stringifyInlineArray(value.filter(_ => _ != null && tomlType(_) !== 'nan'))
     case 'table':
       return stringifyInlineTable(value)
+    /* istanbul ignore next */
     default:
       throw tomlType(value)
   }
@@ -197,7 +183,6 @@ function stringifyInteger (value) {
 
 function stringifyFloat (value) {
   if (value === Infinity) throw new Error("TOML can't store Infinity")
-  if (Number.isNaN(value)) throw new Error("TOML can't store NaN")
   var chunks = String(value).split('.')
   var int = chunks[0]
   var dec = chunks[1]
@@ -214,9 +199,7 @@ function stringifyDatetime (value) {
 
 function validateArray (values) {
   var contentType = tomlType(values[0])
-  if (values.length && contentType instanceof Error) {
-    throw contentType
-  } else if (!values.every(isType(contentType))) {
+  if (!values.every(isType(contentType))) {
     throw arrayOneTypeError()
   }
 }
@@ -237,7 +220,7 @@ function stringifyInlineArray (values) {
 function stringifyInlineTable (value) {
   value = toJSON(value)
   var result = []
-  Object.keys(value).forEach(function (key) {
+  Object.keys(value).forEach(key => {
     result.push(stringifyKey(key) + ' = ' + stringifyInline(value[key], false))
   })
   return '{ ' + result.join(', ') + (result.length ? ' ' : '') + '}'
@@ -245,6 +228,7 @@ function stringifyInlineTable (value) {
 
 function stringifyComplex (prefix, indent, key, value) {
   var valueType = tomlType(value)
+  /* istanbul ignore else */
   if (valueType === 'array') {
     return stringifyArrayOfTables(prefix, indent, key, value)
   } else if (valueType === 'table') {
@@ -258,13 +242,14 @@ function stringifyArrayOfTables (prefix, indent, key, values) {
   values = toJSON(values)
   validateArray(values)
   var firstValueType = tomlType(values[0])
+  /* istanbul ignore if */
   if (firstValueType !== 'table') throw typeError(firstValueType)
   var fullKey = prefix + stringifyKey(key)
   var result = ''
-  values.forEach(function (table) {
+  values.forEach(table => {
     if (result.length) result += '\n'
     result += indent + '[[' + fullKey + ']]\n'
-    result += stringifyObject(fullKey + '.', indent, table, true)
+    result += stringifyObject(fullKey + '.', indent, table)
   })
   return result
 }
@@ -275,5 +260,5 @@ function stringifyComplexTable (prefix, indent, key, value) {
   if (getInlineKeys(value).length) {
     result += indent + '[' + fullKey + ']\n'
   }
-  return result + stringifyObject(fullKey + '.', indent, value, true)
+  return result + stringifyObject(fullKey + '.', indent, value)
 }

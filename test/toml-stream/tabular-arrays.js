@@ -1,5 +1,5 @@
 var test = require('tap').test
-var toml = require('toml-j0.4')
+var TOML = require('../..')
 var toTOMLString = require('./to-toml-string.js')
 
 test('arrays of tables to TOML', function (t) {
@@ -11,7 +11,7 @@ test('arrays of tables to TOML', function (t) {
 
       if (!er) {
         t.equals(output, '[[section]]\nkey = "value"\n')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -42,7 +42,7 @@ test('arrays of tables to TOML', function (t) {
 
       if (!er) {
         t.equals(output, expected, 'multi-object values generated correctly')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -73,7 +73,7 @@ test('arrays of tables to TOML', function (t) {
 
       if (!er) {
         t.equals(output, expected, 'multi-object values generated correctly')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -100,10 +100,10 @@ test('arrays of tables to TOML', function (t) {
     toTOMLString(input, function (er, output) {
       t.ifError(er, 'tabular array successfully converted')
 
-      console.log(output)
+      t.comment(output)
       if (!er) {
         t.equals(output, expected, 'multi-object values generated correctly')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })

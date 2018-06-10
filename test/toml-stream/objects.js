@@ -1,5 +1,5 @@
 var test = require('tap').test
-var toml = require('toml-j0.4')
+var TOML = require('../..')
 var toTOMLString = require('./to-toml-string.js')
 
 test('composite objects to TOML', function (t) {
@@ -11,7 +11,7 @@ test('composite objects to TOML', function (t) {
 
       if (!er) {
         t.equals(output, '[object]\nvalue = true\n')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -54,7 +54,7 @@ test('composite objects to TOML', function (t) {
 
       if (!er) {
         t.equals(output, expected)
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -70,7 +70,7 @@ test('composite objects to TOML', function (t) {
 
       if (!er) {
         t.equals(output, expected)
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -105,7 +105,7 @@ test('composite objects to TOML', function (t) {
 
       if (!er) {
         t.equals(output, expected)
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })

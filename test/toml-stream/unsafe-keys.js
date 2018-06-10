@@ -1,5 +1,5 @@
 var test = require('tap').test
-var toml = require('toml-j0.4')
+var TOML = require('../..')
 var toTOMLString = require('./to-toml-string.js')
 
 test('weird keys', function (t) {
@@ -10,7 +10,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '"key.name" = "name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -22,7 +22,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '[this."key.name"]\nis = "key.name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -34,7 +34,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, 'key-name = "name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -46,7 +46,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '[this.key-name]\nis = "key-name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -58,7 +58,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '"key/name" = "name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -70,7 +70,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '[this."key/name"]\nis = "key/name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -82,7 +82,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, 'key_name = "name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -94,7 +94,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '[this.key_name]\nis = "key_name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -106,7 +106,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '"key name" = "name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -118,7 +118,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '[this."key name"]\nis = "key name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -130,7 +130,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '"key\\nname" = "name"\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -142,7 +142,7 @@ test('weird keys', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, '[this."key\\nname"]\nis = """\nkey\nname"""\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })

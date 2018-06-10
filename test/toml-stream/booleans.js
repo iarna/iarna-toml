@@ -1,5 +1,5 @@
 var test = require('tap').test
-var toml = require('toml-j0.4')
+var TOML = require('../..')
 var toTOMLString = require('./to-toml-string.js')
 
 test('boolean TOML values', function (t) {
@@ -10,7 +10,7 @@ test('boolean TOML values', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, 'zuul = true\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -22,7 +22,7 @@ test('boolean TOML values', function (t) {
       t.ifError(er, "shouldn't have failed to convert a value this simple")
 
       t.equals(output, 'slor = false\n')
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })

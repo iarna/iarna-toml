@@ -1,5 +1,5 @@
 var test = require('tap').test
-var toml = require('toml-j0.4')
+var TOML = require('../..')
 var toTOMLString = require('./to-toml-string.js')
 
 test('arrays to TOML', function (t) {
@@ -11,7 +11,7 @@ test('arrays to TOML', function (t) {
 
       if (!er) {
         t.equals(output, 'irie = [ ]\n')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -24,7 +24,7 @@ test('arrays to TOML', function (t) {
 
       if (!er) {
         t.equals(output, 'irate = [ 0, 1, 2 ]\n')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -65,7 +65,7 @@ test('arrays to TOML', function (t) {
 
       if (!er) {
         t.equals(output, expected, 'serialized array properly')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -75,22 +75,6 @@ test('arrays to TOML', function (t) {
     var input = {
       eerie: [
         [ 1, 'ham', true ]
-      ]
-    }
-
-    toTOMLString(input, function (er, output) {
-      t.ok(er, 'got expected error')
-      t.is(output, undefined, "shouldn't have gotten any output from the stream")
-
-      t.end()
-    })
-  })
-
-  t.test('with an array of arrays with values of unknown type', function (t) {
-    var input = {
-      eerie: [
-        [ true, false, true ],
-        [ undefined, undefined, undefined ]
       ]
     }
 
@@ -124,7 +108,7 @@ test('arrays to TOML', function (t) {
 
       if (!er) {
         t.equals(output, expected, 'serialized array properly')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })
@@ -162,7 +146,7 @@ test('arrays to TOML', function (t) {
 
       if (!er) {
         t.equals(output, expected, 'serialized array properly')
-        t.same(toml.parse(output), input, 'round trip test worked')
+        t.same(TOML.parse(output), input, 'round trip test worked')
       }
       t.end()
     })

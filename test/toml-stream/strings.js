@@ -1,5 +1,5 @@
 var test = require('tap').test
-var toml = require('toml-j0.4')
+var TOML = require('../..')
 var toTOMLString = require('./to-toml-string.js')
 
 test('string TOML values', function (t) {
@@ -15,7 +15,7 @@ test('string TOML values', function (t) {
         'string = "\\"a very \'simple\' string,\\" he said."\n',
         'string encoded'
       )
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -31,7 +31,7 @@ test('string TOML values', function (t) {
         'str1 = "one"\nstr2 = "two"\nstr3 = "three"\nstr4 = "threeve"\n',
         'got expected output'
       )
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -47,7 +47,7 @@ test('string TOML values', function (t) {
         'multiline = """\n a "simple"\n test of\n  multiline\n  strings"""\n',
         'got expected output'
       )
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })
@@ -63,7 +63,7 @@ test('string TOML values', function (t) {
         'whoops = """\n this:\n\\"""\n is going to cause problems"""\n',
         'got expected output'
       )
-      t.same(toml.parse(output), input, 'round trip test worked')
+      t.same(TOML.parse(output), input, 'round trip test worked')
       t.end()
     })
   })

@@ -3,22 +3,31 @@
   "version": "1.4.2",
   "main": "toml.js",
   "scripts": {
-    "test": "standard && tap test"
+    "test": "standard && tap -J --100 test"
   },
-  "keywords": [],
+  "keywords": [ "toml", "toml-parser", "toml-stringifier", "parser", "stringifer", "emitter", "ini", "tomlify", "encoder", "decoder" ],
   "author": "Rebecca Turner <me@re-becca.org> (http://re-becca.org/)",
   "license": "ISC",
-  "description": "JSON-like bindings for TOML.",
-  "dependencies": {
-    "toml-j0.4": "^1.0.10"
-  },
+  "description": "Better TOML parsing and stringifying all in that familiar JSON interface.",
+  "dependencies": {},
   "devDependencies": {
+    "funstream": "^3.0.0",
     "standard": "^11.0.1",
-    "tap": "^12.0.1"
+    "tap": "^12.0.1",
+    "toml": "^2.3.3",
+    "toml-j0.4": "^1.1.1"
   },
   "files": [
     "toml.js",
-    "toml-stringify.js"
+    "stringify.js",
+    "parse.js",
+    "parse-string.js",
+    "parse-stream.js",
+    "parse-async.js",
+    "parse-pretty-error.js",
+    "lib/parser.js",
+    "lib/parser-debug.js",
+    "lib/toml-parser.js"
   ],
   "directories": {
     "test": "test"
