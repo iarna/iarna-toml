@@ -153,11 +153,11 @@ function stringifyBasicString (str) {
 
 function escapeString (str) {
   return str.replace(/\\/g, '\\\\')
-            .replace(/[\b]/g, '\\b')
-            .replace(/\t/g, '\\t')
-            .replace(/\n/g, '\\n')
-            .replace(/\f/g, '\\f')
-            .replace(/\r/g, '\\r')
+    .replace(/[\b]/g, '\\b')
+    .replace(/\t/g, '\\t')
+    .replace(/\n/g, '\\n')
+    .replace(/\f/g, '\\f')
+    .replace(/\r/g, '\\r')
 }
 
 function stringifyMultilineString (str) {
