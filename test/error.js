@@ -85,7 +85,12 @@ and here"
   'decimal post underscores': 'a = 0.12_',
   'exponent prefix': 'a = 1e+_2',
   'exponent mid': 'a = 1e1__2',
-  'exponent post': 'a = 1e2_'
+  'exponent post': 'a = 1e2_',
+  'mixed float integer': 'a = [ 1, 1.0 ]',
+  'mixed int str int': 'a = [ 1, "foo", 2 ]',
+  'mixed str float': 'a = [ "foo", 2e1 ]',
+  'mixed date bool': 'a = [ 2018-01-01T00:00:00Z, false ]',
+  'mixed obj arr': 'a = [ [23], {a=42} ]'
 }
 
 test('should be errors', t => {
