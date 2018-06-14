@@ -56,13 +56,6 @@ Also available with: `require('@iarna/toml/stringify)`
 
 Serialize an object as TOML.
 
-## readable.pipe(TOML.parse.stream()) → Transform
-
-Also available with: `require('@iarna/toml/parse-stream')`
-
-Returns a transform stream in object mode.  When it completes, emit the
-resulting object. Only one object will ever be emitted.
-
 ## [your-object].toJSON
 
 If an object `TOML.stringify` is serializing has a `toJSON` method then it
@@ -94,6 +87,13 @@ Asynchronously parse a TOML string and return a promise of the resulting object.
 Also available with: `require('@iarna/toml/parse-stream')`
 
 Given a readable stream, parse it as it feeds us data. Return a promise of the resulting object.
+
+## readable.pipe(TOML.parse.stream()) → Transform
+
+Also available with: `require('@iarna/toml/parse-stream')`
+
+Returns a transform stream in object mode.  When it completes, emit the
+resulting object. Only one object will ever be emitted.
 
 ## Lowlevel Interface
 
