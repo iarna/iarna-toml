@@ -2,7 +2,7 @@
 module.exports = prettyError
 
 function prettyError (err, buf) {
-  if (!err.pos || !err.line) return err
+  if (err.pos == null || err.line == null) return err
   let msg = err.message
   const lines = buf.split(/\n/)
   const lineNumWidth = String(Math.min(lines.length, err.line + 3)).length
