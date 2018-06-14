@@ -1,11 +1,22 @@
 {
   "name": "@iarna/toml",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "main": "toml.js",
   "scripts": {
     "test": "standard && tap -J --100 test"
   },
-  "keywords": [ "toml", "toml-parser", "toml-stringifier", "parser", "stringifer", "emitter", "ini", "tomlify", "encoder", "decoder" ],
+  "keywords": [
+    "toml",
+    "toml-parser",
+    "toml-stringifier",
+    "parser",
+    "stringifer",
+    "emitter",
+    "ini",
+    "tomlify",
+    "encoder",
+    "decoder"
+  ],
   "author": "Rebecca Turner <me@re-becca.org> (http://re-becca.org/)",
   "license": "ISC",
   "description": "Better TOML parsing and stringifying all in that familiar JSON interface.",
