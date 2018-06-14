@@ -51,7 +51,7 @@ function stringifyObject (prefix, indent, obj) {
   inlineKeys.forEach(key => {
     var type = tomlType(obj[key])
     if (type !== 'undefined' && type !== 'null' && type !== 'nan') {
-      result.push(inlineIndent + stringifyKey(key) + ' = ' + stringifyInline(obj[key], true))
+      result.push(inlineIndent + stringifyKey(key) + ' = ' + stringifyAnyInline(obj[key], true))
     }
   })
   if (result.length) result.push('')
@@ -60,12 +60,6 @@ function stringifyObject (prefix, indent, obj) {
     result.push(stringifyComplex(prefix, complexIndent, key, obj[key]))
   })
   return result.join('\n')
-}
-
-function isType (type) {
-  return function (value) {
-    return tomlType(value) === type
-  }
 }
 
 function isInline (value) {
@@ -151,8 +145,11 @@ function stringifyMultilineString (str) {
   }).join('\n') + '"""'
 }
 
-function stringifyInline (value, multilineOk) {
-  switch (tomlType(value)) {
+function stringifyAnyInline (value, multilineOk) {
+  return stringifyInline(tomlType(value), value, multilineOk)
+}
+function stringifyInline (type, value, multilineOk) {
+  switch (type) {
     case 'string':
       if (multilineOk && /\n/.test(value)) {
         return stringifyMultilineString(value)
@@ -185,7 +182,7 @@ function stringifyFloat (value) {
   if (value === Infinity) throw new Error("TOML can't store Infinity")
   var chunks = String(value).split('.')
   var int = chunks[0]
-  var dec = chunks[1]
+  var dec = chunks[1] || 0
   return stringifyInteger(int) + '.' + dec
 }
 
@@ -197,18 +194,29 @@ function stringifyDatetime (value) {
   return value.toISOString()
 }
 
-function validateArray (values) {
+function isNumber (type) {
+  return type === 'float' || type === 'integer'
+}
+function arrayType (values) {
   var contentType = tomlType(values[0])
-  if (!values.every(isType(contentType))) {
+  if (values.every(_ => tomlType(_) === contentType)) return contentType
+  // mixed integer/float, emit as floats
+  if (values.every(_ => isNumber(tomlType(_)))) return 'float'
+  return 'mixed'
+}
+function validateArray (values) {
+  const type = arrayType(values)
+  if (type === 'mixed') {
     throw arrayOneTypeError()
   }
+  return type
 }
 
 function stringifyInlineArray (values) {
   values = toJSON(values)
-  validateArray(values)
+  const type = validateArray(values)
   var result = '['
-  var stringified = values.map(stringifyInline)
+  var stringified = values.map(_ => stringifyInline(type, _, false))
   if (stringified.join(', ').length > 60 || /\n/.test(stringified)) {
     result += '\n  ' + stringified.join(',\n  ') + '\n'
   } else {
@@ -221,7 +229,7 @@ function stringifyInlineTable (value) {
   value = toJSON(value)
   var result = []
   Object.keys(value).forEach(key => {
-    result.push(stringifyKey(key) + ' = ' + stringifyInline(value[key], false))
+    result.push(stringifyKey(key) + ' = ' + stringifyAnyInline(value[key], false))
   })
   return '{ ' + result.join(', ') + (result.length ? ' ' : '') + '}'
 }
