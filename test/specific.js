@@ -17,7 +17,9 @@ const tests = {
   singleDigit: {toml: `a = 1`, data: {a: 1}},
   singleDigitSigned: {toml: `a = +1`, data: {a: 1}},
   exponentUnderscore: {toml: `a = 1e1_0`, data: {a: 10000000000}},
-  splitlistwithcomment: {toml: `a = [ 123 #test\n,456]`, data: {a: [123, 456]}}
+  splitlistwithcomment: {toml: `a = [ 123 #test\n,456]`, data: {a: [123, 456]}},
+  decimalListNoSpace: {toml: `a = [1.0,3.2]`, data: {a: [1, 3.2]}},
+  expListNoSpace: {toml: `a = [1e1,2e1]`, data: {a: [10, 20]}}
 }
 
 test('spec', t => {
