@@ -24,8 +24,18 @@ const tests = {
 
 test('spec', t => {
   Object.keys(tests).forEach(name => {
-    t.isDeeply(TOML.parse(tests[name].toml), tests[name].data, name)
-    t.isDeeply(TOML.parse(TOML.stringify(tests[name].data)), tests[name].data, name + ' roundtrip')
+    try {
+      t.isDeeply(TOML.parse(tests[name].toml), tests[name].data, name)
+    } catch (ex) {
+      t.comment(ex.message)
+      t.fail(name)
+    }
+    try {
+      t.isDeeply(TOML.parse(TOML.stringify(tests[name].data)), tests[name].data, name + ' roundtrip')
+    } catch (ex) {
+      t.comment(ex.message)
+      t.fail(name + ' roundtrip')
+    }
   })
   t.end()
 })
