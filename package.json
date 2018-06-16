@@ -3,8 +3,13 @@
   "version": "1.5.2",
   "main": "toml.js",
   "scripts": {
-    "test": "standard && tap -J --100 test",
-    "benchmark": "node benchmark.js && node benchmark-per-file.js"
+    "test": "tap -J --100 test",
+    "benchmark": "node benchmark.js && node benchmark-per-file.js",
+    "prerelease": "npm t",
+    "postpublish": "git push --follow-tags",
+    "pretest": "standard",
+    "update-coc": "weallbehave -o . && git add CODE_OF_CONDUCT.md && git commit -m 'docs(coc): updated CODE_OF_CONDUCT.md'",
+    "update-contrib": "weallcontribute -o . && git add CONTRIBUTING.md && git commit -m 'docs(contributing): updated CONTRIBUTING.md'"
   },
   "keywords": [
     "toml",
@@ -30,7 +35,9 @@
     "standard": "^11.0.1",
     "tap": "^12.0.1",
     "toml": "^2.3.3",
-    "toml-j0.4": "^1.1.1"
+    "toml-j0.4": "^1.1.1",
+    "weallbehave": "*",
+    "weallcontribute": "*"
   },
   "files": [
     "toml.js",
