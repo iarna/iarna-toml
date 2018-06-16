@@ -9,3 +9,7 @@ cache:
   directories:
   - node_modules/.cache
   - ~/.npm
+script:
+  - "mv node_modules/.cache ."
+  - "npm ci"
+  - "mv .cache node_modules/"
