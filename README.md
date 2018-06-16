@@ -31,7 +31,9 @@ Visit the project github [for more examples](https://github.com/iarna/iarna-toml
 ## Why @iarna/toml
 
 * 100% test coverage.
-* Faster parser. (The `toml` is quite slow on larger texts. `toml-j0.4` is prone to stack overflow issues.)
+* Faster parser:
+
+  ![Benchmark results showing @iarna/toml as 50x faster than toml and 2.8x faster than toml-j0.4](https://shared.by.re-becca.org/misc/speeeed.png)
 * More correct parser. (Behavior carefully drawn from the spec and tested to within an inch of its life.)
 * Smallest parser bundle (if you use `@iarna/toml/parse-string`), 20kb.
 * No deps.
@@ -138,6 +140,34 @@ const newErr = prettyError(err, sourceString)
   * Any way to produce comments. As a JSON stand-in I'm not too worried about this.
   * Stringification could use some work on its error reporting.  It reports
     _what's_ wrong, but not where in your data structure it was.
+
+## Benchmarks
+
+You can run them yourself with:
+
+```console
+$ npm run benchmark
+```
+
+The results below are from my laptop using `@iarna/toml@1.5.2`,
+`toml-j0.4@1.1.1`, and `toml@2.3.3`.   The percentage after average results is the margin of error.
+
+|   | @iarna/toml |   | toml-j0.4 |   | toml |   |
+| - | ----------- | - | --------- | - | ---- | - |
+| Overall | 45.17 | 9.75% | 13.77 | 6.80% | 0.76 | 4.78% |
+| Spec Example: 0.4.0 | 2138 | 3.02% | 1267 | 3.52% | 120 | 3.29% |
+| Spec Example: Hard Unicode | 11807 | 3.35% | 4444 | 1.70% | 730 | 3.05% |
+| 1000 Keys | 472 | 1.34% | 269 | 1.36% | 11.11 | 1.47% |
+| Array With 1000 Tables With 1 Key | 240 | 2.43% | 161 | 3.24% | 6.17 | 4.93% |
+| Array With 1000 Tables of Tables of 1 Key | 137 | 3.24% | 102 | 3.12% | 2.93 | 6.29% |
+| 1000 Element Inline Array | 1665 | 1.22% | 148 | 1.75% | 11.58 | 4.26% |
+| 1000 Key Inline Table | 648 | 3.33% | 272 | 1.61% | 15.28 | 3% |
+| Inline Array Nested 1000 deep | 691 | 1.46% | 438 | 1.36% | 112 | 4.60% |
+| Inline Tables Nested 1000 deep | 590 | 1.44% | 344 | 3.16% | 14.02 | 5.17% |
+| 40kb Multiline Single Quoted String | 654 | 2.73% | 128 | 3.67% | 64.65 | 2.42% |
+| 40kb Multiline Double Quoted String | 621 | 2.95% | 128 | 0.69% | 4.82 | 1.77% |
+| 40kb Single Quoted String | 516 | 1.41% | 210 | 1.68% | 72.91 | 2.67% |
+| 40kb Double Quoted String | 478 | 6.18% | 149 | 1.69% | 4.66 | 2.65% |
 
 ## Tests
 
