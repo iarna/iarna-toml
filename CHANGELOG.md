@@ -1,3 +1,10 @@
+# 1.5.3
+
+* Benchmarks!
+* More tests!
+* More complete LICENSE information (some dev files are from other, MIT
+  licensed, projects, this is now more explicitly documented.)
+
 # 1.5.2
 
 * parse: Arrays with mixed types now throw errors, per the spec.
