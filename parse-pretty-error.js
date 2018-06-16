@@ -2,6 +2,7 @@
 module.exports = prettyError
 
 function prettyError (err, buf) {
+  /* istanbul ignore if */
   if (err.pos == null || err.line == null) return err
   let msg = err.message
   const lines = buf.split(/\n/)
