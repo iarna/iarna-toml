@@ -39,7 +39,7 @@ Visit the project github [for more examples](https://github.com/iarna/iarna-toml
 * No deps.
 * Detailed and easy to read error messages‼
 
-```
+```console
 > TOML.parse(src)
 Error: Unexpected character, expecting string, number, datetime, boolean, inline array or inline table at row 6, col 5, pos 87:
 5: "abc\"" = { abc=123,def="abc" }
@@ -104,7 +104,7 @@ resulting object. Only one object will ever be emitted.
 
 You construct a parser object, per TOML file you want to process:
 
-```
+```js
 const TOMLParser = require('@iarna/toml/lib/toml-parser.js')
 const parser = new TOMLParser()
 ```
@@ -112,14 +112,14 @@ const parser = new TOMLParser()
 Then you call the `parse` method for each chunk as you read them, or in a
 single call:
 
-```
+```js
 parser.parse(`hello = 'world'`)
 ```
 
 And finally, you call the `finish` method to complete parsing and retrieve
 the resulting object.
 
-```
+```js
 const data = parser.finish()
 ```
 
@@ -129,7 +129,7 @@ parser have `pos`, `line` and `col` attributes.  `TOML.parse` adds a visual
 summary of where in the source string there were issues using
 `parse-pretty-error` and you can too:
 
-```
+```js
 const prettyError = require('./parse-pretty-error.js')
 const newErr = prettyError(err, sourceString)
 ```
