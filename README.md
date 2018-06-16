@@ -10,19 +10,19 @@ The most recent version as of 2018-06-14: [v0.4.0](https://github.com/mojombo/to
 
 ### Example
 
-```
-var TOML = require('@iarna/toml')
-var obj = TOML.parse(`[abc]
+```js
+const TOML = require('@iarna/toml')
+const obj = TOML.parse(`[abc]
 foo = 123
 bar = [1,2,3]`)
 /* obj =
-   {abc: {foo: 123, bar: [1,2,3]}}
+{abc: {foo: 123, bar: [1,2,3]}}
 */
-var str = TOML.stringify(obj)
+const str = TOML.stringify(obj)
 /* str =
-   [abc]
-   foo = 123
-   bar = [ 1, 2, 3 ]
+[abc]
+foo = 123
+bar = [ 1, 2, 3 ]
 */
 ```
 
