@@ -4,9 +4,9 @@ matrix:
   include:
     - node_js: "10"
       install:
-        - "mv node_modules/.cache ."
+        - "mv node_modules/.cache . || true"
         - "npm ci"
-        - "mv .cache node_modules/"
+        - "mv .cache node_modules/ || true"
       script:
         - "npm t"
     - node_js: "8"
