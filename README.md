@@ -2,7 +2,7 @@
 
 Better TOML parsing and stringifying all in that familiar JSON interface.
 
-[![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg?branch=latestr)](https://coveralls.io/github/iarna/iarna-toml?branch=latest)
+[![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg)](https://coveralls.io/github/iarna/iarna-toml)
 
 ### TOML Spec Support
 
