@@ -6,7 +6,7 @@
     "test": "tap -J --100 test",
     "benchmark": "node benchmark.js && node benchmark-per-file.js",
     "prerelease": "npm t",
-    "prepublish": "rm *~",
+    "prepack": "rm -f *~",
     "postpublish": "git push --follow-tags",
     "pretest": "standard",
     "update-coc": "weallbehave -o . && git add CODE_OF_CONDUCT.md && git commit -m 'docs(coc): updated CODE_OF_CONDUCT.md'",
