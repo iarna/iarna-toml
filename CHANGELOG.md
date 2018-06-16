@@ -1,3 +1,7 @@
+# 1.5.4
+
+* README fix
+
 # 1.5.3
 
 * Benchmarks!
