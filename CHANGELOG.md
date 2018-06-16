@@ -1,3 +1,20 @@
+# 1.5.2
+
+* parse: Arrays with mixed types now throw errors, per the spec.
+* parse: Fix a parser bug that would result in errors when trying to parse arrays of numbers or dates
+  that were not separated by a space from the closing ].
+* parse: Fix a bug in the error pretty printer that resulted in errors on
+  the first line not getting the pretty print treatment.
+* stringify: Fix long standing bug where an array of Numbers, some of which required
+  decimals, would be emitted in a way that parsers would treat as mixed
+  Integer and Float values.  Now if any Numbers in an array must be
+  represented with a decimal then all will be emitted such that parsers will
+  understand them to be Float.
+
+# 1.5.1
+
+* README fix
+
 # 1.5.0
 
 * A brand new TOML parser, from scratch, that performs like `toml-j0.4`

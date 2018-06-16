@@ -2,7 +2,7 @@
 
 Better TOML parsing and stringifying all in that familiar JSON interface.
 
-[![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg?branch=master)](https://coveralls.io/github/iarna/iarna-toml?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg?branch=latestr)](https://coveralls.io/github/iarna/iarna-toml?branch=latest)
 
 ### TOML Spec Support
 
@@ -26,6 +26,8 @@ var str = TOML.stringify(obj)
 */
 ```
 
+Visit the project github [for more examples](https://github.com/iarna/iarna-toml/tree/latest/examples)!
+
 ## Why @iarna/toml
 
 * 100% test coverage.
@@ -44,13 +46,14 @@ Error: Unexpected character, expecting string, number, datetime, boolean, inline
 7:
 ```
 
-## TOML.parse(str) → Object
+## TOML.parse(str) → Object [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse.js)
 
 Also available with: `require('@iarna/toml/parse-string')`
 
-Syncronously parse a TOML string and return an object.
+Synchronously parse a TOML string and return an object.
 
-## TOML.stringify(obj) → String
+
+## TOML.stringify(obj) → String [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/stringify.js)
 
 Also available with: `require('@iarna/toml/stringify)`
 
@@ -60,7 +63,7 @@ Serialize an object as TOML.
 
 If an object `TOML.stringify` is serializing has a `toJSON` method then it
 will call it to transform the object before serializing it.  This matches
-the beahvior of `JSON.stringify`.
+the behavior of `JSON.stringify`.
 
 The one exception to this is that `toJSON` is not called for `Date` objects
 because `JSON` represents dates as strings and TOML can represent them natively.
@@ -74,7 +77,7 @@ The parser provides alternative async and streaming interfaces, for times
 that you're working with really absurdly big TOML files and don't want to
 tie-up the event loop while it parses.
 
-### TOML.parse.async(str[, opts]) → Promise(Object)
+### TOML.parse.async(str[, opts]) → Promise(Object) [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse-async.js)
 
 Also available with: `require('@iarna/toml/parse-async')`
 
@@ -82,20 +85,20 @@ Also available with: `require('@iarna/toml/parse-async')`
 
 Asynchronously parse a TOML string and return a promise of the resulting object.
 
-### TOML.parse.stream(readable) → Promise(Object)
+### TOML.parse.stream(readable) → Promise(Object) [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse-stream-readable.js)
 
 Also available with: `require('@iarna/toml/parse-stream')`
 
 Given a readable stream, parse it as it feeds us data. Return a promise of the resulting object.
 
-## readable.pipe(TOML.parse.stream()) → Transform
+## readable.pipe(TOML.parse.stream()) → Transform [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse-stream-through.js)
 
 Also available with: `require('@iarna/toml/parse-stream')`
 
 Returns a transform stream in object mode.  When it completes, emit the
 resulting object. Only one object will ever be emitted.
 
-## Lowlevel Interface
+## Lowlevel Interface [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse-lowlevel.js) [(example w/ parser debugging)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse-lowlevel-debug.js)
 
 You construct a parser object, per TOML file you want to process:
 
@@ -134,26 +137,37 @@ const newErr = prettyError(err, sourceString)
 * In stringify:
   * Any way to produce comments. As a JSON stand-in I'm not too worried about this.
   * Stringification could use some work on its error reporting.  It reports
-    _what's_ wrong, but not where in your datastructure it was.
+    _what's_ wrong, but not where in your data structure it was.
 
 ## Tests
 
-Amongst other things, all of the official example files from the TOML spec
-are run through this parser, `toml` and `toml-j0.4` to verify that all the
-parsers produce the same output.
+The test suite is maintained at 100% coverage: [![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg?branch=latestr)](https://coveralls.io/github/iarna/iarna-toml?branch=latest)
 
-The tests for the stringifier are made up of three parts:
+All of the official example files from the TOML spec
+are run through this parser. The parser's output is compared to that of
+[`toml`](https://www.npmjs.com/package/toml) and
+[`toml-j0.4`](https://www.npmjs.com/package/toml-j0.4) to we're parsing this
+core material in the same way.
 
-First, we verify that we can round-trip all of the examples provided in the toml spec repository. They were fetched as of
+The stringifier is tested by round tripping these same files, asserting that
+`TOML.parse(sourcefile)` deepEqual
+`TOML.parse(TOML.stringify(TOML.parse(sourcefile))`
+
+The files are from the TOML specification as of
 [183273af30102704a103f206f974636967c4da6d](https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d)
 and specifically are:
 
 * https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/examples
 * https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/tests
 
-Second, many tests are borrowed from
-[@othiym23](https://github.com/othiym23)'s
+Additional tests test conformance of some more unusual use cases and error
+conditions are were drawn up primarily while achieving 100% coverage and are found in 
+[test/specific.js](https://github.com/iarna/iarna-toml/blob/latest/specific.js) and
+and [test/error.js](https://github.com/iarna/iarna-toml/blob/latest/error.js) respectively.
+Relatedly, [test/stringifer.js](https://github.com/iarna/iarna-toml/blob/latest/stringifier.js)
+contains the same for stringification.
+
+And finally, many stringification tests were borrowed from [@othiym23](https://github.com/othiym23)'s
 [toml-stream](https://npmjs.com/package/toml-stream) module. They were fetched as of
 [b6f1e26b572d49742d49fa6a6d11524d003441fa](https://github.com/othiym23/toml-stream/tree/b6f1e26b572d49742d49fa6a6d11524d003441fa/test).
 
-And finally `test/stringifer` contains a number of more esoteric side cases and error conditions.
