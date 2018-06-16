@@ -1,15 +1,20 @@
 language: node_js
 sudo: false
-node_js:
-  - "10"
-  - "8"
-  - "6"
-  - "4"
+matrix:
+  include:
+    - node_js: "10"
+      install:
+        - "mv node_modules/.cache ."
+        - "npm ci"
+        - "mv .cache node_modules/"
+      script:
+        - "npm t"
+    - node_js: "8"
+    - node_js: "6"
+    - node_js: "4"
 cache:
   directories:
   - node_modules/.cache
   - ~/.npm
 script:
-  - "mv node_modules/.cache ."
-  - "npm ci"
-  - "mv .cache node_modules/"
+  - "tap -J test"
