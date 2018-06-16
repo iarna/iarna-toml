@@ -1,3 +1,7 @@
+# 1.5.5
+
+* Yet MORE README fixes. 🙃
+
 # 1.5.4
 
 * README fix
