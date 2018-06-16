@@ -184,7 +184,7 @@ The test suite is maintained at 100% coverage: [![Coverage Status](https://cover
 All of the official example files from the TOML spec
 are run through this parser. The parser's output is compared to that of
 [`toml`](https://www.npmjs.com/package/toml) and
-[`toml-j0.4`](https://www.npmjs.com/package/toml-j0.4) to we're parsing this
+[`toml-j0.4`](https://www.npmjs.com/package/toml-j0.4) to ensure we're parsing this
 core material in the same way.
 
 The stringifier is tested by round tripping these same files, asserting that
@@ -198,12 +198,12 @@ and specifically are:
 * https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/examples
 * https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/tests
 
-Additional tests test conformance of some more unusual use cases and error
+Additional tests look at some more unusual use cases and error
 conditions are were drawn up primarily while achieving 100% coverage and are found in 
-[test/specific.js](https://github.com/iarna/iarna-toml/blob/latest/specific.js) and
-and [test/error.js](https://github.com/iarna/iarna-toml/blob/latest/error.js) respectively.
-Relatedly, [test/stringifer.js](https://github.com/iarna/iarna-toml/blob/latest/stringifier.js)
-contains the same for stringification.
+[test/specific.js](https://github.com/iarna/iarna-toml/blob/latest/test/specific.js) and
+and [test/error.js](https://github.com/iarna/iarna-toml/blob/latest/test/error.js) respectively.
+Relatedly, [test/stringify.js](https://github.com/iarna/iarna-toml/blob/latest/test/stringify.js)
+contains the same for stringification. Tests for the parsers debugging mode live in [test/devel.js](https://github.com/iarna/iarna-toml/blob/latest/test/devel.js).
 
 And finally, many stringification tests were borrowed from [@othiym23](https://github.com/othiym23)'s
 [toml-stream](https://npmjs.com/package/toml-stream) module. They were fetched as of
