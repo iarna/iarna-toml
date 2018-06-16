@@ -169,6 +169,14 @@ The results below are from my laptop using `@iarna/toml@1.5.2`,
 | 40kb Single Quoted String | 516 | 1.41% | 210 | 1.68% | 72.91 | 2.67% |
 | 40kb Double Quoted String | 478 | 6.18% | 149 | 1.69% | 4.66 | 2.65% |
 
+## Changes
+
+I write a by hand, honest-to-god,
+[CHANGELOG](https://github.com/iarna/iarna-toml/blob/latest/CHANGELOG.md)
+for this project.  It's a description of what went into a release that you
+the consumer of the module could care about, not a list of git commits, so
+please check it out!
+
 ## Tests
 
 The test suite is maintained at 100% coverage: [![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg)](https://coveralls.io/github/iarna/iarna-toml)
