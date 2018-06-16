@@ -171,7 +171,7 @@ The results below are from my laptop using `@iarna/toml@1.5.2`,
 
 ## Tests
 
-The test suite is maintained at 100% coverage: [![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg?branch=latestr)](https://coveralls.io/github/iarna/iarna-toml?branch=latest)
+The test suite is maintained at 100% coverage: [![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg)](https://coveralls.io/github/iarna/iarna-toml)
 
 All of the official example files from the TOML spec
 are run through this parser. The parser's output is compared to that of
