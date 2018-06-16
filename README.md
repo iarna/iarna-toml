@@ -195,8 +195,8 @@ The files are from the TOML specification as of
 [183273af30102704a103f206f974636967c4da6d](https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d)
 and specifically are:
 
-* https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/examples
-* https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/tests
+* [github.com/toml-lang/toml/tree/183273af/examples](https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/examples)
+* [github.com/toml-lang/toml/tree/183273af/tests](https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/tests)
 
 Additional tests look at some more unusual use cases and error
 conditions are were drawn up primarily while achieving 100% coverage and are found in 
@@ -208,4 +208,3 @@ contains the same for stringification. Tests for the parsers debugging mode live
 And finally, many stringification tests were borrowed from [@othiym23](https://github.com/othiym23)'s
 [toml-stream](https://npmjs.com/package/toml-stream) module. They were fetched as of
 [b6f1e26b572d49742d49fa6a6d11524d003441fa](https://github.com/othiym23/toml-stream/tree/b6f1e26b572d49742d49fa6a6d11524d003441fa/test).
-
