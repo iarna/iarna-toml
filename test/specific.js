@@ -19,23 +19,25 @@ const tests = {
   exponentUnderscore: {toml: `a = 1e1_0`, data: {a: 10000000000}},
   splitlistwithcomment: {toml: `a = [ 123 #test\n,456]`, data: {a: [123, 456]}},
   decimalListNoSpace: {toml: `a = [1.0,3.2]`, data: {a: [1, 3.2]}},
-  expListNoSpace: {toml: `a = [1e1,2e1]`, data: {a: [10, 20]}}
+  expListNoSpace: {toml: `a = [1e1,2e1]`, data: {a: [10, 20]}},
+  emptyQuotedPre: {toml: `["".abc]`, data: {"": {abc: {}}}},
+  emptyQuotedPost: {toml: `[abc.""]`, data: {"abc": {"": {}}}},
+  emptyQuotedMid: {toml: `[abc."".def]`, data: {"abc": {"": {def: {}}}}},
+  emptyKey: {toml: `[""]`, data: {"": {}}},
+  multiTrimCR: {toml: `a = """\r\nabc"""`, data: {a: 'abc'}},
+  multiLiteralTrimCR: {toml: `a = '''\r\nabc'''`, data: {a: 'abc'}},
+  multiSlashTrimCR: {toml: `a = """\r\nzed\\\r\n   abc"""`, data: {a: 'zedabc'}},
+  deepThenShallow: {toml: `[a.b]\nc=1\n[a]\nd=2`, data: {a: {b: {c: 1}, d: 2}}},
 }
 
 test('spec', t => {
   Object.keys(tests).forEach(name => {
-    try {
-      t.isDeeply(TOML.parse(tests[name].toml), tests[name].data, name)
-    } catch (ex) {
-      t.comment(ex.message)
-      t.fail(name)
-    }
-    try {
+    t.doesNotThrow(() => {
+      t.isDeeply(TOML.parse(tests[name].toml), tests[name].data, name + ' parsed correctly')
+    }, name + 'parse did not throw')
+    t.doesNotThrow(() => {
       t.isDeeply(TOML.parse(TOML.stringify(tests[name].data)), tests[name].data, name + ' roundtrip')
-    } catch (ex) {
-      t.comment(ex.message)
-      t.fail(name + ' roundtrip')
-    }
+    }, name + ' roundtrip did not throw')
   })
   t.end()
 })

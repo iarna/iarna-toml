@@ -1,3 +1,8 @@
+# Optimize Parser
+
+* There are some debugging assertions left in the main parser, these should be moved to a subclass.
+* Make the whole debugging parser thing work as a mixin instead of as a superclass.
+
 # To support TOML 1.0 (when it comes)
 
 While there has been no updated spec since 0.4, there have been changes to

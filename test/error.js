@@ -90,7 +90,18 @@ and here"
   'mixed int str int': 'a = [ 1, "foo", 2 ]',
   'mixed str float': 'a = [ "foo", 2e1 ]',
   'mixed date bool': 'a = [ 2018-01-01T00:00:00Z, false ]',
-  'mixed obj arr': 'a = [ [23], {a=42} ]'
+  'mixed obj arr': 'a = [ [23], {a=42} ]',
+  'multiline str as keyname': '"""a""" = 1',
+  'string literal as keyname': "'a' = 1",
+  'invalid unicode': 'a = "\\uD800"',
+  'empty pre-dot': '[.abc]',
+  'empty post-dot': '[abc.]',
+  'empty mid-dot': '[abc..def]',
+  'empty obj name': '[]',
+  'no control chars': 'a = "\u001f"',
+  'no control chars2': 'a = "\u0000"',
+  'no multi control chars': 'a = """\u0000"""',
+  'no control in keys': '"a\u0000" = 1',
 }
 
 test('should be errors', t => {

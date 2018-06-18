@@ -134,12 +134,37 @@ const prettyError = require('./parse-pretty-error.js')
 const newErr = prettyError(err, sourceString)
 ```
 
-## What's Missing
+## What's Different
+
+For the most part, this module is stricter than the `toml` module and about
+as strict as `toml-j0.4`.  Adherence to the spec is needed if your TOML is
+going to be compatible between implementations. The `toml` module also has
+some extensions that are not yet standardized into a TOML release, but
+likely will be in the future.
+
+Additionally:
+
+* The `toml-j0.4` and `toml` modules both think that keys in inline tables
+  may not be quoted.  I believe they are in error and I allow quotes.  The
+  spec says this:
+
+  > Key/value pairs take the same form as key/value pairs in standard tables.
+
+  Standard tables allow quoted keys and further, the ABNF from the standard
+  allows them to be quoted.
+
+  However, be aware that if you use quoted keys in inline tables you won't
+  be able to parse your file with the `toml-j0.4` or `toml` modules.
+
+## Improvements to make
 
 * In stringify:
   * Any way to produce comments. As a JSON stand-in I'm not too worried about this.
   * Stringification could use some work on its error reporting.  It reports
     _what's_ wrong, but not where in your data structure it was.
+* Further optimize the parser:
+  * There are some debugging assertions left in the main parser, these should be moved to a subclass.
+  * Make the whole debugging parser thing work as a mixin instead of as a superclass.
 
 ## Benchmarks
 
