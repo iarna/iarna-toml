@@ -5,7 +5,6 @@ const TOML = require('../toml.js')
 
 const tests = {
   stringEmpty: {toml: `key = ""`, data: {key: ''}},
-  stringLiteral: {toml: `'key"test' = 'hi'`, data: {'key"test': 'hi'}},
   tableLeadingSpaces: {toml: `[   hi]`, data: {hi: {}}},
   tableInArray: {toml: `[[a]]\n[[a.b.c.d]]\nx=3`, data: {a: [{b: {c: {d: [{x: 3}]}}}]}},
   arrayTrailingSpace: {toml: `[a  ]`, data: {a: {}}},
