@@ -1,3 +1,17 @@
+# 1.5.6
+
+* String literals are NOT supported as key names.
+* Accessing a shallower table after accessing it more deeply is ok and no longer crashes, eg:
+  ```toml
+  [a.b]
+  [a]
+  ```
+* Unicode characters in the reserved range now crash.
+* Empty bare keys, eg `[.abc]` or `[]` now crash.
+* Multiline backslash trimming supports CRs.
+* Multiline post quote trimming supports CRs.
+* Strings may not contain bare control chars (0x00-0x1f), except for \n, \r and \t.
+
 # 1.5.5
 
 * Yet MORE README fixes. 🙃
