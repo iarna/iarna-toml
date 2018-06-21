@@ -6,7 +6,7 @@ Better TOML parsing and stringifying all in that familiar JSON interface.
 
 ### TOML Spec Support
 
-The most recent version as of 2018-06-14: [v0.4.0](https://github.com/mojombo/toml/blob/master/versions/en/toml-v0.4.0.md)
+The most recent pre-release version as of 2018-06-27: [60cabcac](https://github.com/toml-lang/toml/blob/60cabcacc6b5096cbbda6071e295e88b4e697889/README.md)
 
 ### Example
 
@@ -143,11 +143,8 @@ const newErr = prettyError(err, sourceString)
 
 ## What's Different
 
-For the most part, this module is stricter than the `toml` module and about
-as strict as `toml-j0.4`.  Adherence to the spec is needed if your TOML is
-going to be compatible between implementations. The `toml` module also has
-some extensions that are not yet standardized into a TOML release, but
-likely will be in the future.
+This branch of the module supports the full current prerelease of TOML
+v1.0.0.
 
 Additionally:
 
