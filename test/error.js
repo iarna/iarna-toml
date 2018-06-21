@@ -98,6 +98,7 @@ and here"
   'empty post-dot': '[abc.]',
   'empty mid-dot': '[abc..def]',
   'empty obj name': '[]',
+  'unterminated name': '["abc\n"]',
   'no control chars': 'a = "\u001f"',
   'no control chars2': 'a = "\u0000"',
   'no multi control chars': 'a = """\u0000"""',
