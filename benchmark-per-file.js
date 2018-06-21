@@ -31,6 +31,12 @@ const Benchmark = require('benchmark')
 const parseIarnaToml = require('./parse-string.js')
 const parseToml = require('toml').parse
 const parseTomlj04 = require('toml-j0.4').parse
+const bombadil = require('@sgarciac/bombadil')
+function parseBombadil (str) {
+  const reader = new bombadil.TomlReader
+  reader.readToml(str)
+  return reader.result
+}
 
 const fixtures = glob(`${__dirname}/benchmark/*.toml`).map(_ => ({name: _, data: fs.readFileSync(_, {encoding: 'utf8'})}))
 
@@ -57,7 +63,7 @@ fixtures.forEach(fixture => {
   }
   const onComplete = () => cursor.write('\n')
 
-  suite.add('require("@iarna/toml").parse', {
+  suite.add('@iarna/toml', {
     fn: function () {
       parseIarnaToml(fixture.data)
     },
@@ -65,7 +71,7 @@ fixtures.forEach(fixture => {
     onComplete: onComplete
   })
 
-  suite.add('require("toml-j0.4").parse', {
+  suite.add('toml-j0.4', {
     fn: function () {
       parseTomlj04(fixture.data)
     },
@@ -73,9 +79,16 @@ fixtures.forEach(fixture => {
     onComplete: onComplete
   })
 
-  suite.add('require("toml").parse', {
+  suite.add('toml', {
     fn: function () {
       parseToml(fixture.data)
+    },
+    onCycle: onCycle,
+    onComplete: onComplete
+  })
+  suite.add('bombadil', {
+    fn: function () {
+      parseBombadil(fixture.data)
     },
     onCycle: onCycle,
     onComplete: onComplete

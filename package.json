@@ -29,6 +29,7 @@
   "description": "Better TOML parsing and stringifying all in that familiar JSON interface.",
   "dependencies": {},
   "devDependencies": {
+    "@sgarciac/bombadil": "0.0.7",
     "ansi": "^0.3.1",
     "benchmark": "^2.1.4",
     "funstream": "^3.0.0",

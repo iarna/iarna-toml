@@ -31,7 +31,12 @@ const Benchmark = require('benchmark')
 const parseIarnaToml = require('./parse-string.js')
 const parseToml = require('toml').parse
 const parseTomlj04 = require('toml-j0.4').parse
-
+const bombadil = require('@sgarciac/bombadil')
+function parseBombadil (str) {
+  const reader = new bombadil.TomlReader
+  reader.readToml(str)
+  return reader.result
+}
 const fixtures = glob(`${__dirname}/benchmark/*.toml`).map(_ => fs.readFileSync(_, {encoding: 'utf8'}))
 
 const suite = new Benchmark.Suite({
@@ -56,7 +61,7 @@ const onCycle = event => {
 }
 const onComplete = () => cursor.write('\n')
 
-suite.add('require("@iarna/toml").parse', {
+suite.add('@iarna/toml', {
   fn: function () {
     fixtures.map(parseIarnaToml)
   },
@@ -64,7 +69,7 @@ suite.add('require("@iarna/toml").parse', {
   onComplete: onComplete
 })
 
-suite.add('require("toml-j0.4").parse', {
+suite.add('toml-j0.4', {
   fn: function () {
     fixtures.map(parseTomlj04)
   },
@@ -72,9 +77,17 @@ suite.add('require("toml-j0.4").parse', {
   onComplete: onComplete
 })
 
-suite.add('require("toml").parse', {
+suite.add('toml', {
   fn: function () {
     fixtures.map(parseToml)
+  },
+  onCycle: onCycle,
+  onComplete: onComplete
+})
+
+suite.add('bombadil', {
+  fn: function () {
+    fixtures.map(parseBombadil)
   },
   onCycle: onCycle,
   onComplete: onComplete
