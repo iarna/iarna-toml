@@ -57,7 +57,6 @@ and here"
   'incomplete datetime': 'a = 2013-',
   'invalid datetime': 'a = 2013-a',
   'invalid datetime2': 'a = 2013-TT-00T--T--T--Z',
-  'incomplete datetime2': 'a = 2013-12-01T00:00:00',
   'short-years invalid': 'a = 201-12-01T00:00:00Z',
   'incomplete datetime fraction': 'a = 2013-12-01T00:00:00.',
   'invalid tz part': 'a = 2013-12-01T00:00:00M',
@@ -133,7 +132,10 @@ and here"
   'partial false 1': 'a = f',
   'partial false 2': 'a = fa',
   'partial false 3': 'a = fal',
-  'partial false 4': 'a = fals'
+  'partial false 4': 'a = fals',
+  'no delete strs': 'a = "\u007f"',
+  'no delete in keys': '"\u007f" = 1',
+  'no backslash space': 'a = """abc\\   def"""'
 }
 
 test('should be errors', t => {

@@ -28,7 +28,25 @@ const tests = {
   multiSlashTrimCR: {toml: `a = """\r\nzed\\\r\n   abc"""`, data: {a: 'zedabc'}},
   deepThenShallow: {toml: `[a.b]\nc=1\n[a]\nd=2`, data: {a: {b: {c: 1}, d: 2}}},
   charcodes: {toml: `a = "\\u004a\\u004A"`, data: {a: 'JJ'}},
-  'empty single-quoted string': {toml: "a = ''", data: {a: ''}}
+  'empty single-quoted string': {toml: "a = ''", data: {a: ''}},
+  literalKeys: {toml: `'a' = 1`, data: {a: 1}},
+  dottedKeys: {toml: `a.b = 1`, data: {a: {b: 1}}},
+  dottedInlineKeys: {toml: `e = { a.b = 23 }`, data: {e: {a: {b: 23}}}},
+  hexLiterals: {toml: 'a = 0xA', data: {a: 10}},
+  octLiterals: {toml: 'a = 0o10', data: {a: 8}},
+  binLiterals: {toml: 'a = 0b11', data: {a: 3}},
+  plusZero: {toml: 'a = +0', data: {a: 0}},
+  minusZero: {toml: 'a = -0', data: {a: 0}},
+  infinity: {toml: 'a = inf', data: {a: Infinity}},
+  nan: {toml: 'a = nan', data: {a: NaN}},
+  datetimeWithoutT: {toml: 'a = 2017-12-01 11:00:17Z', data: new Date('2017-12-01T11:00:17Z')},
+// probably the answer to these is to return strings, unless you're using a
+// custom date class that supports these constructs (eg moment)
+//  localtime: {toml: 'a = 2017-12-01 11:00:17', data: …}, // javascript doesn't support times w/o timezones
+//  dateOnly: {toml: 'a = 2017-12-01', data: …}, // javascript doesn't support bare dates
+//  timeOnly: {toml: 'a = 11:00:17', data: …}, // javascript doesn't support bare times
+  trimContinuationBackslash: {toml: 'a = """abc\   \ndef"""', data: {a: 'abcdef'}},
+  trailingCommas: {toml: 'a = [ 1, 2, 3, ]', data: {a: [1, 2, 3]}}
 }
 
 test('spec', t => {

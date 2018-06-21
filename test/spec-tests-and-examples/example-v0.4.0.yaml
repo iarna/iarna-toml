@@ -64,6 +64,7 @@ float:
     key: 6.626e-34
   underscores:
     key1: 9224617.445991227
+    key2: .inf
 boolean:
   'True': true
   'False': false
