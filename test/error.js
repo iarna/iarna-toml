@@ -102,7 +102,7 @@ and here"
   'no control chars': 'a = "\u001f"',
   'no control chars2': 'a = "\u0000"',
   'no multi control chars': 'a = """\u0000"""',
-  'no control in keys': '"a\u0000" = 1',
+  'no control in keys': '"a\u0000" = 1'
 }
 
 test('should be errors', t => {

@@ -19,14 +19,14 @@ const tests = {
   splitlistwithcomment: {toml: `a = [ 123 #test\n,456]`, data: {a: [123, 456]}},
   decimalListNoSpace: {toml: `a = [1.0,3.2]`, data: {a: [1, 3.2]}},
   expListNoSpace: {toml: `a = [1e1,2e1]`, data: {a: [10, 20]}},
-  emptyQuotedPre: {toml: `["".abc]`, data: {"": {abc: {}}}},
-  emptyQuotedPost: {toml: `[abc.""]`, data: {"abc": {"": {}}}},
-  emptyQuotedMid: {toml: `[abc."".def]`, data: {"abc": {"": {def: {}}}}},
-  emptyKey: {toml: `[""]`, data: {"": {}}},
+  emptyQuotedPre: {toml: `["".abc]`, data: {'': {abc: {}}}},
+  emptyQuotedPost: {toml: `[abc.""]`, data: {'abc': {'': {}}}},
+  emptyQuotedMid: {toml: `[abc."".def]`, data: {'abc': {'': {def: {}}}}},
+  emptyKey: {toml: `[""]`, data: {'': {}}},
   multiTrimCR: {toml: `a = """\r\nabc"""`, data: {a: 'abc'}},
   multiLiteralTrimCR: {toml: `a = '''\r\nabc'''`, data: {a: 'abc'}},
   multiSlashTrimCR: {toml: `a = """\r\nzed\\\r\n   abc"""`, data: {a: 'zedabc'}},
-  deepThenShallow: {toml: `[a.b]\nc=1\n[a]\nd=2`, data: {a: {b: {c: 1}, d: 2}}},
+  deepThenShallow: {toml: `[a.b]\nc=1\n[a]\nd=2`, data: {a: {b: {c: 1}, d: 2}}}
 }
 
 test('spec', t => {
