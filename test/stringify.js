@@ -6,6 +6,7 @@ const good = {
   'toJSON overrides': {obj: {a: {toJSON: () => 'EXAMPLE'}}, toml: `a = "EXAMPLE"\n`},
   'toJSON on the top level object': {obj: {toJSON: () => ({c: 23})}, toml: `c = 23\n`},
   'toJSON on top level returns null, get null': {obj: {toJSON: () => null}, toml: null},
+  'toJSON is not a function': {obj: {a: {toJSON: 'EXAMPLE'}}, toml: `[a]\ntoJSON = "EXAMPLE"\n`},
   'null is removed': {obj: {a: null, b: 'hi'}, toml: `b = "hi"\n`},
   'undefined is removed': {obj: {a: undefined, b: 'hi'}, toml: `b = "hi"\n`},
   'NaN is removed': {obj: {a: NaN, b: 'hi'}, toml: `b = "hi"\n`},

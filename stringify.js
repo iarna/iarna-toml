@@ -6,7 +6,7 @@ function stringify (obj) {
   if (obj === void (0)) throw typeError('undefined')
   if (typeof obj !== 'object') throw typeError(typeof obj)
 
-  if (obj.toJSON) obj = obj.toJSON()
+  if (typeof obj.toJSON === 'function') obj = obj.toJSON()
   if (obj == null) return null
   const type = tomlType(obj)
   if (type !== 'table') throw typeError(type)
@@ -31,7 +31,7 @@ function getComplexKeys (obj) {
 function toJSON (obj) {
   let nobj = Array.isArray(obj) ? [] : {}
   for (let prop of Object.keys(obj)) {
-    if (obj[prop] && obj[prop].toJSON && !('toISOString' in obj[prop])) {
+    if (obj[prop] && typeof obj[prop].toJSON === 'function' && !('toISOString' in obj[prop])) {
       nobj[prop] = obj[prop].toJSON()
     } else {
       nobj[prop] = obj[prop]
