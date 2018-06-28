@@ -123,11 +123,11 @@ function stringifyKey (key) {
 }
 
 function stringifyBasicString (str) {
-  if (/"/.test(str) && !/'/.test(str)) {
-    return "'" + escapeString(str) + "'"
-  } else {
-    return '"' + escapeString(str).replace(/"/g, '\\"') + '"'
-  }
+  return '"' + escapeString(str).replace(/"/g, '\\"') + '"'
+}
+
+function stringifyLiteralString (str) {
+  return "'" + str + "'"
 }
 
 function escapeString (str) {
@@ -146,16 +146,27 @@ function stringifyMultilineString (str) {
 }
 
 function stringifyAnyInline (value, multilineOk) {
-  return stringifyInline(tomlType(value), value, multilineOk)
+  let type = tomlType(value)
+  if (type === 'string') {
+    if (multilineOk && /\n/.test(value)) {
+      type = 'string-multiline'
+    } else if (!/[\b\t\n\f\r']/.test(value) && /"/.test(value)) {
+      type = 'string-literal'
+    }
+  }
+  return stringifyInline(value, type)
 }
-function stringifyInline (type, value, multilineOk) {
+
+function stringifyInline (value, type) {
+  /* istanbul ignore if */
+  if (!type) type = tomlType(value)
   switch (type) {
+    case 'string-multiline':
+      return stringifyMultilineString(value)
     case 'string':
-      if (multilineOk && /\n/.test(value)) {
-        return stringifyMultilineString(value)
-      } else {
-        return stringifyBasicString(value)
-      }
+      return stringifyBasicString(value)
+    case 'string-literal':
+      return stringifyLiteralString(value)
     case 'integer':
       return stringifyInteger(value)
     case 'float':
@@ -170,7 +181,7 @@ function stringifyInline (type, value, multilineOk) {
       return stringifyInlineTable(value)
     /* istanbul ignore next */
     default:
-      throw tomlType(value)
+      throw type
   }
 }
 
@@ -216,7 +227,7 @@ function stringifyInlineArray (values) {
   values = toJSON(values)
   const type = validateArray(values)
   var result = '['
-  var stringified = values.map(_ => stringifyInline(type, _, false))
+  var stringified = values.map(_ => stringifyInline(_, type))
   if (stringified.join(', ').length > 60 || /\n/.test(stringified)) {
     result += '\n  ' + stringified.join(',\n  ') + '\n'
   } else {
