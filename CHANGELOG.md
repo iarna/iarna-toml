@@ -1,3 +1,16 @@
+# 1.6.0
+
+**FIXES**
+
+* TOML.stringify: Allow toJSON properties that aren't functions, to align with JSON.stringify's behavior.
+* TOML.stringify: Don't use ever render keys as literal strings.
+* TOML.stringify: Don't try to escape control characters in literal strings.
+
+**FEATURES**
+
+* New Export: TOML.stringify.value, for encoding a stand alone inline value as TOML would. This produces
+  a TOML fragment, not a complete valid document.
+
 # 1.5.6
 
 * String literals are NOT supported as key names.
