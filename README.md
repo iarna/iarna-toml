@@ -181,25 +181,27 @@ You can run them yourself with:
 $ npm run benchmark
 ```
 
-The results below are from my laptop using `@iarna/toml@1.5.2`,
-`toml-j0.4@1.1.1`, and `toml@2.3.3`.   The percentage after average results is the margin of error.
+The results below are from my laptop using Node 10.5.0.  The library
+versions tested were `@iarna/toml@1.6.0`, `toml-j0.4@1.1.1`, `toml@2.3.3`,
+`@sgarciac/bombadil@0.0.7`.  The percentage after average results is the
+margin of error.
 
-|   | @iarna/toml |   | toml-j0.4 |   | toml |   |
-| - | ----------- | - | --------- | - | ---- | - |
-| Overall | 45.17 | 9.75% | 13.77 | 6.80% | 0.76 | 4.78% |
-| Spec Example: 0.4.0 | 2138 | 3.02% | 1267 | 3.52% | 120 | 3.29% |
-| Spec Example: Hard Unicode | 11807 | 3.35% | 4444 | 1.70% | 730 | 3.05% |
-| 1000 Keys | 472 | 1.34% | 269 | 1.36% | 11.11 | 1.47% |
-| Array With 1000 Tables With 1 Key | 240 | 2.43% | 161 | 3.24% | 6.17 | 4.93% |
-| Array With 1000 Tables of Tables of 1 Key | 137 | 3.24% | 102 | 3.12% | 2.93 | 6.29% |
-| 1000 Element Inline Array | 1665 | 1.22% | 148 | 1.75% | 11.58 | 4.26% |
-| 1000 Key Inline Table | 648 | 3.33% | 272 | 1.61% | 15.28 | 3% |
-| Inline Array Nested 1000 deep | 691 | 1.46% | 438 | 1.36% | 112 | 4.60% |
-| Inline Tables Nested 1000 deep | 590 | 1.44% | 344 | 3.16% | 14.02 | 5.17% |
-| 40kb Multiline Single Quoted String | 654 | 2.73% | 128 | 3.67% | 64.65 | 2.42% |
-| 40kb Multiline Double Quoted String | 621 | 2.95% | 128 | 0.69% | 4.82 | 1.77% |
-| 40kb Single Quoted String | 516 | 1.41% | 210 | 1.68% | 72.91 | 2.67% |
-| 40kb Double Quoted String | 478 | 6.18% | 149 | 1.69% | 4.66 | 2.65% |
+|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   |
+| - | ----------- | - | --------- | - | ---- | - | -------------------| - |
+| Overall | 35.83 | 4.12% | 8.62 | 3.38% | 0.82 | 3.22% | crashed | |
+| Spec Example | 2146 | 1.16% | 964 | 3.20% | 147 | 3.27% | 592 | 2.48% |
+| Spec Example: Hard Unicode | 12377 | 2.48% | 4231 | 2.31% | 719 | 3.67% | 885 | 1.22% |
+| 1000 Keys | 627 | 1.30% | 186 | 2.25% | 10.77 | 2.56% | 203 | 1.66% |
+| Array With 1000 Tables With 1 Key | 305 | 1.29% | 139 | 0.47% | 6.51 | 2.79% | 112 | 2.47% |
+| Array With 1000 Tables of Tables of 1 Key | 167 | 2.39% | 84.66 | 0.76% | 3.82 | 2.10% | 60.47 | 1.89% |
+| 1000 Element Inline Array | 699 | 1.28% | 457 | 0.87% | 137 | 2.47% | crashed | |
+| 1000 Key Inline Table | 587 | 0.96% | 348 | 0.35% | 16.58 | 3.95% | crashed | |
+| 40kb Multiline Single Quoted String | 642 | 1.44% | 60.23 | 3.70% | 68.63 | 2.84% | 749 | 1.74% |
+| 40kb Multiline Double Quoted String | 551 | 0.68% | 55.94 | 3.64% | 5.50 | 0.53% | 772 | 0.80% |
+| Inline Array Nested 1000 deep | 1700 | 2.67% | 126 | 0.84% | 15.57 | 2.26% | 234 | 2.45% |
+| Inline Tables Nested 1000 deep | 667 | 2.18% | 171 | 3.76% | 16.80 | 2.30% | 216 | 1.83% |
+| 40kb Single Quoted String | 485 | 2.33% | 91.61 | 0.39% | 5.41 | 1.20% | 818 | 0.79% |
+| 40kb Single Quoted String | 556 | 2.13% | 76.47 | 4.29% | 72.73 | 3.66% | 911 | 1.09% |
 
 ## Changes
 
