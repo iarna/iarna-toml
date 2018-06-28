@@ -73,6 +73,13 @@ because `JSON` represents dates as strings and TOML can represent them natively.
 [`moment`](https://www.npmjs.com/package/moment) objects are treated the
 same as native `Date` objects, in this respect.
 
+## TOML.stringify.value(obj) -> String
+
+Also available with: `require('@iarna/toml/stringify').value`
+
+Serialize a value as TOML would.  This is a fragment and not a complete
+valid TOML document.
+
 ## Promises and Streaming
 
 The parser provides alternative async and streaming interfaces, for times

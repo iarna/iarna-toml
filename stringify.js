@@ -1,5 +1,6 @@
 'use strict'
 module.exports = stringify
+module.exports.value = stringifyInline
 
 function stringify (obj) {
   if (obj === null) throw typeError('null')
