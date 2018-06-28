@@ -87,6 +87,7 @@ suite.add('@iarna/toml', {
   fn: function () {
     fixtures.map(parseIarnaToml)
   },
+  maxTime: 15,
   onCycle: onCycle,
   onComplete: onComplete
 })
@@ -95,6 +96,7 @@ suite.add('toml-j0.4', {
   fn: function () {
     fixtures.map(parseTomlj04)
   },
+  maxTime: 15,
   onCycle: onCycle,
   onComplete: onComplete
 })
@@ -103,6 +105,7 @@ suite.add('toml', {
   fn: function () {
     fixtures.map(parseToml)
   },
+  maxTime: 15,
   onCycle: onCycle,
   onComplete: onComplete
 })
@@ -111,6 +114,7 @@ suite.add('bombadil', {
   fn: function () {
     fixtures.map(parseBombadil)
   },
+  maxTime: 15,
   onCycle: onCycle,
   onComplete: onComplete
 })
