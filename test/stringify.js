@@ -4,8 +4,9 @@ const TOML = require('..')
 
 const roundtrip = {
   'toJSON is not a function': {obj: {a: {toJSON: 'EXAMPLE'}}, toml: `[a]\ntoJSON = "EXAMPLE"\n`},
-  'array of arrays': {obj: {a: [[5], [23]]}, toml: 'a = [ [ 5 ], [ 23 ] ]\n',
-  'array of tables': {obj: {a: [{b: 5}, {b: 23}]}, toml: '[[a]]\nb = 5\n\n[[a]]\nb = 23\n'}},
+  'array of arrays': {obj: {a: [[5], [23]]},
+    toml: 'a = [ [ 5 ], [ 23 ] ]\n',
+    'array of tables': {obj: {a: [{b: 5}, {b: 23}]}, toml: '[[a]]\nb = 5\n\n[[a]]\nb = 23\n'}},
   'inline objects': {obj: {a: [[{a: 23}, {}]]}, toml: `a = [ [ { a = 23 }, { } ] ]\n`},
   'keys with quotes': {obj: {'a"b': 123}, toml: `"a\\"b" = 123\n`}
 }
@@ -19,7 +20,7 @@ const good = {
   'null is removed from arrays': {obj: {a: [null]}, toml: `a = [ ]\n`},
   'undefined is removed from arrays': {obj: {a: [23, undefined]}, toml: `a = [ 23 ]\n`},
   'NaN is removed from arrays': {obj: {a: [NaN, 23]}, toml: `a = [ 23 ]\n`},
-  'Invalid Date': {obj: {a: [new Date('nope')]}, toml: `a = [ ]\n`},
+  'Invalid Date': {obj: {a: [new Date('nope')]}, toml: `a = [ ]\n`}
 }
 const bad = {
   'mixed types': {a: [123, 'abc']},

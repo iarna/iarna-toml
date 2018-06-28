@@ -34,7 +34,7 @@ const parseToml = require('toml').parse
 const parseTomlj04 = require('toml-j0.4').parse
 const bombadil = require('@sgarciac/bombadil')
 function parseBombadil (str) {
-  const reader = new bombadil.TomlReader
+  const reader = new bombadil.TomlReader()
   reader.readToml(str)
   return reader.result
 }
@@ -70,7 +70,7 @@ fixtures.forEach(fixture => {
           data[name] = {
             opsec: _.hz.toFixed(_.hz < 100 ? 2 : 0),
             errmargin: _.stats.rme.toFixed(2),
-            samples: _.stats.sample.length,
+            samples: _.stats.sample.length
           }
         }
       })
