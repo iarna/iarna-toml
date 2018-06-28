@@ -38,6 +38,13 @@ function parseBombadil (str) {
   return reader.result
 }
 const fixtures = glob(`${__dirname}/benchmark/*.toml`).map(_ => fs.readFileSync(_, {encoding: 'utf8'}))
+let results
+
+try {
+  results = require('./benchmark-results.json')
+} catch (_) {
+  results = {}
+}
 
 const suite = new Benchmark.Suite({
   onStart: function () {
@@ -48,6 +55,21 @@ const suite = new Benchmark.Suite({
         this.filter('successful').map('name').join(', '))
     console.log('Overall Fastest:\n\t' +
         this.filter('fastest').map('name').join(', '))
+    if (!results[process.version]) results[process.version] = {}
+    const data = results[process.version].overall = {}
+    this.forEach(_ => {
+      const name = _.name || (_.isNaN(_.id) ? _.id : '<Test #' + _.id + '>')
+      if (_.error) {
+        data[name] = { crashed: true }
+      } else {
+        data[name] = {
+          opsec: _.hz.toFixed(_.hz < 100 ? 2 : 0),
+          errmargin: _.stats.rme.toFixed(2),
+          samples: _.stats.sample.length,
+        }
+      }
+    })
+    fs.writeFileSync('benchmark-results.json', JSON.stringify(results, null, 2))
   },
   onError: function (event) {
     console.error(event.target.error)

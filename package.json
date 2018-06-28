@@ -4,7 +4,7 @@
   "main": "toml.js",
   "scripts": {
     "test": "tap -J --100 test",
-    "benchmark": "node benchmark.js && node benchmark-per-file.js",
+    "benchmark": "node benchmark.js && node benchmark-per-file.js && node results2table.js",
     "prerelease": "npm t",
     "prepack": "rm -f *~",
     "postpublish": "git push --follow-tags",
