@@ -186,22 +186,23 @@ versions tested were `@iarna/toml@1.6.0`, `toml-j0.4@1.1.1`, `toml@2.3.3`,
 `@sgarciac/bombadil@0.0.7`.  The percentage after average results is the
 margin of error.
 
-|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   |
+|   | @iarna/​toml |   | toml-j0.4 |   | toml |   | @sgarciac/​bombadil |   |
 | - | ----------- | - | --------- | - | ---- | - | -------------------| - |
-| Overall | 35.83 | 4.12% | 8.62 | 3.38% | 0.82 | 3.22% | crashed | |
-| Spec Example | 2146 | 1.16% | 964 | 3.20% | 147 | 3.27% | 592 | 2.48% |
-| Spec Example: Hard Unicode | 12377 | 2.48% | 4231 | 2.31% | 719 | 3.67% | 885 | 1.22% |
-| 1000 Keys | 627 | 1.30% | 186 | 2.25% | 10.77 | 2.56% | 203 | 1.66% |
-| Array With 1000 Tables With 1 Key | 305 | 1.29% | 139 | 0.47% | 6.51 | 2.79% | 112 | 2.47% |
-| Array With 1000 Tables of Tables of 1 Key | 167 | 2.39% | 84.66 | 0.76% | 3.82 | 2.10% | 60.47 | 1.89% |
-| 1000 Element Inline Array | 699 | 1.28% | 457 | 0.87% | 137 | 2.47% | crashed | |
-| 1000 Key Inline Table | 587 | 0.96% | 348 | 0.35% | 16.58 | 3.95% | crashed | |
-| 40kb Multiline Single Quoted String | 642 | 1.44% | 60.23 | 3.70% | 68.63 | 2.84% | 749 | 1.74% |
-| 40kb Multiline Double Quoted String | 551 | 0.68% | 55.94 | 3.64% | 5.50 | 0.53% | 772 | 0.80% |
-| Inline Array Nested 1000 deep | 1700 | 2.67% | 126 | 0.84% | 15.57 | 2.26% | 234 | 2.45% |
-| Inline Tables Nested 1000 deep | 667 | 2.18% | 171 | 3.76% | 16.80 | 2.30% | 216 | 1.83% |
-| 40kb Single Quoted String | 485 | 2.33% | 91.61 | 0.39% | 5.41 | 1.20% | 818 | 0.79% |
-| 40kb Single Quoted String | 556 | 2.13% | 76.47 | 4.29% | 72.73 | 3.66% | 911 | 1.09% |
+| Overall | 41.73 | 3.24% | 8.80 | 3.39% | 0.85 | 1.05% | crashed | |
+| Spec Example | 3199 | 0.91% | 1009 | 2.89% | 152 | 2.94% | 595 | 2.16% |
+| Spec Example: Hard Unicode | 17949 | 2.03% | 4349 | 0.31% | 772 | 2.26% | 892 | 1.49% |
+| 1000 Keys | 887 | 2.25% | 196 | 0.78% | 10.89 | 2.35% | 204 | 1.64% |
+| Array With 1000 Tables With 1 Key | 373 | 0.35% | 143 | 0.84% | 6.59 | 1.71% | 116 | 1.92% |
+| Array With 1000 Tables of Tables of 1 Key | 210 | 1.48% | 87.37 | 0.47% | 3.92 | 1.41% | 61.53 | 1.63% |
+| 1000 Element Inline Array | 767 | 0.75% | 467 | 0.36% | 138 | 2.20% | crashed | |
+| 1000 Key Inline Table | 745 | 0.49% | 353 | 1.36% | 16.72 | 3.59% | crashed | |
+| 40kb Multiline Single Quoted String | 860 | 2.99% | 61.48 | 3.43% | 70.11 | 2.08% | 777 | 0.96% |
+| 40kb Multiline Double Quoted String | 703 | 2.77% | 57.68 | 3.14% | 5.55 | 0.80% | 788 | 0.85% |
+| Inline Array Nested 1000 deep | 2099 | 0.54% | 129 | 0.47% | 13.26 | 2.26% | 243 | 1.41% |
+| Inline Tables Nested 1000 deep | 976 | 0.61% | 201 | 1.56% | 17.11 | 2.27% | 221 | 1.54% |
+| 40kb Single Quoted String | 663 | 0.71% | 92.62 | 1.65% | 5.50 | 1.11% | 815 | 0.84% |
+| 40kb Single Quoted String | 792 | 3.02% | 81.70 | 4.14% | 77.00 | 2.09% | 844 | 0.80% |
+
 
 ## Changes
 
