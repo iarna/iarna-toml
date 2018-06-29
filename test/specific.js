@@ -26,7 +26,8 @@ const tests = {
   multiTrimCR: {toml: `a = """\r\nabc"""`, data: {a: 'abc'}},
   multiLiteralTrimCR: {toml: `a = '''\r\nabc'''`, data: {a: 'abc'}},
   multiSlashTrimCR: {toml: `a = """\r\nzed\\\r\n   abc"""`, data: {a: 'zedabc'}},
-  deepThenShallow: {toml: `[a.b]\nc=1\n[a]\nd=2`, data: {a: {b: {c: 1}, d: 2}}}
+  deepThenShallow: {toml: `[a.b]\nc=1\n[a]\nd=2`, data: {a: {b: {c: 1}, d: 2}}},
+  charcodes: {toml: `a = "\\u004a\\u004A"`, data: {a: 'JJ'}}
 }
 
 test('spec', t => {
