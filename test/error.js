@@ -1,6 +1,7 @@
 'use strict'
 const test = require('tap').test
 const TOML = require('../toml.js')
+const TomlError = require('../lib/toml-parser.js').TomlError
 
 const errors = {
   'text after table name': "[error]   if you didn't catch this, your parser is broken",
@@ -112,7 +113,7 @@ test('should be errors', t => {
       t.fail(msg)
     } catch (ex) {
       t.comment(ex.message)
-      t.pass(msg)
+      t.ok(ex instanceof TomlError, msg)
     }
   })
   t.end()

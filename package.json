@@ -52,7 +52,9 @@
     "parse-pretty-error.js",
     "lib/parser.js",
     "lib/parser-debug.js",
-    "lib/toml-parser.js"
+    "lib/toml-parser.js",
+    "lib/create-datetime.js",
+    "lib/format-num.js"
   ],
   "directories": {
     "test": "test"
