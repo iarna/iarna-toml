@@ -1,3 +1,26 @@
+# 1.7.0
+
+This relese features an overall 15% speed boost on our benchmarks.  This
+came from a few things:
+
+* Date parsing was rewritten to not use regexps, resulting in a huge speed increase.
+* Strings of all kinds and bare keywords now use tight loops to collect characters when this will help.
+* Regexps in general were mostly removed.  This didn't result in a speed
+  change, but it did allow refactoring the parser to be a lot easier to
+  follow.
+* The internal state tracking now uses a class and is constructed with a
+  fixed set of properties, allowing v8's optimizer to be more effective.
+
+In the land of new features:
+
+* Errors in the syntax of your TOML will now have the `fromTOML` property
+  set to true.  This is in addition to the `line`, `col` and `pos`
+  properties they already have.
+
+  The main use of this is to make it possible to distinguish between errors
+  in the TOML and errors in the parser code itself. This is of particular utility
+  when testing parse errors.
+
 # 1.6.0
 
 **FIXES**
