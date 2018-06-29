@@ -27,7 +27,8 @@ const tests = {
   multiLiteralTrimCR: {toml: `a = '''\r\nabc'''`, data: {a: 'abc'}},
   multiSlashTrimCR: {toml: `a = """\r\nzed\\\r\n   abc"""`, data: {a: 'zedabc'}},
   deepThenShallow: {toml: `[a.b]\nc=1\n[a]\nd=2`, data: {a: {b: {c: 1}, d: 2}}},
-  charcodes: {toml: `a = "\\u004a\\u004A"`, data: {a: 'JJ'}}
+  charcodes: {toml: `a = "\\u004a\\u004A"`, data: {a: 'JJ'}},
+  'empty single-quoted string': {toml: "a = ''", data: {a: ''}}
 }
 
 test('spec', t => {

@@ -121,7 +121,10 @@ and here"
   'lone date and min': ' a = 2013-01-01T00:00 ',
   'lone date and min with more': ' a = 2013-01-01T00:00n',
   'lone date and hms.frac': ' a = 2013-01-01T00:00:00.00',
-  'lone date and hms.frac with more': ' a = 2013-01-01T00:00:00.00n'
+  'lone date and hms.frac with more': ' a = 2013-01-01T00:00:00.00n',
+  'multi-line sstrs can only start at start': "a = 'abc''defghi'''",
+  'multi-line dstrs can only start at start': 'a = "abc""defghi"""',
+  'abort single-quoted string': "a = '"
 }
 
 test('should be errors', t => {
