@@ -54,6 +54,7 @@ and here"
   'invalid datetime': 'a = 2013-a',
   'invalid datetime2': 'a = 2013-TT-00T--T--T--Z',
   'incomplete datetime2': 'a = 2013-12-01T00:00:00',
+  'short-years invalid': 'a = 201-12-01T00:00:00Z',
   'incomplete datetime fraction': 'a = 2013-12-01T00:00:00.',
   'invalid tz part': 'a = 2013-12-01T00:00:00M',
   'incomplete datetime fraction w/tz': 'a = 2013-12-01T00:00:00.Z',
@@ -103,7 +104,20 @@ and here"
   'no control chars': 'a = "\u001f"',
   'no control chars2': 'a = "\u0000"',
   'no multi control chars': 'a = """\u0000"""',
-  'no control in keys': '"a\u0000" = 1'
+  'no control in keys': '"a\u0000" = 1',
+  'partial month': 'a = 2013-1-12T00:00:00Z',
+  'partial day': 'a = 2013-01-1T00:00:00Z',
+  'partial hour': 'a = 2013-01-01T0:00:00Z',
+  'partial min': 'a = 2013-01-01T00:0:00Z',
+  'partial sec': 'a = 2013-01-01T00:00:0Z',
+  'lone date': 'a = 2013-01-01',
+  'lone date with more': 'a = 2013-01-01n',
+  'lone date and hour': ' a = 2013-01-01T00 ',
+  'lone date and hour with more': ' a = 2013-01-01T00n',
+  'lone date and min': ' a = 2013-01-01T00:00 ',
+  'lone date and min with more': ' a = 2013-01-01T00:00n',
+  'lone date and hms.frac': ' a = 2013-01-01T00:00:00.00',
+  'lone date and hms.frac with more': ' a = 2013-01-01T00:00:00.00n'
 }
 
 test('should be errors', t => {
