@@ -8,7 +8,7 @@ const files = ['example-v0.3.0.toml', 'example-v0.4.0.toml', 'example.toml', 'ha
 test('spec-examples', function (t) {
   t.plan(files.length)
   files.forEach(function (file) {
-    const value = TOML.parse(fs.readFileSync(path.join(__dirname, 'fromspec', file)), 'utf8')
+    const value = TOML.parse(fs.readFileSync(path.join(__dirname, 'spec-tests-and-examples', file)), 'utf8')
     const str = TOML.stringify(value)
     let roundtrip
     try {
