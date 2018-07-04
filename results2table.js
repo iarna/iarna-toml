@@ -14,7 +14,7 @@ const testName = {
   '09-40kb-multiline-double': '40kb Multiline Double Quoted String',
   'long-inline-array': 'Inline Array Nested 1000 deep',
   'long-inline-object': 'Inline Tables Nested 1000 deep',
-  'long-line-double': '40kb Single Quoted String',
+  'long-line-double': '40kb Double Quoted String',
   'long-line-single': '40kb Single Quoted String'
 }
 
