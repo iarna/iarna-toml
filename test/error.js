@@ -124,7 +124,14 @@ and here"
   'lone date and hms.frac with more': ' a = 2013-01-01T00:00:00.00n',
   'multi-line sstrs can only start at start': "a = 'abc''defghi'''",
   'multi-line dstrs can only start at start': 'a = "abc""defghi"""',
-  'abort single-quoted string': "a = '"
+  'abort single-quoted string': "a = '",
+  'partial true 1': 'a = t',
+  'partial true 2': 'a = tr',
+  'partial true 3': 'a = tru',
+  'partial false 1': 'a = f',
+  'partial false 2': 'a = fa',
+  'partial false 3': 'a = fal',
+  'partial false 4': 'a = fals'
 }
 
 test('should be errors', t => {
