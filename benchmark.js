@@ -85,7 +85,7 @@ const onComplete = () => cursor.write('\n')
 
 suite.add('@iarna/toml', {
   fn: function () {
-    fixtures.map(parseIarnaToml)
+    fixtures.map(_ => parseIarnaToml(_))
   },
   maxTime: 15,
   onCycle: onCycle,
@@ -94,7 +94,7 @@ suite.add('@iarna/toml', {
 
 suite.add('toml-j0.4', {
   fn: function () {
-    fixtures.map(parseTomlj04)
+    fixtures.map(_ => parseTomlj04(_))
   },
   maxTime: 15,
   onCycle: onCycle,
@@ -103,7 +103,7 @@ suite.add('toml-j0.4', {
 
 suite.add('toml', {
   fn: function () {
-    fixtures.map(parseToml)
+    fixtures.map(_ => parseToml(_))
   },
   maxTime: 15,
   onCycle: onCycle,
@@ -112,7 +112,7 @@ suite.add('toml', {
 
 suite.add('bombadil', {
   fn: function () {
-    fixtures.map(parseBombadil)
+    fixtures.map(_ => parseBombadil(_))
   },
   maxTime: 15,
   onCycle: onCycle,
