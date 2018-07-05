@@ -1,6 +1,21 @@
+# 1.7.1
+
+Another 18% speed boost on our overall benchmarks!  This time it came from
+switching from string comparisons to integer by converting each character to
+its respective code point.  This also necessitated rewriting the boolean
+parser to actually parse character-by-character as it should.  End-of-stream
+is now marked with a numeric value outside of the Unicode range, rather than
+a Symbol, meaning that the parser's char property is now monomorphic.
+
+Bug fix, previously, `'abc''def'''`  was accepted (as the value: `abcdef`).
+Now it will correctly raise an error.
+
+Spec tests now run against bombadil as well (it fails some, which is unsurprising
+given its incomplete state).
+
 # 1.7.0
 
-This relese features an overall 15% speed boost on our benchmarks.  This
+This release features an overall 15% speed boost on our benchmarks.  This
 came from a few things:
 
 * Date parsing was rewritten to not use regexps, resulting in a huge speed increase.
