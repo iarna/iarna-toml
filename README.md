@@ -33,7 +33,7 @@ Visit the project github [for more examples](https://github.com/iarna/iarna-toml
 * 100% test coverage.
 * Faster parser:
 
-  ![Benchmark results showing @iarna/toml as 50x faster than toml and 2.8x faster than toml-j0.4](https://shared.by.re-becca.org/misc/speeeed.png)
+  ![Benchmark results showing @iarna/toml as 55x faster than toml and 5.1x faster than toml-j0.4](https://shared.by.re-becca.org/misc/speeeed.png)
 * More correct parser. (Behavior carefully drawn from the spec and tested to within an inch of its life.)
 * Smallest parser bundle (if you use `@iarna/toml/parse-string`), 20kb.
 * No deps.
@@ -203,7 +203,6 @@ margin of error.
 | Inline Tables Nested 1000 deep | 1098 | 0.94% | 197 | 1.82% | 16.65 | 2.34% | 221 | 1.84% |
 | 40kb Double Quoted String | 1044 | 2.62% | 90.21 | 0.24% | 5.37 | 1.38% | 812 | 1.03% |
 | 40kb Single Quoted String | 1105 | 0.60% | 82.79 | 4.56% | 75.11 | 2.12% | 825 | 1.34% |
-
 
 ## Changes
 
