@@ -1,21 +1,37 @@
 'use strict'
 const results = require('./benchmark-results.json')
+const approx = require('approximate-number')
+const fs = require('fs')
 
+const size = {
+  'overall': 1120814
+}
 const testName = {
   'overall': 'Overall',
-  '01-spec-example-v0.4.0': 'Spec Example',
-  '02-spec-example-hard-unicode': 'Spec Example: Hard Unicode',
-  '03-1000-keys': '1000 Keys',
-  '04-array-1000': 'Array With 1000 Tables With 1 Key',
-  '05-array-1000-tables-of-tables': 'Array With 1000 Tables of Tables of 1 Key',
-  '06-inline-array-nested-1000-deep': '1000 Element Inline Array',
-  '07-inline-table-nested-1000-deep': '1000 Key Inline Table',
-  '08-40kb-multiline-single': '40kb Multiline Single Quoted String',
-  '09-40kb-multiline-double': '40kb Multiline Double Quoted String',
-  'long-inline-array': 'Inline Array Nested 1000 deep',
-  'long-inline-object': 'Inline Tables Nested 1000 deep',
-  'long-line-double': '40kb Double Quoted String',
-  'long-line-single': '40kb Single Quoted String'
+  '0A-spec-01-example-v0.4.0': 'Spec Example: v0.4.0',
+  '0A-spec-02-example-hard-unicode': 'Spec Example: Hard Unicode',
+  '0B-types-array-inline-empty': 'Types: Array, Inline',
+  '0B-types-array': 'Types: Array',
+  '0B-types-scalar-bools': 'Types: Boolean,',
+  '0B-types-scalar-datetimes': 'Types: Datetime',
+  '0B-types-scalar-floats': 'Types: Float',
+  '0B-types-scalar-ints': 'Types: Int',
+  '0B-types-scalar-literal-7-char': 'Types: Literal String, 7 char',
+  '0B-types-scalar-literal-92-char': 'Types: Literal String, 92 char',
+  '0B-types-scalar-literal-multiline-1079-chars': 'Types: Literal String, Multiline, 1079 char',
+  '0B-types-scalar-string-7-char': 'Types: Basic String, 7 char',
+  '0B-types-scalar-string-92-char': 'Types: Basic String, 92 char',
+  '0B-types-scalar-string-multiline-1079-chars': 'Types: Basic String, 1079 char',
+  '0B-types-table-inline-empty': 'Types: Table, Inline',
+  '0B-types-table': 'Types: Table',
+  '0C-scaling-array-inline-1000': 'Scaling: Array, Inline, 1000 elements',
+  '0C-scaling-array-inline-nested-1000': 'Scaling: Array, Nested, 1000 deep',
+  '0C-scaling-literal-40kb': 'Scaling: Literal String, 40kb',
+  '0C-scaling-scalar-literal-multiline-40kb': 'Scaling: Literal String, Multiline, 40kb',
+  '0C-scaling-scalar-string-multiline-40kb': 'Scaling: Basic String, Multiline, 40kb',
+  '0C-scaling-string-40kb': 'Scaling: Basic String, 40kb',
+  '0C-scaling-table-inline-1000': 'Scaling: Table, Inline, 1000 elements',
+  '0C-scaling-table-inline-nested-1000': 'Scaling: Table, Inline, Nested, 1000 deep'
 }
 
 for (let nodev in results) {
@@ -25,13 +41,18 @@ for (let nodev in results) {
   console.log('| - | ----------- | - | --------- | - | ---- | - | -------------------| - |')
 
   for (let name in results[nodev]) {
+    if (!size[name]) {
+      size[name] = fs.readFileSync('benchmark/' + name + '.toml').length
+    }
     const bench = results[nodev][name]
     let line = `| ${testName[name] || name} |`
     for (let lib in bench) {
       if (bench[lib].crashed) {
         line += ` crashed | |`
       } else {
-        line += ` ${bench[lib].opsec} | ${bench[lib].errmargin}% |`
+        const speed = bench[lib].opsec * size[name]
+        const mb = speed / 1000000
+        line += ` ${approx(mb)}MB/sec | ${bench[lib].errmargin}% |`
       }
     }
     console.log(line)
