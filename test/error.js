@@ -97,7 +97,6 @@ and here"
   'mixed date bool': 'a = [ 2018-01-01T00:00:00Z, false ]',
   'mixed obj arr': 'a = [ [23], {a=42} ]',
   'multiline str as keyname': '"""a""" = 1',
-  'string literal as keyname': "'a' = 1",
   'invalid unicode': 'a = "\\uD800"',
   'empty pre-dot': '[.abc]',
   'empty post-dot': '[abc.]',
