@@ -1,3 +1,40 @@
+# 2.0.0
+
+With 2.0.0, @iarna/toml supports the TOML v0.5.0 specification.  TOML 0.5.0
+brings some changes:
+
+* Delete characters (U+007F) are not allowed in plain strings. You can include them with
+  escaped unicode characters, eg `\u007f`.
+* Integers are specified as being 64bit unsigned values.  These are
+  supported using `BigInt`s if you are using Node 10 or later.
+* Keys may be literal strings, that is, you can use single quoted strings to
+  quote key names, so the following is now valid:
+    'a"b"c' = 123
+* The floating point values `nan`, `inf` and `-inf` are supported. The stringifier will no 
+  longer strip NaN, Infinity and -Infinity, instead serializing them as these new values..
+* Datetimes can separate the date and time with a space instead of a T, so
+  `2017-12-01T00:00:00Z` can be written as `2017-12-01 00:00:00Z`.
+* Datetimes can be floating, that is, they can be represented without a timezone.
+  These are represented in javascript as Date objects whose `isFloating` property is true and
+  whose `toISOString` method will return a representation without a timezone.
+* Dates without times are now supported. Dates do not have timezones. Dates
+  are represented in javascript as a Date object whose `isDate` property is true and
+  whose `toISOString` method returns just the date.
+* Times without dates are now supported. Times do not have timezones. Times
+  are represented in javascript as a Date object whose `isTime` property is true and
+  whose `toISOString` method returns just the time.
+* Keys can now include dots to directly address deeper structures, so `a.b = 23` is
+  the equivalent of `a = {b = 23}` or ```[a]
+b = 23```. These can be used both as keys to regular tables and inline tables.
+* Integers can now be specified in binary, octal and hexadecimal by prefixing the 
+  number with `0b`, `0o` and `0x` respectively.  It is now illegal to left
+  pad a decimal value with zeros.
+
+Some parser details were also fixed:
+
+* Negative zero (`-0.0`) and positive zero (`0.0`) are distinct floating point values.
+* Negative integer zero (`-0`) is not distinguished from positive zero (`0`).
+
 # 1.7.1
 
 Another 18% speed boost on our overall benchmarks!  This time it came from
