@@ -89,7 +89,7 @@ function tomlType (value) {
     return 'undefined'
   } else if (value === null) {
     return 'null'
-  } else if (Number.isInteger(value)) {
+  } else if (typeof value === 'bigint' || Number.isInteger(value)) {
     return 'integer'
   } else if (typeof value === 'number') {
     if (isNaN(value)) {
