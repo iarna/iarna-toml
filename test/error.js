@@ -108,6 +108,8 @@ and here"
   'no control chars': 'a = "\u001f"',
   'no control chars2': 'a = "\u0000"',
   'no multi control chars': 'a = """\u0000"""',
+  'no literal multi control chars': "a = '''\u0000'''",
+  'no literal control chars': "a = '\u0000'",
   'no control in keys': '"a\u0000" = 1',
   'partial month': 'a = 2013-1-12T00:00:00Z',
   'partial day': 'a = 2013-01-1T00:00:00Z',
