@@ -160,6 +160,14 @@ Additionally:
   However, be aware that if you use quoted keys in inline tables you won't
   be able to parse your file with the `toml-j0.4` or `toml` modules.
 
+## TOML we can't do
+
+* Detecting and erroring on invalid utf8 documents: This is because Node's
+  UTF8 processing converts invalid sequences into the placeholder character
+  and does not have facilities for reporting these as errors instead.  We
+  _can_ detect the placeholder character, but it's valid to intentionally
+  include it.
+
 ## Improvements to make
 
 * In stringify:
