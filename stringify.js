@@ -51,7 +51,7 @@ function stringifyObject (prefix, indent, obj) {
   var inlineIndent = indent || ''
   inlineKeys.forEach(key => {
     var type = tomlType(obj[key])
-    if (type !== 'undefined' && type !== 'null' && type !== 'nan') {
+    if (type !== 'undefined' && type !== 'null') {
       result.push(inlineIndent + stringifyKey(key) + ' = ' + stringifyAnyInline(obj[key], true))
     }
   })
@@ -89,14 +89,11 @@ function tomlType (value) {
     return 'undefined'
   } else if (value === null) {
     return 'null'
+  /* eslint-disable valid-typeof */
   } else if (typeof value === 'bigint' || Number.isInteger(value)) {
     return 'integer'
   } else if (typeof value === 'number') {
-    if (isNaN(value)) {
-      return 'nan'
-    } else {
-      return 'float'
-    }
+    return 'float'
   } else if (typeof value === 'boolean') {
     return 'boolean'
   } else if (typeof value === 'string') {
@@ -191,7 +188,13 @@ function stringifyInteger (value) {
 }
 
 function stringifyFloat (value) {
-  if (value === Infinity) throw new Error("TOML can't store Infinity")
+  if (value === Infinity) {
+    return 'inf'
+  } else if (value === -Infinity) {
+    return '-inf'
+  } else if (Object.is(value, NaN)) {
+    return 'nan'
+  }
   var chunks = String(value).split('.')
   var int = chunks[0]
   var dec = chunks[1] || 0
