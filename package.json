@@ -3,7 +3,7 @@
   "version": "1.7.1",
   "main": "toml.js",
   "scripts": {
-    "test": "tap -J --100 test",
+    "test": "tap -J --100 test/*.js test/toml-stream/*.js",
     "benchmark": "node benchmark.js && node benchmark-per-file.js && node results2table.js",
     "prerelease": "npm t",
     "prepack": "rm -f *~",
