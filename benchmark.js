@@ -24,6 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+const assertIsDeeply = require('./assert-is-deeply.js')
 const fs = require('fs')
 const glob = require('glob').sync
 const cursor = require('ansi')(process.stdout)
@@ -37,9 +38,13 @@ function parseBombadil (str) {
   reader.readToml(str)
   return reader.result
 }
-const fixtures = glob(`${__dirname}/benchmark/*.toml`).map(_ => fs.readFileSync(_, {encoding: 'utf8'}))
+const fixtures = glob(`${__dirname}/benchmark/*.toml`)
+  .concat(glob(`${__dirname}/test/spec-test/*toml`))
+  .map(_ => ({data: fs.readFileSync(_, {encoding: 'utf8'})}))
+  .map(_ => (_.answer = parseIarnaToml(_.data), _))
 let results
 
+console.error(fixtures.reduce((acc, _) => acc + _.data.length, 0))
 try {
   results = require('./benchmark-results.json')
 } catch (_) {
@@ -85,7 +90,9 @@ const onComplete = () => cursor.write('\n')
 
 suite.add('@iarna/toml', {
   fn: function () {
-    fixtures.map(_ => parseIarnaToml(_))
+    fixtures.forEach(_ => {
+      assertIsObjectDeeply(parseIarnaToml(_.data), _.answer)
+    })
   },
   maxTime: 15,
   onCycle: onCycle,
@@ -94,7 +101,9 @@ suite.add('@iarna/toml', {
 
 suite.add('toml-j0.4', {
   fn: function () {
-    fixtures.map(_ => parseTomlj04(_))
+    fixtures.forEach(_ => {
+      assertIsObjectDeeply(parseTomlj04(_.data), _.answer)
+    })
   },
   maxTime: 15,
   onCycle: onCycle,
@@ -103,7 +112,9 @@ suite.add('toml-j0.4', {
 
 suite.add('toml', {
   fn: function () {
-    fixtures.map(_ => parseToml(_))
+    fixtures.forEach(_ => {
+      assertIsObjectDeeply(parseToml(_.data), _.answer)
+    })
   },
   maxTime: 15,
   onCycle: onCycle,
@@ -112,7 +123,9 @@ suite.add('toml', {
 
 suite.add('bombadil', {
   fn: function () {
-    fixtures.map(_ => parseBombadil(_))
+    fixtures.forEach(_ => {
+      assertIsObjectDeeply(parseBombadil(_.data), _.answer)
+    })
   },
   maxTime: 15,
   onCycle: onCycle,

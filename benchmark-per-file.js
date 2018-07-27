@@ -24,6 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+const assertIsDeeply = require('./assert-is-deeply.js')
 const fs = require('fs')
 const path = require('path')
 const glob = require('glob').sync
@@ -47,7 +48,9 @@ try {
   results = {}
 }
 
-const fixtures = glob(`${__dirname}/benchmark/*.toml`).map(_ => ({name: _, data: fs.readFileSync(_, {encoding: 'utf8'})}))
+const fixtures = glob(`${__dirname}/benchmark/*.toml`)
+  .map(_ => ({name: _, data: fs.readFileSync(_, {encoding: 'utf8'})}))
+  .map(_ => (_.answer = parseIarnaToml(_.data), _))
 
 fixtures.forEach(fixture => {
   const name = path.basename(fixture.name, '.toml')
@@ -90,7 +93,7 @@ fixtures.forEach(fixture => {
 
   suite.add('@iarna/toml', {
     fn: function () {
-      parseIarnaToml(fixture.data)
+      assertIsDeeply(parseIarnaToml(fixture.data), fixture.answer)
     },
     onCycle: onCycle,
     onComplete: onComplete
@@ -98,7 +101,7 @@ fixtures.forEach(fixture => {
 
   suite.add('toml-j0.4', {
     fn: function () {
-      parseTomlj04(fixture.data)
+      assertIsDeeply(parseTomlj04(fixture.data), fixture.answer)
     },
     onCycle: onCycle,
     onComplete: onComplete
@@ -106,14 +109,14 @@ fixtures.forEach(fixture => {
 
   suite.add('toml', {
     fn: function () {
-      parseToml(fixture.data)
+      assertIsDeeply(parseToml(fixture.data), fixture.answer)
     },
     onCycle: onCycle,
     onComplete: onComplete
   })
   suite.add('bombadil', {
     fn: function () {
-      parseBombadil(fixture.data)
+      assertIsDeeply(parseBombadil(fixture.data), fixture.answer)
     },
     onCycle: onCycle,
     onComplete: onComplete

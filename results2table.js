@@ -4,7 +4,7 @@ const approx = require('approximate-number')
 const fs = require('fs')
 
 const size = {
-  'overall': 1120814
+  'overall': 1124628
 }
 const testName = {
   'overall': 'Overall',
@@ -34,6 +34,14 @@ const testName = {
   '0C-scaling-table-inline-nested-1000': 'Scaling: Table, Inline, Nested, 1000 deep'
 }
 
+function fileSize (name) {
+  try {
+    return fs.readFileSync('benchmark/' + name + '.toml').length
+  } catch (_) {
+    return fs.readFileSync('test/spec-test/' + name + '.toml').length
+  }
+}
+
 for (let nodev in results) {
   console.log(`### ${nodev}`)
   console.log('')
@@ -42,7 +50,7 @@ for (let nodev in results) {
 
   for (let name in results[nodev]) {
     if (!size[name]) {
-      size[name] = fs.readFileSync('benchmark/' + name + '.toml').length
+      size[name] = fileSize(name)
     }
     const bench = results[nodev][name]
     let line = `| ${testName[name] || name} |`
