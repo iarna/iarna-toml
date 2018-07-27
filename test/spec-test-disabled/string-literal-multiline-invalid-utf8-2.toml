@@ -1,0 +1,2 @@
+# A TOML file must be a valid UTF-8 encoded Unicode document.
+a = '''аб''' # invalid sequence identifier
