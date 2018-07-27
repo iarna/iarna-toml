@@ -149,7 +149,8 @@ key = 6.626e-34
 [float.underscores]
 
 key1 = 9_224_617.445_991_228_313
-## Javascript can't represent numbers this big
+# We support values like this, but toml-j0.4 does not and I'd still like
+# values out of it
 #key2 = 1e1_000
 
 
