@@ -4,6 +4,8 @@ Better TOML parsing and stringifying all in that familiar JSON interface.
 
 [![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg)](https://coveralls.io/github/iarna/iarna-toml)
 
+# ** TOML 0.5.0 **
+
 ### TOML Spec Support
 
 The most recent version as of 2018-07-26: [v0.5.0](https://github.com/mojombo/toml/blob/master/versions/en/toml-v0.5.0.md)
@@ -28,12 +30,15 @@ bar = [ 1, 2, 3 ]
 
 Visit the project github [for more examples](https://github.com/iarna/iarna-toml/tree/latest/examples)!
 
+
 ## Why @iarna/toml
 
 * The only TOML 0.5.0 complaint parser for Node.js (as of this writing).
 * BigInt support on Node 10!
 * 100% test coverage.
-* Faster parsing, even if you only use TOML 0.4.0, it's still 25 times faster than `toml` and 3 times faster than `toml-j0.4`.
+* Faster parsing, even if you only use TOML 0.4.0, it's 25 times faster than `toml` and 3 times faster than `toml-j0.4`.
+  (Do these numbers look smaller than before? The parser didn't slow down, but the benchmark suite is larger and broader now, and so
+  better demonstrates the strong and week points of the various parsers.)
 * Careful adherence to spec. Tests go beyond simple coverage.
 * Smallest parser bundle (if you use `@iarna/toml/parse-string`).
 * No deps.
