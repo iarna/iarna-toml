@@ -33,7 +33,7 @@ const tests = {
   infinity: {toml: 'a = inf', data: {a: Infinity}},
   nan: {toml: 'a = nan', data: {a: NaN}},
   datetimeWithoutT: {toml: 'a = 2017-12-01 11:00:17Z', data: {a: new Date('2017-12-01T11:00:17Z')}},
-  trailingCommas: {toml: 'a = [ 1, 2, 3, ]', data: {a: [1, 2, 3]}},
+  trailingCommas: {toml: 'a = [ 1, 2, 3, ]', data: {a: [1, 2, 3]}}
 }
 
 test('spec', t => {

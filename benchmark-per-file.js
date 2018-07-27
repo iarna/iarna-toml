@@ -50,7 +50,7 @@ try {
 
 const fixtures = glob(`${__dirname}/benchmark/*.toml`)
   .map(_ => ({name: _, data: fs.readFileSync(_, {encoding: 'utf8'})}))
-  .map(_ => (_.answer = parseIarnaToml(_.data), _))
+fixtures.forEach(_ => { _.answer = parseIarnaToml(_.data) })
 
 fixtures.forEach(fixture => {
   const name = path.basename(fixture.name, '.toml')

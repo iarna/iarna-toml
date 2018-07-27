@@ -41,7 +41,7 @@ function parseBombadil (str) {
 const fixtures = glob(`${__dirname}/benchmark/*.toml`)
   .concat(glob(`${__dirname}/test/spec-test/*toml`))
   .map(_ => ({data: fs.readFileSync(_, {encoding: 'utf8'})}))
-  .map(_ => (_.answer = parseIarnaToml(_.data), _))
+fixtures.forEach(_ => { _.answer = parseIarnaToml(_.data) })
 let results
 
 console.error(fixtures.reduce((acc, _) => acc + _.data.length, 0))
@@ -91,7 +91,7 @@ const onComplete = () => cursor.write('\n')
 suite.add('@iarna/toml', {
   fn: function () {
     fixtures.forEach(_ => {
-      assertIsObjectDeeply(parseIarnaToml(_.data), _.answer)
+      assertIsDeeply(parseIarnaToml(_.data), _.answer)
     })
   },
   maxTime: 15,
@@ -102,7 +102,7 @@ suite.add('@iarna/toml', {
 suite.add('toml-j0.4', {
   fn: function () {
     fixtures.forEach(_ => {
-      assertIsObjectDeeply(parseTomlj04(_.data), _.answer)
+      assertIsDeeply(parseTomlj04(_.data), _.answer)
     })
   },
   maxTime: 15,
@@ -113,7 +113,7 @@ suite.add('toml-j0.4', {
 suite.add('toml', {
   fn: function () {
     fixtures.forEach(_ => {
-      assertIsObjectDeeply(parseToml(_.data), _.answer)
+      assertIsDeeply(parseToml(_.data), _.answer)
     })
   },
   maxTime: 15,
@@ -124,7 +124,7 @@ suite.add('toml', {
 suite.add('bombadil', {
   fn: function () {
     fixtures.forEach(_ => {
-      assertIsObjectDeeply(parseBombadil(_.data), _.answer)
+      assertIsDeeply(parseBombadil(_.data), _.answer)
     })
   },
   maxTime: 15,
