@@ -23,6 +23,7 @@ const good = {
   'Invalid Date': {obj: {a: [new Date('nope')]}, toml: `a = [ ]\n`},
   'infinity': {obj: {a: Infinity}, toml: `a = inf\n`},
   '-infinity': {obj: {a: -Infinity}, toml: `a = -inf\n`},
+  '-0': {obj: {a: -0}, toml: 'a = -0.0\n'},
   'multiline': {obj: {a: [ 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc'  ]}, toml: 'a = [\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc"\n]\n'}
 }
 const bad = {

@@ -90,7 +90,7 @@ function tomlType (value) {
   } else if (value === null) {
     return 'null'
   /* eslint-disable valid-typeof */
-  } else if (typeof value === 'bigint' || Number.isInteger(value)) {
+  } else if (typeof value === 'bigint' || (Number.isInteger(value) && !Object.is(value, -0))) {
     return 'integer'
   } else if (typeof value === 'number') {
     return 'float'
@@ -194,6 +194,8 @@ function stringifyFloat (value) {
     return '-inf'
   } else if (Object.is(value, NaN)) {
     return 'nan'
+  } else if (Object.is(value, -0)) {
+    return '-0.0'
   }
   var chunks = String(value).split('.')
   var int = chunks[0]
