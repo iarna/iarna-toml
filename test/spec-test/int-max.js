@@ -1,1 +1,1 @@
-exports.max = global.BigInt('9223372036854775807')
+exports.max = (global.BigInt || Number)('9223372036854775807')
