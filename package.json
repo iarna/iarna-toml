@@ -55,6 +55,9 @@
     "lib/parser-debug.js",
     "lib/toml-parser.js",
     "lib/create-datetime.js",
+    "lib/create-date.js",
+    "lib/create-datetime-float.js",
+    "lib/create-time.js",
     "lib/format-num.js"
   ],
   "directories": {
