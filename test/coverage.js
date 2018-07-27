@@ -14,7 +14,8 @@ const tests = {
   timeNonZero: {toml: 'a = 10:11:00', data: {a: new Date('0000-01-01T10:11:00Z')}},
   dateTrailingSpaces: {toml: 'a = 2012-01-01  ', data: {a: new Date('2012-01-01')}},
   bitsWithUnders: {toml: 'a = 0b1_0', data: {a: 2}},
-  octWithUnders: {toml: 'a = 0o1_2', data: {a: 10}}
+  octWithUnders: {toml: 'a = 0o1_2', data: {a: 10}},
+  lessThanOne: {toml: 'a = 0.1', data: {a: 0.1}}
 }
 
 test('coverage', t => {
