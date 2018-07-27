@@ -6,7 +6,7 @@ Better TOML parsing and stringifying all in that familiar JSON interface.
 
 ### TOML Spec Support
 
-The most recent pre-release version as of 2018-06-27: [60cabcac](https://github.com/toml-lang/toml/blob/60cabcacc6b5096cbbda6071e295e88b4e697889/README.md)
+The most recent version as of 2018-07-26: [v0.5.0](https://github.com/mojombo/toml/blob/master/versions/en/toml-v0.5.0.md)
 
 ### Example
 
@@ -30,12 +30,12 @@ Visit the project github [for more examples](https://github.com/iarna/iarna-toml
 
 ## Why @iarna/toml
 
+* The only TOML 0.5.0 complaint parser for Node.js (as of this writing).
+* BigInt support on Node 10!
 * 100% test coverage.
-* Faster parser:
-
-  ![Benchmark results showing @iarna/toml as 55x faster than toml and 5.1x faster than toml-j0.4](https://shared.by.re-becca.org/misc/speeeed.png)
-* More correct parser. (Behavior carefully drawn from the spec and tested to within an inch of its life.)
-* Smallest parser bundle (if you use `@iarna/toml/parse-string`), 20kb.
+* Faster parsing, even if you only use TOML 0.4.0, it's still 25 times faster than `toml` and 3 times faster than `toml-j0.4`.
+* Careful adherence to spec. Tests go beyond simple coverage.
+* Smallest parser bundle (if you use `@iarna/toml/parse-string`).
 * No deps.
 * Detailed and easy to read error messages‼
 
@@ -143,30 +143,31 @@ const newErr = prettyError(err, sourceString)
 
 ## What's Different
 
-This branch of the module supports the full current prerelease of TOML
-v1.0.0.
-
-Additionally:
-
-* The `toml-j0.4` and `toml` modules both think that keys in inline tables
-  may not be quoted.  I believe they are in error and I allow quotes.  The
-  spec says this:
-
-  > Key/value pairs take the same form as key/value pairs in standard tables.
-
-  Standard tables allow quoted keys and further, the ABNF from the standard
-  allows them to be quoted.
-
-  However, be aware that if you use quoted keys in inline tables you won't
-  be able to parse your file with the `toml-j0.4` or `toml` modules.
+Version 2 of this module supports TOML 0.5.0.  Other modules currently
+published to the npm registry support 0.4.0.  0.5.0 is mostly backwards
+compatible with 0.4.0, but if you have need, you can install @iarna/toml@1
+to get a version of this module that supports 0.4.0.  Please see the
+[CHANGELOG](CHANGELOG.md) for details on exactly whats changed.
 
 ## TOML we can't do
 
+* `-nan` is a valid TOML value and is converted into `NaN`. There is no way to
+  produce `-nan` when stringifying.
 * Detecting and erroring on invalid utf8 documents: This is because Node's
   UTF8 processing converts invalid sequences into the placeholder character
   and does not have facilities for reporting these as errors instead.  We
   _can_ detect the placeholder character, but it's valid to intentionally
   include it.
+* On versions of Node < 10, very large Integer values will lose precision.
+* Floating/local dates and times are still represented by JavaScript Date
+  objects, which don't actually support these concepts. The objects
+  returned have been modified so that you can determine what kind of thing
+  they are (with `isFloating`, `isDate`, `isTime` properties) and that
+  their ISO representation (via `toISOString`) is representative of their
+  TOML value.  They will correctly round trip if you pass them to
+  `TOML.stringify`.
+* Binary, hexadecimal and octal values are converted to ordinary integers and
+  will be decimal if you stringify them.
 
 ## Improvements to make
 
@@ -186,28 +187,39 @@ You can run them yourself with:
 $ npm run benchmark
 ```
 
-The results below are from my laptop using Node 10.5.0.  The library
+The results below are from my laptop using Node 10.6.0.  The library
 versions tested were `@iarna/toml@1.6.0`, `toml-j0.4@1.1.1`, `toml@2.3.3`,
 `@sgarciac/bombadil@0.0.7`.  The percentage after average results is the
 margin of error.
 
 
-|   | @iarna/​toml |   | toml-j0.4 |   | toml |   | @sgarciac/​bombadil |   |
+|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   |
 | - | ----------- | - | --------- | - | ---- | - | -------------------| - |
-| Overall | 48.50 | 3.58% | 8.79 | 3.88% | 0.83 | 1.01% | crashed | |
-| Spec Example | 3616 | 2.04% | 961 | 3.66% | 151 | 2.34% | 604 | 1.80% |
-| Spec Example: Hard Unicode | 22433 | 1.91% | 4178 | 1.98% | 736 | 3.30% | 893 | 1.24% |
-| 1000 Keys | 989 | 2.18% | 195 | 0.43% | 10.92 | 2.31% | 206 | 1.71% |
-| Array With 1000 Tables With 1 Key | 385 | 1.13% | 133 | 0.77% | 6.18 | 1.00% | 113 | 1.65% |
-| Array With 1000 Tables of Tables of 1 Key | 200 | 0.37% | 79.87 | 1.04% | 3.72 | 1.57% | 59.53 | 1.70% |
-| 1000 Element Inline Array | 743 | 0.25% | 444 | 0.26% | 133 | 2.56% | crashed | |
-| 1000 Key Inline Table | 736 | 0.50% | 332 | 1.27% | 16.32 | 3.35% | crashed | |
-| 40kb Multiline Single Quoted String | 1122 | 3.03% | 61.77 | 4.01% | 68.24 | 2.59% | 782 | 1.00% |
-| 40kb Multiline Double Quoted String | 1074 | 3.54% | 57.27 | 3.33% | 5.42 | 0.65% | 825 | 1.60% |
-| Inline Array Nested 1000 deep | 2662 | 0.69% | 128 | 0.32% | 15.75 | 2.08% | 240 | 1.52% |
-| Inline Tables Nested 1000 deep | 1098 | 0.94% | 197 | 1.82% | 16.65 | 2.34% | 221 | 1.84% |
-| 40kb Double Quoted String | 1044 | 2.62% | 90.21 | 0.24% | 5.37 | 1.38% | 812 | 1.03% |
-| 40kb Single Quoted String | 1105 | 0.60% | 82.79 | 4.56% | 75.11 | 2.12% | 825 | 1.34% |
+| Overall | 7.4MB/sec | 0.81% | 2.3MB/sec | 0.96% | 0.3MB/sec | 0.51% | crashed | |
+| Spec Example: v0.4.0 | 24MB/sec | 0.73% | 7.6MB/sec | 2.22% | 1MB/sec | 2.10% | 4.8MB/sec | 2.31% |
+| Spec Example: Hard Unicode | 63MB/sec | 0.73% | 12MB/sec | 2.14% | 2.1MB/sec | 2.44% | 2.7MB/sec | 2.01% |
+| Types: Array, Inline | 7.5MB/sec | 1.43% | 3MB/sec | 1.79% | 0.2MB/sec | 2.36% | 3.4MB/sec | 1.82% |
+| Types: Array | 6.6MB/sec | 1.06% | 4.8MB/sec | 0.81% | 0.3MB/sec | 2.36% | 2.2MB/sec | 1.70% |
+| Types: Boolean, | 20MB/sec | 1.44% | 7.2MB/sec | 0.85% | 0.3MB/sec | 1.53% | 4.3MB/sec | 1.65% |
+| Types: Datetime | 18MB/sec | 0.82% | 8.8MB/sec | 1.61% | 0.4MB/sec | 1.74% | 2.2MB/sec | 1.27% |
+| Types: Float | 8.5MB/sec | 1.32% | 4.5MB/sec | 1.02% | 0.3MB/sec | 2.27% | 4.5MB/sec | 1.40% |
+| Types: Int | 6.4MB/sec | 0.83% | 3.5MB/sec | 1.66% | 0.1MB/sec | 3.83% | 3.5MB/sec | 1.77% |
+| Types: Literal String, 7 char | 25MB/sec | 2.21% | 5.6MB/sec | 0.80% | 0.3MB/sec | 1.82% | 5.4MB/sec | 1.56% |
+| Types: Literal String, 92 char | 45MB/sec | 1.64% | 5.7MB/sec | 3.32% | 0.4MB/sec | 1.53% | 28MB/sec | 1.79% |
+| Types: Literal String, Multiline, 1079 char | 22MB/sec | 0.64% | 3.4MB/sec | 4.06% | 1.4MB/sec | 2.09% | 138MB/sec | 1.37% |
+| Types: Basic String, 7 char | 25MB/sec | 0.98% | 4.9MB/sec | 2.47% | 0.2MB/sec | 4.21% | 4.8MB/sec | 1.53% |
+| Types: Basic String, 92 char | 41MB/sec | 1.78% | 4.5MB/sec | 2.16% | 0.1MB/sec | 7.03% | 23MB/sec | 1.56% |
+| Types: Basic String, 1079 char | 20MB/sec | 2.62% | 2.9MB/sec | 4.22% | 0.1MB/sec | 3.94% | 112MB/sec | 4.58% |
+| Types: Table, Inline | 7.7MB/sec | 3.04% | 3.4MB/sec | 3.01% | 0.1MB/sec | 2.93% | 3.5MB/sec | 0.93% |
+| Types: Table | 5.7MB/sec | 1.14% | 3.7MB/sec | 1.84% | 0.2MB/sec | 2.84% | 2.6MB/sec | 0.99% |
+| Scaling: Array, Inline, 1000 elements | 39MB/sec | 2.26% | 2.1MB/sec | 2.78% | 0.2MB/sec | 3.31% | 4.5MB/sec | 1.88% |
+| Scaling: Array, Nested, 1000 deep | 2MB/sec | 1.62% | 1.2MB/sec | 1.96% | 0.3MB/sec | 2.43% | crashed | |
+| Scaling: Literal String, 40kb | 60MB/sec | 3.67% | 3.8MB/sec | 5.01% | 4.1MB/sec | 2.05% | 50MB/sec | 1.33% |
+| Scaling: Literal String, Multiline, 40kb | 57MB/sec | 2.54% | 2.8MB/sec | 4.70% | 0.2MB/sec | 3.33% | 47MB/sec | 1.59% |
+| Scaling: Basic String, Multiline, 40kb | 63MB/sec | 1.42% | 3.2MB/sec | 4.23% | 3.8MB/sec | 2.42% | 49MB/sec | 0.69% |
+| Scaling: Basic String, 40kb | 63MB/sec | 0.54% | 5MB/sec | 1.46% | 0.3MB/sec | 3.04% | 49MB/sec | 0.47% |
+| Scaling: Table, Inline, 1000 elements | 26MB/sec | 0.60% | 5.4MB/sec | 0.39% | 0.4MB/sec | 1.61% | 6.7MB/sec | 2.07% |
+| Scaling: Table, Inline, Nested, 1000 deep | 7.4MB/sec | 1.25% | 3.6MB/sec | 0.68% | 0.1MB/sec | 1.36% | crashed | |
 
 ## Changes
 
@@ -221,30 +233,44 @@ please check it out!
 
 The test suite is maintained at 100% coverage: [![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg)](https://coveralls.io/github/iarna/iarna-toml)
 
-All of the official example files from the TOML spec
-are run through this parser. The parser's output is compared to that of
-[`toml`](https://www.npmjs.com/package/toml) and
-[`toml-j0.4`](https://www.npmjs.com/package/toml-j0.4) to ensure we're parsing this
-core material in the same way.
+The spec was carefully hand converted into a series of test framework
+independent (and mostly language independent) assertions, as pairs of TOML
+and YAML files.  You can find those files here:
+[spec-test](https://github.com/iarna/iarna-toml/blob/latest/test/spec-test/). 
+A number of examples of invalid Unicode were also written, but are difficult
+to make use of in Node.js where Unicode errors are silently hidden.  You can
+find those here: [spec-test-disabled](https://github.com/iarna/iarna-toml/blob/latest/test/spec-test-disabled/).
 
-The stringifier is tested by round tripping these same files, asserting that
-`TOML.parse(sourcefile)` deepEqual
-`TOML.parse(TOML.stringify(TOML.parse(sourcefile))`
+Further tests were written to increase coverage to 100%, these may be more
+implementation specific, but they can be found in [coverage](https://github.com/iarna/iarna-toml/blob/latest/test/coverage.js) and
+[coverage-error](https://github.com/iarna/iarna-toml/blob/latest/test/coverage-error.js).
 
-The files are from the TOML specification as of
-[183273af30102704a103f206f974636967c4da6d](https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d)
+I've also written some quality assurance style tests, which don't contribute
+to coverage but do cover scenarios that could easily be problematic for some
+implementations can be found in:
+[test/qa.js](https://github.com/iarna/iarna-toml/blob/latest/test/qa.js) and
+[test/qa-error.js](https://github.com/iarna/iarna-toml/blob/latest/test/qa-error.js).
+
+All of the official example files from the TOML spec are run through this
+parser and compared to the official YAML files when available. These files are from the TOML spec as of:
+[357a4ba6](https://github.com/toml-lang/toml/tree/357a4ba6782e48ff26e646780bab11c90ed0a7bc)
 and specifically are:
 
-* [github.com/toml-lang/toml/tree/183273af/examples](https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/examples)
-* [github.com/toml-lang/toml/tree/183273af/tests](https://github.com/toml-lang/toml/tree/183273af30102704a103f206f974636967c4da6d/tests)
+* [github.com/toml-lang/toml/tree/357a4ba6/examples](https://github.com/toml-lang/toml/tree/357a4ba6782e48ff26e646780bab11c90ed0a7bc/examples)
+* [github.com/toml-lang/toml/tree/357a4ba6/tests](https://github.com/toml-lang/toml/tree/357a4ba6782e48ff26e646780bab11c90ed0a7bc/tests)
 
-Additional tests look at some more unusual use cases and error
-conditions are were drawn up primarily while achieving 100% coverage and are found in 
-[test/specific.js](https://github.com/iarna/iarna-toml/blob/latest/test/specific.js) and
-and [test/error.js](https://github.com/iarna/iarna-toml/blob/latest/test/error.js) respectively.
-Relatedly, [test/stringify.js](https://github.com/iarna/iarna-toml/blob/latest/test/stringify.js)
-contains the same for stringification. Tests for the parsers debugging mode live in [test/devel.js](https://github.com/iarna/iarna-toml/blob/latest/test/devel.js).
+The stringifier is tested by round-tripping these same files, asserting that
+`TOML.parse(sourcefile)` deepEqual
+`TOML.parse(TOML.stringify(TOML.parse(sourcefile))`.  This is done in
+[test/roundtrip-examples.js](https://github.com/iarna/iarna-toml/blob/latest/test/round-tripping.js)
+There are also some tests written to complete coverage from stringification in:
+[test/stringify.js](https://github.com/iarna/iarna-toml/blob/latest/test/stringify.js)
 
-And finally, many stringification tests were borrowed from [@othiym23](https://github.com/othiym23)'s
+Tests for the async and streaming interfaces are in [test/async.js](https://github.com/iarna/iarna-toml/blob/latest/test/async.js) and [test/stream.js](https://github.com/iarna/iarna-toml/blob/latest/test/stream.js) respectively.
+
+Tests for the parsers debugging mode live in [test/devel.js](https://github.com/iarna/iarna-toml/blob/latest/test/devel.js).
+
+And finally, many more stringification tests were borrowed from [@othiym23](https://github.com/othiym23)'s
 [toml-stream](https://npmjs.com/package/toml-stream) module. They were fetched as of
-[b6f1e26b572d49742d49fa6a6d11524d003441fa](https://github.com/othiym23/toml-stream/tree/b6f1e26b572d49742d49fa6a6d11524d003441fa/test).
+[b6f1e26b572d49742d49fa6a6d11524d003441fa](https://github.com/othiym23/toml-stream/tree/b6f1e26b572d49742d49fa6a6d11524d003441fa/test) and live in
+[test/toml-stream](https://github.com/iarna/iarna-toml/blob/latest/test/toml-stream/).
