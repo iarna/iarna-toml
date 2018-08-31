@@ -61,6 +61,7 @@ const errors = {
   '0 leading numbers 1': 'a = 01',
   'signed 0 leading numbers 1': 'a = -01',
   'signed 0 leading numbers 2': 'a = +01',
+  'float under before point': 'a = 1_.2',
   'time short hour': 'a = 1:22:33',
   'time incomplete 1': 'a = 11:',
   'time incomplete 3': 'a = 11:33:0',
