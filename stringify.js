@@ -175,7 +175,7 @@ function stringifyInline (value, type) {
       return stringifyInlineTable(value)
     /* istanbul ignore next */
     default:
-      throw type
+      throw typeError(type)
   }
 }
 
