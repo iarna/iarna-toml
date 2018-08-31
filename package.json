@@ -10,7 +10,9 @@
     "postpublish": "git push --follow-tags",
     "pretest": "standard",
     "update-coc": "weallbehave -o . && git add CODE_OF_CONDUCT.md && git commit -m 'docs(coc): updated CODE_OF_CONDUCT.md'",
-    "update-contrib": "weallcontribute -o . && git add CONTRIBUTING.md && git commit -m 'docs(contributing): updated CONTRIBUTING.md'"
+    "update-contrib": "weallcontribute -o . && git add CONTRIBUTING.md && git commit -m 'docs(contributing): updated CONTRIBUTING.md'",
+    "setup-optional-toml-suite": "[ -d test/burntsushi-toml-test ] || (git clone https://github.com/BurntSushi/toml-test test/burntsushi-toml-test; rimraf test/burntsushi-toml-test/.git/hooks/*); cd test/burntsushi-toml-test; git pull",
+    "prepare": "npm run setup-optional-toml-suite"
   },
   "keywords": [
     "toml",
@@ -36,6 +38,7 @@
     "funstream": "^3.0.0",
     "glob": "^7.1.2",
     "js-yaml": "^3.12.0",
+    "rimraf": "^2.6.2",
     "standard": "^11.0.1",
     "tap": "^12.0.1",
     "toml": "^2.3.3",
