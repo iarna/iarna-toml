@@ -134,9 +134,11 @@ function escapeString (str) {
 }
 
 function stringifyMultilineString (str) {
-  return '"""\n' + str.split(/\n/).map(str => {
+  let escaped = str.split(/\n/).map(str => {
     return escapeString(str).replace(/"(?="")/g, '\\"')
-  }).join('\n') + '"""'
+  }).join('\n')
+  if (escaped.slice(-1) === '"') escaped += '\\\n'
+  return '"""\n' + escaped + '"""'
 }
 
 function stringifyAnyInline (value, multilineOk) {
