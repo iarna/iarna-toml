@@ -99,11 +99,7 @@ function tomlType (value) {
   } else if (typeof value === 'string') {
     return 'string'
   } else if ('toISOString' in value) {
-    if (isNaN(value)) {
-      return 'nan'
-    } else {
-      return 'datetime'
-    }
+    return isNaN(value) ? 'undefined' : 'datetime'
   } else if (Array.isArray(value)) {
     return 'array'
   } else {
@@ -174,7 +170,7 @@ function stringifyInline (value, type) {
     case 'datetime':
       return stringifyDatetime(value)
     case 'array':
-      return stringifyInlineArray(value.filter(_ => _ != null && tomlType(_) !== 'nan'))
+      return stringifyInlineArray(value.filter(_ => tomlType(_) !== 'null' && tomlType(_) !== 'undefined' && tomlType(_) !== 'nan'))
     case 'table':
       return stringifyInlineTable(value)
     /* istanbul ignore next */
