@@ -1,3 +1,27 @@
+# 2.1.0
+
+## Features
+
+* Types for typescript support, thank you [@momocow](https://github.com/momocow)!
+
+## Fixes
+
+* stringify: always strip invalid dates.  This fixes a bug where an
+  invalid date in an inline array would not be removed and would instead
+  result in an error.
+* stringify: if an invalid type is found make sure it's thrown as an
+  error object.  Previously the type name was, unhelpfully, being thrown.
+* stringify: Multiline strings ending in a quote would generate invalid TOML.
+* parse: Error if a signed integer has a leading zero, eg, `-01` or `+01`.
+* parse: Error if \_ appears at the end of the integer part of a float, eg `1_.0`. \_ is only valid between _digits_.
+
+## Fun
+
+* BurntSushi's comprehensive TOML 0.4.0 test suite is now used in addition to our existing test suite.
+* You can see exactly how the other JS TOML libraries stack up in testing
+  against both BurntSushi's tests and my own in the new
+  [TOML-SPEC-SUPPORT](TOML-SPEC-SUPPORT.md) doc.
+
 # 2.0.0
 
 With 2.0.0, @iarna/toml supports the TOML v0.5.0 specification.  TOML 0.5.0
