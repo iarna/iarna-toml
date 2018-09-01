@@ -14,6 +14,7 @@ const bombadil = require('@sgarciac/bombadil')
 function parseBombadil (str) {
   const reader = new bombadil.TomlReader()
   reader.readToml(str)
+  if (reader.result === null) throw reader.errors
   return reader.result
 }
 

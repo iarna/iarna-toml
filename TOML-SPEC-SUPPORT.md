@@ -178,13 +178,13 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: array-mixed-types-arrays-and-ints</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: array-mixed-types-ints-and-floats</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: array-mixed-types-strings-and-ints</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: datetime-malformed-no-leads</td>
 <td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
@@ -199,13 +199,13 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: duplicate-key-table</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: duplicate-keys</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: duplicate-tables</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: empty-implicit-table</td>
 <td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
@@ -316,7 +316,7 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-array-implicit</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-array-malformed-bracket</td>
 <td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
@@ -673,13 +673,13 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td>pass</td><td><b>FAIL</b></td><td><b>FAIL</b></td><td><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: array-7</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: array-of-tables-1</td>
-<td>pass</td><td><b>FAIL</b></td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td><b>FAIL</b></td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: array-of-tables-2</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: bare-key-1</td>
 <td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
@@ -700,7 +700,7 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: multiple-key</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: no-key-name</td>
 <td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
@@ -772,9 +772,9 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td>pass</td><td><b>FAIL</b></td><td><b>FAIL</b></td><td><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: table-1</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: table-2</td>
-<td>pass</td><td>pass</td><td>pass</td><td><b>FAIL</b></td>
+<td>pass</td><td>pass</td><td>pass</td><td>pass</td>
 </tr>
 </table>
