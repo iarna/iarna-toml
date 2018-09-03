@@ -1,3 +1,9 @@
+# 2.1.1
+
+## Fixes
+
+* Oops, type defs didn't end up in the tarball, ty [@jorgegonzalez](https://github.com/jorgegonzalez)‼
+
 # 2.1.0
 
 ## Features
