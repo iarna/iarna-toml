@@ -13,7 +13,7 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 `)
 testNames.forEach(name => {
   console.log(`<tr><td>${name}</td>`)
-  console.log(parsers.map(parser => `<td>${result[name][parser] ? 'pass' : '<b>FAIL</b>'}</td>`).join(''))
+  console.log(parsers.map(parser => `<td style="background: ${result[name][parser] ? 'green' : 'red'}">${result[name][parser] ? 'pass' : '<b>FAIL</b>'}</td>`).join(''))
   console.log(`</tr>`)
 })
 console.log(`</table>`)
