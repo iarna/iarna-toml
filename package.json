@@ -62,7 +62,8 @@
     "lib/create-date.js",
     "lib/create-datetime-float.js",
     "lib/create-time.js",
-    "lib/format-num.js"
+    "lib/format-num.js",
+    "index.d.ts"
   ],
   "directories": {
     "test": "test"
