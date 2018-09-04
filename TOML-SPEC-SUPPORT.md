@@ -4,7 +4,7 @@ BurntSushi tests are for TOML 0.4.0 and are from <a href="https://github.com/Bur
 iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/iarna-toml/tree/cmc/test/spec-test">here</a>.<br>
 <br>
 <table>
-<tr><th>Test</th><th>@iarna/toml @2.1.0</th><th>toml @2.3.3</th><th>toml-j0.4 @1.1.1</th><th>@sgarciac/bombadil @2.0.0-0</th></tr>
+<tr><th>Test</th><th>@iarna/toml @2.1.1</th><th>toml @2.3.3</th><th>toml-j0.4 @1.1.1</th><th>@sgarciac/bombadil @2.0.0-0</th></tr>
 
 <tr><td>BurntSushi 0.4.0: array-empty</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
@@ -63,6 +63,9 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <tr><td>BurntSushi 0.4.0: example</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
+<tr><td>BurntSushi 0.4.0: exponent-part-float</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
 <tr><td>BurntSushi 0.4.0: float-exponent</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
@@ -79,6 +82,9 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: implicit-groups</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>BurntSushi 0.4.0: inline-table-array</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: inline-table</td>
@@ -112,6 +118,12 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>BurntSushi 0.4.0: multiline-string</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>BurntSushi 0.4.0: newline-crlf</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>BurntSushi 0.4.0: newline-lf</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: raw-multiline-string</td>
@@ -170,6 +182,12 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 </tr>
 <tr><td>BurntSushi 0.4.0: table-with-single-quotes</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>BurntSushi 0.4.0: underscored-float</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>BurntSushi 0.4.0: underscored-integer</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: unicode-escape</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
@@ -297,13 +315,22 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <tr><td>BurntSushi 0.4.0: should throw: llbrace</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
+<tr><td>BurntSushi 0.4.0: should throw: multi-line-inline-table</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+</tr>
 <tr><td>BurntSushi 0.4.0: should throw: rrbrace</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-byte-escape</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
+<tr><td>BurntSushi 0.4.0: should throw: string-bad-codepoint</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-escape</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>BurntSushi 0.4.0: should throw: string-bad-slash-escape</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-uni-esc</td>
@@ -697,7 +724,7 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: multiple-dot-key</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: multiple-key</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
@@ -730,19 +757,19 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-out-of-range-unicode-escape-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-out-of-range-unicode-escape-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-unknown-escape</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-out-of-range-unicode-escape-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-out-of-range-unicode-escape-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-unknown-escape</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>

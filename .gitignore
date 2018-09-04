@@ -5,3 +5,4 @@ node_modules
 coverage
 benchmark-results.json
 test/burntsushi-toml-test/
+test/spec-test/
