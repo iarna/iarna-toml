@@ -124,6 +124,11 @@ function stringifyLiteralString (str) {
   return "'" + str + "'"
 }
 
+function numpad (num, str) {
+  while (str.length < num) str = '0' + str
+  return str
+}
+
 function escapeString (str) {
   return str.replace(/\\/g, '\\\\')
     .replace(/[\b]/g, '\\b')
@@ -131,6 +136,7 @@ function escapeString (str) {
     .replace(/\n/g, '\\n')
     .replace(/\f/g, '\\f')
     .replace(/\r/g, '\\r')
+    .replace(/([\u0000-\u001f\u007f])/, c => '\\u' + numpad(4, c.codePointAt(0).toString(16)))
 }
 
 function stringifyMultilineString (str) {
