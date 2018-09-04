@@ -107,7 +107,7 @@ Also available with: `require('@iarna/toml/parse-stream')`
 
 Given a readable stream, parse it as it feeds us data. Return a promise of the resulting object.
 
-## readable.pipe(TOML.parse.stream()) → Transform [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse-stream-through.js)
+### readable.pipe(TOML.parse.stream()) → Transform [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse-stream-through.js)
 
 Also available with: `require('@iarna/toml/parse-stream')`
 
