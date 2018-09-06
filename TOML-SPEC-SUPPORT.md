@@ -205,16 +205,16 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: datetime-malformed-no-leads</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: datetime-malformed-no-secs</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: datetime-malformed-no-t</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: datetime-malformed-with-milli</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: duplicate-key-table</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
@@ -226,477 +226,510 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: empty-implicit-table</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: empty-table</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: float-leading-zero-neg</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: float-leading-zero-pos</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: float-leading-zero</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: float-no-leading-zero</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: float-no-trailing-digits</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: float-underscore-after-point</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: float-underscore-after</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: float-underscore-before-point</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: float-underscore-before</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: inline-table-linebreak</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: integer-leading-zero-neg</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: integer-leading-zero-pos</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: integer-leading-zero</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: integer-underscore-after</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: integer-underscore-before</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: integer-underscore-double</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-after-array</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-after-table</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-empty</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-hash</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-newline</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-no-eol</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-open-bracket</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-single-open-bracket</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-space</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-start-bracket</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: key-two-equals</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: llbrace</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: multi-line-inline-table</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: rrbrace</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-byte-escape</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-codepoint</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-escape</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-slash-escape</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-uni-esc</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-byte-escapes</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-no-close</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-array-implicit</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-array-malformed-bracket</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-array-malformed-empty</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-empty</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-nested-brackets-close</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-nested-brackets-open</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-whitespace</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: table-with-pound</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: text-after-array-entries</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: text-after-integer</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: text-after-string</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: text-after-table</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: text-before-array-separator</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: text-in-array</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: qa-array-inline-1000</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: qa-array-inline-nested-1000</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
-<tr><td>iarna 0.5.0: array-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: array-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: array-3</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: array-4</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: array-5</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: array-7</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: array-8</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: array-of-tables-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: array-of-tables-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: array-of-tables-3</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: boolean-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: boolean-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: case-sensitive</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: comment-mid-array</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: comment</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: date-local-1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: date-time-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: date-time-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: date-time-3</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: date-time-4</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: date-time-5</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: date-time-6</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: date-time-local-1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: date-time-local-2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: dotted-keys-1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: dotted-keys-2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: dotted-keys-3</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: empty-key-name-1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: empty-key-name-2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: extend-dotted-object</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-10</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-12</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-13</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-14</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-15</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-3</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-4</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-5</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-6</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-7</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-8</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: float-9</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: int-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: int-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: int-3</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: int-3a</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: int-3b</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: int-4</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: int-5</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: int-6</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: int-7</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: int-bin1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: int-hex1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: int-hex2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: int-hex3</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: int-max</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: int-min</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: int-oct1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: int-oct2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
-</tr>
-<tr><td>iarna 0.5.0: key-value-pair-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: key-value-pair-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: key-value-pair-3</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: key-value-pair-4</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: key-value-pair-5</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: key-value-pair-6</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: key-value-pair-7</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: key-value-pair-8</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: quoted-basic-keys-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: quoted-literal-keys-1</td>
+<tr><td>iarna 0.5.0: qa-key-literal-40kb</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: readme-example</td>
+<tr><td>iarna 0.5.0: qa-key-string-40kb</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-basic-multiline-1</td>
+<tr><td>iarna 0.5.0: qa-scalar-literal-40kb</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-basic-multiline-2</td>
+<tr><td>iarna 0.5.0: qa-scalar-literal-multiline-40kb</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-basic-multiline-3</td>
+<tr><td>iarna 0.5.0: qa-scalar-string-40kb</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-basic-multiline-4</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: string-basic</td>
+<tr><td>iarna 0.5.0: qa-scalar-string-multiline-40kb</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-escape-1</td>
+<tr><td>iarna 0.5.0: qa-table-inline-1000</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-escape-2</td>
+<tr><td>iarna 0.5.0: qa-table-inline-nested-1000</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: qa-table-inline-nested-10000</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-array-1</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-escape-3</td>
+<tr><td>iarna 0.5.0: spec-array-2</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-escape-4</td>
+<tr><td>iarna 0.5.0: spec-array-3</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-escape-5</td>
+<tr><td>iarna 0.5.0: spec-array-4</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-escape-6</td>
+<tr><td>iarna 0.5.0: spec-array-5</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-escape-7</td>
+<tr><td>iarna 0.5.0: spec-array-7</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-escape-8</td>
+<tr><td>iarna 0.5.0: spec-array-8</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-escape-9</td>
+<tr><td>iarna 0.5.0: spec-array-of-tables-1</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-literal-1</td>
+<tr><td>iarna 0.5.0: spec-array-of-tables-2</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-literal-2</td>
+<tr><td>iarna 0.5.0: spec-array-of-tables-3</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-literal-3</td>
+<tr><td>iarna 0.5.0: spec-boolean-1</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-literal-4</td>
+<tr><td>iarna 0.5.0: spec-boolean-2</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-literal-multiline-1</td>
+<tr><td>iarna 0.5.0: spec-case-sensitive</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: string-literal-multiline-2</td>
+<tr><td>iarna 0.5.0: spec-comment-mid-array</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: table-1</td>
+<tr><td>iarna 0.5.0: spec-comment</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
-<tr><td>iarna 0.5.0: table-2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: table-3</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: table-4</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: table-5</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: table-6</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: table-7</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: table-inline-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: table-inline-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: table-inline-3</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: table</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
-</tr>
-<tr><td>iarna 0.5.0: time-1</td>
+<tr><td>iarna 0.5.0: spec-date-local-1</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
 </tr>
-<tr><td>iarna 0.5.0: time-2</td>
+<tr><td>iarna 0.5.0: spec-date-time-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-date-time-2</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-date-time-3</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-date-time-4</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-date-time-5</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-date-time-6</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-date-time-local-1</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-date-time-local-2</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-dotted-keys-1</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-dotted-keys-2</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-dotted-keys-3</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-empty-key-name-1</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-empty-key-name-2</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-extend-dotted-object</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-10</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-12</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-13</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-14</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-15</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-2</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-3</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-4</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-5</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-6</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-7</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-8</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-float-9</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-2</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-3</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-3a</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-3b</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-4</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-5</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-6</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-7</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-bin1</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-hex1</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-hex2</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-hex3</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-max</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-min</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-oct1</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-int-oct2</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-key-value-pair-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-key-value-pair-2</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-key-value-pair-3</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-key-value-pair-4</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-key-value-pair-5</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-key-value-pair-6</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-key-value-pair-7</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-key-value-pair-8</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-quoted-basic-keys-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-quoted-literal-keys-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-readme-example</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-basic-multiline-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-basic-multiline-2</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-basic-multiline-3</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-basic-multiline-4</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-basic</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-escape-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-escape-2</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-escape-3</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-escape-4</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-escape-5</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-escape-6</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-escape-7</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-escape-8</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-escape-9</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-literal-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-literal-2</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-literal-3</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-literal-4</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-literal-multiline-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-string-literal-multiline-2</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-2</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-3</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-4</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-5</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-6</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-7</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-inline-1</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-inline-2</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table-inline-3</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-table</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>iarna 0.5.0: spec-time-1</td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+</tr>
+<tr><td>iarna 0.5.0: spec-time-2</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: array-7</td>
@@ -709,19 +742,19 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: bare-key-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: bare-key-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: bare-key-3</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: int-0-padded</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: key-value-pair-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: multiple-dot-key</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
@@ -730,7 +763,7 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: no-key-name</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-control-1</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
@@ -763,7 +796,7 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-unknown-escape</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-out-of-range-unicode-escape-1</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
@@ -772,7 +805,7 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-unknown-escape</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-literal-control-1</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>

@@ -34,7 +34,7 @@ const toTest = [
       // this is assuming that readToml should never throw
       const reader = new bombadil.TomlReader()
       reader.readToml(str)
-      if (reader.result === null) throw new BombadilError(reader.errors)
+      if (reader.result == null) throw new BombadilError(reader.errors)
       return reader.result
     }
   }
