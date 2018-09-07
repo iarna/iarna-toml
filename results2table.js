@@ -50,7 +50,11 @@ for (let nodev in results) {
 
   for (let name in results[nodev]) {
     if (!size[name]) {
-      size[name] = fileSize(name)
+      try {
+        size[name] = fileSize(name)
+      } catch (_) {
+        continue
+      }
     }
     const bench = results[nodev][name]
     let line = `| ${testName[name] || name} |`
