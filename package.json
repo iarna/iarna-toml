@@ -33,7 +33,7 @@
   "dependencies": {},
   "devDependencies": {
     "@perl/qx": "^1.0.2",
-    "@sgarciac/bombadil": "^2.0.0-0",
+    "@sgarciac/bombadil": "^2.0.0-1",
     "ansi": "^0.3.1",
     "approximate-number": "^2.0.0",
     "benchmark": "^2.1.4",
