@@ -7,8 +7,8 @@ declare module "@iarna/toml" {
   
   interface FuncParse {
     (toml: string): JsonMap
-    async: (toml: string, options: { blocksize: number }) => Promise<object>
-    stream: (readable: NodeJS.ReadableStream) => Promise<object>
+    async: (toml: string, options: { blocksize: number }) => Promise<JsonMap>
+    stream: (readable: NodeJS.ReadableStream) => Promise<JsonMap>
   }
 
   export const parse: FuncParse
