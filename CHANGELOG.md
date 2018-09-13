@@ -1,3 +1,23 @@
+# 2.2.0
+
+## Features
+
+* Typescript: Lots of improvements to our type definitions, many many to
+  @jorgegonzalez and @momocow for working through these.
+
+## Fixes
+
+* Very large integers (>52bit) are stored as BigInts on runtimes that
+  support them.  BigInts are 128bits, but the TOML spec limits its integers
+  to 64bits.  We now limit our integers to 64bits
+  as well.
+* Fix a bug in stringify where control characters were being emitted as unicode chars and not escape sequences.
+
+## Misc
+
+* Moved our spec tests out to an external repo
+* Improved the styling of the spec compliance comparison
+
 # 2.1.1
 
 ## Fixes
