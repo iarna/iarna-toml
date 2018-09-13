@@ -34,6 +34,8 @@ Visit the project github [for more examples](https://github.com/iarna/iarna-toml
 ## Why @iarna/toml
 
 * The only TOML 0.5.0 complaint parser for Node.js (as of this writing).
+  See [TOML-SPEC-SUPPORT](https://shared.by.re-becca.org/misc/TOML-SPEC-SUPPORT.html) for a comparison of which TOML features
+  are supported by the various Node.js TOML parsers.
 * BigInt support on Node 10!
 * 100% test coverage.
 * Faster parsing, even if you only use TOML 0.4.0, it's 25 times faster than `toml` and 3 times faster than `toml-j0.4`.
@@ -105,7 +107,7 @@ Also available with: `require('@iarna/toml/parse-stream')`
 
 Given a readable stream, parse it as it feeds us data. Return a promise of the resulting object.
 
-## readable.pipe(TOML.parse.stream()) → Transform [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse-stream-through.js)
+### readable.pipe(TOML.parse.stream()) → Transform [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/parse-stream-through.js)
 
 Also available with: `require('@iarna/toml/parse-stream')`
 

@@ -1,0 +1,43 @@
+'use strict'
+const TomlError = require('../lib/toml-parser.js').TomlError
+const testParser = require('../test/lib/test-parser.js')
+
+const iarnaToml = require('../parse-string.js')
+const TomlSyntaxError = require('toml').SyntaxError
+const parseToml = require('toml').parse
+const Tomlj04SyntaxError = require('toml-j0.4').SyntaxError
+const parseTomlj04 = require('toml-j0.4').parse
+const bombadil = require('@sgarciac/bombadil')
+
+class BombadilError extends Error {}
+
+const toTest = [
+  {
+    name: '@iarna/toml@2.1.1',
+    parse: iarnaToml,
+    ErrorClass: TomlError
+  },
+  {
+    name: 'toml@2.3.3',
+    ErrorClass: TomlSyntaxError,
+    parse: parseToml
+  },
+  {
+    name: 'toml-j0.4@1.1.1',
+    ErrorClass: Tomlj04SyntaxError,
+    parse: parseTomlj04
+  },
+  {
+    name: '@sgarciac/bombadil@2.0.0-0',
+    ErrorClass: BombadilError,
+    parse: str => {
+      // this is assuming that readToml should never throw
+      const reader = new bombadil.TomlReader()
+      reader.readToml(str)
+      if (reader.result === null) throw new BombadilError(reader.errors)
+      return reader.result
+    }
+  }
+]
+
+testParser(toTest, `${__dirname}/../test/burntsushi-toml-test/tests/valid`, `${__dirname}/../test/burntsushi-toml-test/tests/invalid`)

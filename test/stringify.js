@@ -8,7 +8,8 @@ const roundtrip = {
     toml: 'a = [ [ 5 ], [ 23 ] ]\n',
     'array of tables': {obj: {a: [{b: 5}, {b: 23}]}, toml: '[[a]]\nb = 5\n\n[[a]]\nb = 23\n'}},
   'inline objects': {obj: {a: [[{a: 23}, {}]]}, toml: `a = [ [ { a = 23 }, { } ] ]\n`},
-  'keys with quotes': {obj: {'a"b': 123}, toml: `"a\\"b" = 123\n`}
+  'keys with quotes': {obj: {'a"b': 123}, toml: `"a\\"b" = 123\n`},
+  'multiline values ending in quotes': {obj: {a: 'abc\n"def"'}, toml: `a = """\nabc\n"def"\\\n"""\n`}
 }
 const good = {
   'toJSON overrides': {obj: {a: {toJSON: () => 'EXAMPLE'}}, toml: `a = "EXAMPLE"\n`},
@@ -20,7 +21,8 @@ const good = {
   'null is removed from arrays': {obj: {a: [null]}, toml: `a = [ ]\n`},
   'undefined is removed from arrays': {obj: {a: [23, undefined]}, toml: `a = [ 23 ]\n`},
   'NaN is NOT removed from arrays': {obj: {a: [NaN, 23]}, toml: `a = [ nan, 23.0 ]\n`},
-  'Invalid Date': {obj: {a: [new Date('nope')]}, toml: `a = [ ]\n`},
+  'Invalid Date in scalar': {obj: {a: 1, b: new Date('BAD')}, toml: 'a = 1\n'},
+  'Invalid Date in list': {obj: {a: [new Date('nope')]}, toml: `a = [ ]\n`},
   'infinity': {obj: {a: Infinity}, toml: `a = inf\n`},
   '-infinity': {obj: {a: -Infinity}, toml: `a = -inf\n`},
   '-0': {obj: {a: -0}, toml: 'a = -0.0\n'},

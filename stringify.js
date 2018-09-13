@@ -99,11 +99,7 @@ function tomlType (value) {
   } else if (typeof value === 'string') {
     return 'string'
   } else if ('toISOString' in value) {
-    if (isNaN(value)) {
-      return 'nan'
-    } else {
-      return 'datetime'
-    }
+    return isNaN(value) ? 'undefined' : 'datetime'
   } else if (Array.isArray(value)) {
     return 'array'
   } else {
@@ -128,6 +124,11 @@ function stringifyLiteralString (str) {
   return "'" + str + "'"
 }
 
+function numpad (num, str) {
+  while (str.length < num) str = '0' + str
+  return str
+}
+
 function escapeString (str) {
   return str.replace(/\\/g, '\\\\')
     .replace(/[\b]/g, '\\b')
@@ -135,12 +136,15 @@ function escapeString (str) {
     .replace(/\n/g, '\\n')
     .replace(/\f/g, '\\f')
     .replace(/\r/g, '\\r')
+    .replace(/([\u0000-\u001f\u007f])/, c => '\\u' + numpad(4, c.codePointAt(0).toString(16)))
 }
 
 function stringifyMultilineString (str) {
-  return '"""\n' + str.split(/\n/).map(str => {
+  let escaped = str.split(/\n/).map(str => {
     return escapeString(str).replace(/"(?="")/g, '\\"')
-  }).join('\n') + '"""'
+  }).join('\n')
+  if (escaped.slice(-1) === '"') escaped += '\\\n'
+  return '"""\n' + escaped + '"""'
 }
 
 function stringifyAnyInline (value, multilineOk) {
@@ -174,12 +178,12 @@ function stringifyInline (value, type) {
     case 'datetime':
       return stringifyDatetime(value)
     case 'array':
-      return stringifyInlineArray(value.filter(_ => _ != null && tomlType(_) !== 'nan'))
+      return stringifyInlineArray(value.filter(_ => tomlType(_) !== 'null' && tomlType(_) !== 'undefined' && tomlType(_) !== 'nan'))
     case 'table':
       return stringifyInlineTable(value)
     /* istanbul ignore next */
     default:
-      throw type
+      throw typeError(type)
   }
 }
 

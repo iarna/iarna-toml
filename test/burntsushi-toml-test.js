@@ -11,5 +11,5 @@ const toTest = {
   ErrorClass: TomlError
 }
 
-testParser([toTest], `${__dirname}/spec-test/values`, `${__dirname}/spec-test/errors`)
-testStringifier([toTest], `${__dirname}/spec-test/values`)
+testParser([toTest], `${__dirname}/burntsushi-toml-test/tests/valid`, `${__dirname}/burntsushi-toml-test/tests/invalid`)
+testStringifier([toTest], `${__dirname}/burntsushi-toml-test/tests/valid`)
