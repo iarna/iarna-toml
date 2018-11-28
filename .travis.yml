@@ -12,6 +12,9 @@ matrix:
     - node_js: "8"
     - node_js: "6"
     - node_js: "4"
+      install:
+        - "mv package-lock.json npm-shrinkwrap.json"
+        - "npm i"
 cache:
   directories:
   - node_modules/.cache
