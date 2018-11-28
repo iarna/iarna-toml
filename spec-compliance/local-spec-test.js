@@ -24,7 +24,7 @@ const toTest = [
     parse: parseTomlj04
   },
   {
-    name: '@sgarciac/bombadil@2.0.0-0',
+    name: '@sgarciac/bombadil@2.0.0',
     ErrorClass: BombadilError,
     parse: str => {
       // this is assuming that readToml should never throw

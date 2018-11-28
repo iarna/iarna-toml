@@ -4,7 +4,7 @@ BurntSushi tests are for TOML 0.4.0 and are from <a href="https://github.com/Bur
 iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/iarna-toml/tree/cmc/test/spec-test">here</a>.<br>
 <br>
 <table>
-<tr><th>Test</th><th>@iarna/toml @2.1.1</th><th>toml @2.3.3</th><th>toml-j0.4 @1.1.1</th><th>@sgarciac/bombadil @2.0.0-0</th></tr>
+<tr><th>Test</th><th>@iarna/toml @2.1.1</th><th>toml @2.3.3</th><th>toml-j0.4 @1.1.1</th><th>@sgarciac/bombadil @2.0.0</th></tr>
 
 <tr><td>BurntSushi 0.4.0: array-empty</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
@@ -118,6 +118,9 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>BurntSushi 0.4.0: multiline-string</td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
+</tr>
+<tr><td>BurntSushi 0.4.0: nested-inline-table-array</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: newline-crlf</td>
@@ -325,7 +328,7 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-codepoint</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>BurntSushi 0.4.0: should throw: string-bad-escape</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
@@ -577,16 +580,16 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: spec-int-bin1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: spec-int-hex1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: spec-int-hex2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: spec-int-hex3</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: spec-int-max</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
@@ -595,10 +598,10 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
 </tr>
 <tr><td>iarna 0.5.0: spec-int-oct1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: spec-int-oct2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: spec-key-value-pair-1</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
@@ -757,7 +760,7 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: multiple-dot-key</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: multiple-key</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
@@ -766,70 +769,70 @@ iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/ia
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-control-1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-control-2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-control-3</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-control-4</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-control-1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-control-2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-control-3</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-control-4</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-out-of-range-unicode-escape-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-out-of-range-unicode-escape-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-multiline-unknown-escape</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-out-of-range-unicode-escape-1</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-out-of-range-unicode-escape-2</td>
-<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-basic-unknown-escape</td>
 <td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-literal-control-1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-literal-control-2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-literal-control-3</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-literal-control-4</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-literal-multiline-control-1</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-literal-multiline-control-2</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-literal-multiline-control-3</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: string-literal-multiline-control-4</td>
-<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td>
+<td class="pass">pass</td><td class="fail"><b>FAIL</b></td><td class="fail"><b>FAIL</b></td><td class="pass">pass</td>
 </tr>
 <tr><td>iarna 0.5.0: should throw: table-1</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
