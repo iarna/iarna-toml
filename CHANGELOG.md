@@ -1,3 +1,23 @@
+# 2.2.1
+
+## Fixes
+
+* Fix bug where keys with names matching javascript Object methods would
+  error.  Thanks @LongTengDao for finding this!
+* Fix bug where a bundled version would fail if `util.inspect` wasn't
+  provided.  This was supposed to be guarded against, but there was a bug in
+  the guard. Thanks @agriffis for finding and fixing this!
+
+## Misc
+
+* Update the version of bombadil for spec complaince and benchmarking purposes to 2.0.0
+
+## Did you know?
+
+Node 6 and 8 are measurably slower than Node 6, 10 and 11, at least when it comes to parsing TOML!
+
+![](https://pbs.twimg.com/media/DtDeVjmU4AE5apz.jpg)
+
 # 2.2.0
 
 ## Features
