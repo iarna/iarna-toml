@@ -17,4 +17,4 @@ cache:
   - node_modules/.cache
   - ~/.npm
 script:
-  - "tap -J test"
+  - "tap -J test/*.js test/toml-stream/*.js"
