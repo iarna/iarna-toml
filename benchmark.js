@@ -43,7 +43,7 @@ const fixtures = glob(`${__dirname}/benchmark/*.toml`)
   .concat(glob(`${__dirname}/test/spec-test/*toml`))
   .map(_ => ({data: fs.readFileSync(_, {encoding: 'utf8'})}))
 fixtures.forEach(_ => { _.answer = parseIarnaToml(_.data) })
-let results
+var results
 
 console.error(fixtures.reduce((acc, _) => acc + _.data.length, 0))
 try {
