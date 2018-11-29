@@ -8,6 +8,10 @@ const parseToml = require('toml').parse
 const Tomlj04SyntaxError = require('toml-j0.4').SyntaxError
 const parseTomlj04 = require('toml-j0.4').parse
 const bombadil = require('@sgarciac/bombadil')
+const ltdToml = require('@ltd/j-toml')
+function parseLtdToml (str) {
+  return ltdToml.parse(str, 0.5, '\n')
+}
 
 class BombadilError extends Error {}
 
@@ -37,6 +41,10 @@ const toTest = [
       if (reader.result == null) throw new BombadilError(reader.errors)
       return reader.result
     }
+  },
+  {
+    name: '@ltd/j-toml@0.5.45',
+    parse: parseLtdToml
   }
 ]
 

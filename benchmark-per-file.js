@@ -40,6 +40,10 @@ function parseBombadil (str) {
   if (reader.result === null) throw reader.errors
   return reader.result
 }
+const ltdToml = require('@ltd/j-toml')
+function parseLtdToml (str) {
+  return ltdToml.parse(str, 0.5, '\n')
+}
 
 let results
 
@@ -119,6 +123,14 @@ fixtures.forEach(fixture => {
     fn: function () {
       assertIsDeeply(parseBombadil(fixture.data), fixture.answer)
     },
+    onCycle: onCycle,
+    onComplete: onComplete
+  })
+  suite.add('@ltd/j-toml', {
+    fn: function () {
+      assertIsDeeply(parseLtdToml(fixture.data), fixture.answer)
+    },
+    maxTime: 15,
     onCycle: onCycle,
     onComplete: onComplete
   })
