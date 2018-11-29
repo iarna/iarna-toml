@@ -39,6 +39,10 @@ function parseBombadil (str) {
   if (reader.result === null) throw reader.errors
   return reader.result
 }
+const ltdToml = require('@ltd/toml')
+function parseLtdToml (str) {
+  return ltdToml.parse(str, 0.5, '\n')
+}
 const fixtures = glob(`${__dirname}/benchmark/*.toml`)
   .concat(glob(`${__dirname}/test/spec-test/*toml`))
   .map(_ => ({data: fs.readFileSync(_, {encoding: 'utf8'})}))
@@ -126,6 +130,16 @@ suite.add('bombadil', {
   fn: function () {
     fixtures.forEach(_ => {
       assertIsDeeply(parseBombadil(_.data), _.answer)
+    })
+  },
+  maxTime: 15,
+  onCycle: onCycle,
+  onComplete: onComplete
+})
+suite.add('@ltd/toml', {
+  fn: function () {
+    fixtures.forEach(_ => {
+      assertIsDeeply(parseLtdToml(_.data), _.answer)
     })
   },
   maxTime: 15,
