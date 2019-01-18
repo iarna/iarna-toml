@@ -30,7 +30,7 @@ function getComplexKeys (obj) {
 }
 
 function toJSON (obj) {
-  let nobj = Array.isArray(obj) ? [] : {}
+  let nobj = Array.isArray(obj) ? [] : Object.prototype.hasOwnProperty.call(obj, '__proto__') ? {['__proto__']: undefined} : {}
   for (let prop of Object.keys(obj)) {
     if (obj[prop] && typeof obj[prop].toJSON === 'function' && !('toISOString' in obj[prop])) {
       nobj[prop] = obj[prop].toJSON()
