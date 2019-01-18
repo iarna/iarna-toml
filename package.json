@@ -32,6 +32,7 @@
   "description": "Better TOML parsing and stringifying all in that familiar JSON interface.",
   "dependencies": {},
   "devDependencies": {
+    "@ltd/j-toml": "^0.5.33",
     "@perl/qx": "^1.0.2",
     "@sgarciac/bombadil": "^2.0.0",
     "ansi": "^0.3.1",

@@ -34,11 +34,15 @@ const parseIarnaToml = require('./parse-string.js')
 const parseToml = require('toml').parse
 const parseTomlj04 = require('toml-j0.4').parse
 const bombadil = require('@sgarciac/bombadil')
+const jTOML = require('@ltd/j-toml')
 function parseBombadil (str) {
   const reader = new bombadil.TomlReader()
   reader.readToml(str)
   if (reader.result === null) throw reader.errors
   return reader.result
+}
+function parsejTOML (str) {
+  return jTOML.parse(str, 0.5, '\n')
 }
 
 let results
@@ -123,6 +127,14 @@ fixtures.forEach(fixture => {
     onComplete: onComplete
   })
 
+  suite.add('@ltd/j-toml', {
+    fn: function () {
+      assertIsDeeply(parsejTOML(fixture.data), fixture.answer)
+    },
+    maxTime: 15,
+    onCycle: onCycle,
+    onComplete: onComplete
+  })
   suite.run()
   console.log('\n')
 })
