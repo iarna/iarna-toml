@@ -4,6 +4,14 @@
 
 * Support parsing and stringifying objects with `__proto` properties. ([@LongTengDao](https://github.com/LongTengDao))
 
+## Misc
+
+* Updates for spec compliance and benchmarking:
+  * @sgarciac/bombadil -> 2.1.0
+  * toml -> 3.0.0
+* Added spec compliance and benchmarking for:
+  * @ltd/j-toml
+
 # 2.2.1
 
 ## Fixes
@@ -16,7 +24,7 @@
 
 ## Misc
 
-* Update the version of bombadil for spec complaince and benchmarking purposes to 2.0.0
+* Update the version of bombadil for spec compliance and benchmarking purposes to 2.0.0
 
 ## Did you know?
 
