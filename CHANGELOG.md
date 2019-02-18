@@ -1,3 +1,9 @@
+# 2.2.2
+
+## Fixes
+
+* Support parsing and stringifying objects with `__proto` properties. ([@LongTengDao](https://github.com/LongTengDao))
+
 # 2.2.1
 
 ## Fixes
