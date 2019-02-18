@@ -197,9 +197,13 @@ $ npm run benchmark
 ```
 
 The results below are from my laptop using Node 10.6.0.  The library
-versions tested were `@iarna/toml@1.6.0`, `toml-j0.4@1.1.1`, `toml@2.3.3`,
-`@sgarciac/bombadil@2.0.0`.  The percentage after average results is the
-margin of error.
+versions tested were `@iarna/toml@2.2.2`, `toml-j0.4@1.1.1`, `toml@3.0.0`,
+`@sgarciac/bombadil@2.1.0` and `@ltd/j-toml@0.5.45`.  The speed value is
+megabytes-per-second that the parser can process of that document type.
+Bigger is better.  The second number is the margin of error, lower implies
+more consistent performance.
+
+The percentage after average results is the margin of error.
 
 |   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   |
 | - | ----------- | - | --------- | - | ---- | - | -------------------| - |
