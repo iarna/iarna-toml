@@ -205,8 +205,8 @@ more consistent performance.
 
 The percentage after average results is the margin of error.
 
-|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   | @ltd/j-toml |
-| - | ----------- | - | --------- | - | ---- | - | -------------------| - | ----------- | -
+|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   | @ltd/j-toml |   |
+| - | ----------- | - | --------- | - | ---- | - | -------------------| - | ----------- | - |
 | Overall | 12MB/sec | 1.62% | 6.7MB/sec | 1.62% | 0.2MB/sec | 1.18% | crashed | | crashed | |
 | Spec Example: v0.4.0 | 21MB/sec | 3.16% | 9.4MB/sec | 1.24% | 1MB/sec | 3.49% | 1.5MB/sec | 2.26% | crashed | |
 | Spec Example: Hard Unicode | 55MB/sec | 1.69% | 16MB/sec | 1.35% | 2MB/sec | 3.38% | 0.8MB/sec | 2.19% | 90MB/sec | 1.76% |

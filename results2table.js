@@ -45,8 +45,8 @@ function fileSize (name) {
 for (let nodev in results) {
   console.log(`### ${nodev}`)
   console.log('')
-  console.log('|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   | @ltd/j-toml |')
-  console.log('| - | ----------- | - | --------- | - | ---- | - | -------------------| - | ----------- | -')
+  console.log('|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   | @ltd/j-toml |   |')
+  console.log('| - | ----------- | - | --------- | - | ---- | - | -------------------| - | ----------- | - |')
 
   for (let name in results[nodev]) {
     if (!size[name]) {
