@@ -153,18 +153,19 @@ Version 2 of this module supports TOML 0.5.0.  Other modules currently
 published to the npm registry support 0.4.0.  0.5.0 is mostly backwards
 compatible with 0.4.0, but if you have need, you can install @iarna/toml@1
 to get a version of this module that supports 0.4.0.  Please see the
-[CHANGELOG](CHANGELOG.md) for details on exactly whats changed.
+[CHANGELOG](CHANGELOG.md#2.0.0) for details on exactly whats changed.
 
 ## TOML we can't do
 
 * `-nan` is a valid TOML value and is converted into `NaN`. There is no way to
-  produce `-nan` when stringifying.
+  produce `-nan` when stringifying. Stringification will produce positive `nan`.
 * Detecting and erroring on invalid utf8 documents: This is because Node's
   UTF8 processing converts invalid sequences into the placeholder character
   and does not have facilities for reporting these as errors instead.  We
   _can_ detect the placeholder character, but it's valid to intentionally
-  include it.
+  include them in documents, so erroring on them is not great.
 * On versions of Node < 10, very large Integer values will lose precision.
+  On Node >=10, bigints are used.
 * Floating/local dates and times are still represented by JavaScript Date
   objects, which don't actually support these concepts. The objects
   returned have been modified so that you can determine what kind of thing
@@ -178,7 +179,9 @@ to get a version of this module that supports 0.4.0.  Please see the
 ## Improvements to make
 
 * In stringify:
-  * Any way to produce comments. As a JSON stand-in I'm not too worried about this.
+  * Any way to produce comments.  As a JSON stand-in I'm not too worried
+    about this.  That said, a document orientated fork is something I'd like
+    to look at eventually…
   * Stringification could use some work on its error reporting.  It reports
     _what's_ wrong, but not where in your data structure it was.
 * Further optimize the parser:
