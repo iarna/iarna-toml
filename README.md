@@ -205,33 +205,33 @@ more consistent performance.
 
 The percentage after average results is the margin of error.
 
-|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   |
-| - | ----------- | - | --------- | - | ---- | - | -------------------| - |
-| Overall | 11MB/sec | 2.82% | 3.6MB/sec | 2.09% | 0.2MB/sec | 3.08% | crashed | |
-| Spec Example: v0.4.0 | 20MB/sec | 1.79% | 6.4MB/sec | 0.76% | 0.9MB/sec | 3.06% | 2.6MB/sec | 1.87% |
-| Spec Example: Hard Unicode | 49MB/sec | 2.65% | 11MB/sec | 1.45% | 1.8MB/sec | 2.93% | 1.6MB/sec | 1.88% |
-| Types: Array, Inline | 4.7MB/sec | 1.85% | 2.3MB/sec | 2.04% | 0.1MB/sec | 2.34% | 1.4MB/sec | 1.96% |
-| Types: Array | 6.2MB/sec | 1.50% | 3.5MB/sec | 2.72% | 0.2MB/sec | 4.10% | 1.4MB/sec | 1.93% |
-| Types: Boolean, | 9.5MB/sec | 1.64% | 4.8MB/sec | 1.44% | 0.2MB/sec | 2.94% | 2MB/sec | 1.77% |
-| Types: Datetime | 9.4MB/sec | 2.08% | 5.6MB/sec | 2.17% | 0.3MB/sec | 4.15% | 1.6MB/sec | 2.19% |
-| Types: Float | 6.1MB/sec | 1.03% | 3MB/sec | 2.12% | 0.3MB/sec | 2.46% | 2.2MB/sec | 1.69% |
-| Types: Int | 4MB/sec | 1.86% | 2.6MB/sec | 0.68% | 0.1MB/sec | 1.53% | 1.7MB/sec | 1.81% |
-| Types: Literal String, 7 char | 11MB/sec | 1.92% | 4MB/sec | 1.56% | 0.3MB/sec | 2.14% | 2.2MB/sec | 2.20% |
-| Types: Literal String, 92 char | 15MB/sec | 1.54% | 4.9MB/sec | 2.43% | 0.4MB/sec | 5.49% | 13MB/sec | 1.85% |
-| Types: Literal String, Multiline, 1079 char | 13MB/sec | 0.56% | 3.2MB/sec | 1.56% | 1.2MB/sec | 4.76% | 56MB/sec | 2.71% |
-| Types: Basic String, 7 char | 12MB/sec | 0.94% | 3.8MB/sec | 1.21% | 0.2MB/sec | 4.34% | 2.3MB/sec | 2.29% |
-| Types: Basic String, 92 char | 17MB/sec | 0.68% | 4.1MB/sec | 3.16% | 0.1MB/sec | 6.90% | 13MB/sec | 2.28% |
-| Types: Basic String, 1079 char | 13MB/sec | 0.65% | 2.9MB/sec | 3.25% | 0.1MB/sec | 3.70% | 60MB/sec | 2.04% |
-| Types: Table, Inline | 5.6MB/sec | 1.77% | 2.8MB/sec | 1.96% | 0.1MB/sec | 2.79% | 1.5MB/sec | 4.45% |
-| Types: Table | 3.6MB/sec | 3.21% | 2.5MB/sec | 1.91% | 0.1MB/sec | 3.10% | 1.5MB/sec | 2.39% |
-| Scaling: Array, Inline, 1000 elements | 33MB/sec | 1.96% | 1.9MB/sec | 1.68% | 0.1MB/sec | 2.97% | 2.2MB/sec | 1.60% |
-| Scaling: Array, Nested, 1000 deep | 1.8MB/sec | 1.31% | 1.1MB/sec | 1.65% | 0.2MB/sec | 2.98% | crashed | |
-| Scaling: Literal String, 40kb | 35MB/sec | 2.05% | 4MB/sec | 4.67% | 3.4MB/sec | 2.91% | 27MB/sec | 3.05% |
-| Scaling: Literal String, Multiline, 40kb | 34MB/sec | 1.90% | 2.8MB/sec | 4.09% | 0.2MB/sec | 3.68% | 28MB/sec | 1.03% |
-| Scaling: Basic String, Multiline, 40kb | 35MB/sec | 3.05% | 3.1MB/sec | 4.39% | 3.3MB/sec | 2.62% | 27MB/sec | 1.97% |
-| Scaling: Basic String, 40kb | 36MB/sec | 2.77% | 4.6MB/sec | 1.69% | 0.2MB/sec | 4.09% | 30MB/sec | 1.65% |
-| Scaling: Table, Inline, 1000 elements | 12MB/sec | 2.09% | 3.2MB/sec | 2.67% | 0.3MB/sec | 1.85% | 2.9MB/sec | 1.83% |
-| Scaling: Table, Inline, Nested, 1000 deep | 7.1MB/sec | 2.30% | 3.2MB/sec | 1.90% | 0.1MB/sec | 3.27% | crashed | |
+|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   | @ltd/j-toml |
+| - | ----------- | - | --------- | - | ---- | - | -------------------| - | ----------- | -
+| Overall | 12MB/sec | 1.62% | 6.7MB/sec | 1.62% | 0.2MB/sec | 1.18% | crashed | | crashed | |
+| Spec Example: v0.4.0 | 21MB/sec | 3.16% | 9.4MB/sec | 1.24% | 1MB/sec | 3.49% | 1.5MB/sec | 2.26% | crashed | |
+| Spec Example: Hard Unicode | 55MB/sec | 1.69% | 16MB/sec | 1.35% | 2MB/sec | 3.38% | 0.8MB/sec | 2.19% | 90MB/sec | 1.76% |
+| Types: Array, Inline | 4.9MB/sec | 1.98% | 2.6MB/sec | 0.92% | 0.1MB/sec | 3.52% | 1.4MB/sec | 2.59% | 3.1MB/sec | 21.97% |
+| Types: Array | 6.5MB/sec | 0.89% | 5.6MB/sec | 0.70% | 0.1MB/sec | 6.68% | 1.2MB/sec | 3.51% | 4.8MB/sec | 0.36% |
+| Types: Boolean, | 9.8MB/sec | 0.99% | 5.7MB/sec | 0.82% | 0.2MB/sec | 3.97% | 1.9MB/sec | 3.42% | 5.2MB/sec | 0.53% |
+| Types: Datetime | 9.8MB/sec | 1.28% | 7.2MB/sec | 1.14% | 0.3MB/sec | 3.38% | 1.1MB/sec | 12.56% | 8.1MB/sec | 0.52% |
+| Types: Float | 6.3MB/sec | 0.90% | 4MB/sec | 0.85% | 0.3MB/sec | 4.13% | 2MB/sec | 4.68% | 4.3MB/sec | 0.48% |
+| Types: Int | 4.3MB/sec | 1.32% | 3MB/sec | 1.66% | 0.1MB/sec | 7.52% | 1.5MB/sec | 5.14% | crashed | |
+| Types: Literal String, 7 char | 12MB/sec | 1.02% | 5.8MB/sec | 1.09% | 0.3MB/sec | 1.57% | 2.3MB/sec | 4.37% | 6.7MB/sec | 0.61% |
+| Types: Literal String, 92 char | 15MB/sec | 0.80% | 10MB/sec | 1.19% | 0.4MB/sec | 2.61% | 12MB/sec | 4.39% | 35MB/sec | 0.41% |
+| Types: Literal String, Multiline, 1079 char | 12MB/sec | 4.82% | 7MB/sec | 1.56% | 1.2MB/sec | 5.79% | 49MB/sec | 2.89% | 264MB/sec | 0.78% |
+| Types: Basic String, 7 char | 12MB/sec | 1.17% | 4.8MB/sec | 1.47% | 0.2MB/sec | 1.91% | 2.1MB/sec | 3.86% | 6.5MB/sec | 0.50% |
+| Types: Basic String, 92 char | 16MB/sec | 1.01% | 7.5MB/sec | 2.37% | 0.1MB/sec | 2.22% | 11MB/sec | 3.76% | 34MB/sec | 0.45% |
+| Types: Basic String, 1079 char | 12MB/sec | 1.22% | 6.1MB/sec | 1.96% | 0.1MB/sec | 2.23% | 46MB/sec | 2.49% | 52MB/sec | 0.39% |
+| Types: Table, Inline | 5.7MB/sec | 0.92% | 3.4MB/sec | 1.24% | 0.1MB/sec | 4.94% | 1.4MB/sec | 2.73% | 3.3MB/sec | 1.52% |
+| Types: Table | 3.9MB/sec | 1.83% | 3.2MB/sec | 0.63% | 0.1MB/sec | 6.10% | 1.2MB/sec | 2.76% | 3.8MB/sec | 0.94% |
+| Scaling: Array, Inline, 1000 elements | 29MB/sec | 2.81% | 2.4MB/sec | 0.93% | 0.1MB/sec | 8.03% | 1.6MB/sec | 3.48% | 9.9MB/sec | 1.01% |
+| Scaling: Array, Nested, 1000 deep | 1.5MB/sec | 4.51% | 1.1MB/sec | 0.76% | 0.1MB/sec | 6.33% | crashed | | 0.9MB/sec | 5.12% |
+| Scaling: Literal String, 40kb | 32MB/sec | 1.06% | 11MB/sec | 4.42% | 3.4MB/sec | 7.49% | 15MB/sec | 3.09% | 469MB/sec | 0.51% |
+| Scaling: Literal String, Multiline, 40kb | 32MB/sec | 0.97% | 6.2MB/sec | 1.00% | 0.2MB/sec | 2.30% | 13MB/sec | 3.10% | 205MB/sec | 0.61% |
+| Scaling: Basic String, Multiline, 40kb | 33MB/sec | 0.81% | 7MB/sec | 2.48% | 3.4MB/sec | 7.55% | 14MB/sec | 3.81% | 719MB/sec | 0.56% |
+| Scaling: Basic String, 40kb | 33MB/sec | 1.37% | 8.6MB/sec | 0.98% | 0.2MB/sec | 3.16% | 16MB/sec | 2.83% | 367MB/sec | 0.35% |
+| Scaling: Table, Inline, 1000 elements | 12MB/sec | 0.91% | 5.5MB/sec | 2.00% | 0.3MB/sec | 5.06% | 2.4MB/sec | 4.51% | 2MB/sec | 0.84% |
+| Scaling: Table, Inline, Nested, 1000 deep | 7.2MB/sec | 2.31% | 4MB/sec | 0.76% | 0.1MB/sec | 8.18% | crashed | | 1.4MB/sec | 5.95% |
 
 ## Changes
 
