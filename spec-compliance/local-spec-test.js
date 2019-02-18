@@ -15,12 +15,12 @@ class BombadilError extends Error {}
 
 const toTest = [
   {
-    name: '@iarna/toml@2.1.1',
+    name: '@iarna/toml@2.2.2',
     parse: iarnaToml,
     ErrorClass: TomlError
   },
   {
-    name: 'toml@2.3.3',
+    name: 'toml@3.0.0',
     parse: parseToml
   },
   {
@@ -28,7 +28,7 @@ const toTest = [
     parse: parseTomlj04
   },
   {
-    name: '@sgarciac/bombadil@2.0.0',
+    name: '@sgarciac/bombadil@2.1.0',
     ErrorClass: BombadilError,
     parse: str => {
       // this is assuming that readToml should never throw
