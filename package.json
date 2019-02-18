@@ -34,7 +34,7 @@
   "devDependencies": {
     "@ltd/j-toml": "^0.5.45",
     "@perl/qx": "^1.0.2",
-    "@sgarciac/bombadil": "^2.0.0",
+    "@sgarciac/bombadil": "^2.1.0",
     "ansi": "^0.3.1",
     "approximate-number": "^2.0.0",
     "benchmark": "^2.1.4",
