@@ -8,7 +8,7 @@ const parseTomlj04 = require('toml-j0.4').parse
 const bombadil = require('@sgarciac/bombadil')
 const ltdToml = require('@ltd/j-toml')
 function parseLtdToml (str) {
-  return ltdToml.parse(str, 0.5, '\n')
+  return ltdToml.parse(str, 0.5, '\n', Number.MAX_SAFE_INTEGER)
 }
 
 class BombadilError extends Error {}
