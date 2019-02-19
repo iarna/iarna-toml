@@ -42,7 +42,7 @@ function parseBombadil (str) {
 }
 const ltdToml = require('@ltd/j-toml')
 function parseLtdToml (str) {
-  return ltdToml.parse(str, 0.5, '\n')
+  return ltdToml.parse(str, 0.5, '\n', Number.MAX_SAFE_INTEGER)
 }
 
 let results
