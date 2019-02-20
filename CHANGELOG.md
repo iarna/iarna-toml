@@ -17,10 +17,10 @@
 ## Fixes
 
 * Fix bug where keys with names matching javascript Object methods would
-  error.  Thanks @LongTengDao for finding this!
+  error.  Thanks [@LongTengDao](https://github.com/LongTengDao) for finding this!
 * Fix bug where a bundled version would fail if `util.inspect` wasn't
   provided.  This was supposed to be guarded against, but there was a bug in
-  the guard. Thanks @agriffis for finding and fixing this!
+  the guard. Thanks [@agriffis](https://github.com/agriffis) for finding and fixing this!
 
 ## Misc
 
@@ -37,7 +37,7 @@ Node 6 and 8 are measurably slower than Node 6, 10 and 11, at least when it come
 ## Features
 
 * Typescript: Lots of improvements to our type definitions, many many to
-  @jorgegonzalez and @momocow for working through these.
+  [@jorgegonzalez](https://github.com/jorgegonzalez) and [@momocow](https://github.com/momocow) for working through these.
 
 ## Fixes
 
