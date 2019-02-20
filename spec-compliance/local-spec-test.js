@@ -39,7 +39,7 @@ const toTest = [
     }
   },
   {
-    name: '@ltd/j-toml@0.5.45',
+    name: '@ltd/j-toml@0.5.46',
     parse: parseLtdToml
   }
 ]
