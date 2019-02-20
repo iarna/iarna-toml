@@ -37,9 +37,13 @@ Visit the project github [for more examples](https://github.com/iarna/iarna-toml
   are supported by the various Node.js TOML parsers.
 * BigInt support on Node 10!
 * 100% test coverage.
-* Faster parsing, even if you only use TOML 0.4.0, it's 25 times faster than `toml` and 3 times faster than `toml-j0.4`.
-  (Do these numbers look smaller than before? The parser didn't slow down, but the benchmark suite is larger and broader now, and so
-  better demonstrates the strong and week points of the various parsers.)
+* Faster parsing, even if you only use TOML 0.4.0, it's as much as 100 times
+  faster than `toml` and 3 times faster than `toml-j0.4`.  However a recent
+  newcomer [`@ltd/j-toml`](https://www.npmjs.com/package/@ltd/j-toml) has
+  appeared with 0.5 support and astoundingly fast parsing speeds for large
+  text blocks. All I can say is you'll have to test your specific work loads
+  if you want to know which of @iarna/toml and @ltd/j-toml is faster for
+  you, as we currently excell in different areas
 * Careful adherence to spec. Tests go beyond simple coverage.
 * Smallest parser bundle (if you use `@iarna/toml/parse-string`).
 * No deps.
@@ -176,17 +180,13 @@ to get a version of this module that supports 0.4.0.  Please see the
 * Binary, hexadecimal and octal values are converted to ordinary integers and
   will be decimal if you stringify them.
 
-## Improvements to make
+## Changes
 
-* In stringify:
-  * Any way to produce comments.  As a JSON stand-in I'm not too worried
-    about this.  That said, a document orientated fork is something I'd like
-    to look at eventually…
-  * Stringification could use some work on its error reporting.  It reports
-    _what's_ wrong, but not where in your data structure it was.
-* Further optimize the parser:
-  * There are some debugging assertions left in the main parser, these should be moved to a subclass.
-  * Make the whole debugging parser thing work as a mixin instead of as a superclass.
+I write a by hand, honest-to-god,
+[CHANGELOG](https://github.com/iarna/iarna-toml/blob/latest/CHANGELOG.md)
+for this project.  It's a description of what went into a release that you
+the consumer of the module could care about, not a list of git commits, so
+please check it out!
 
 ## Benchmarks
 
@@ -196,50 +196,45 @@ You can run them yourself with:
 $ npm run benchmark
 ```
 
-The results below are from my laptop using Node 10.6.0.  The library
+The results below are from my laptop using Node 11.10.0.  The library
 versions tested were `@iarna/toml@2.2.2`, `toml-j0.4@1.1.1`, `toml@3.0.0`,
-`@sgarciac/bombadil@2.1.0` and `@ltd/j-toml@0.5.45`.  The speed value is
+`@sgarciac/bombadil@2.1.0` and `@ltd/j-toml@0.5.47`.  The speed value is
 megabytes-per-second that the parser can process of that document type.
 Bigger is better.  The second number is the margin of error, lower implies
 more consistent performance.
 
 The percentage after average results is the margin of error.
 
+As this table is getting a little wide, with how npm and github display it,
+you can also view it seperately in the [BENCHMARK](https://shared.by.re-becca.org/misc/benchmark.html) document.
+
 |   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   | @ltd/j-toml |   |
-| - | ----------- | - | --------- | - | ---- | - | -------------------| - | ----------- | - |
-| Overall | 12MB/sec | 1.62% | 6.7MB/sec | 1.62% | 0.2MB/sec | 1.18% | crashed | | crashed | |
-| Spec Example: v0.4.0 | 21MB/sec | 3.16% | 9.4MB/sec | 1.24% | 1MB/sec | 3.49% | 1.5MB/sec | 2.26% | crashed | |
-| Spec Example: Hard Unicode | 55MB/sec | 1.69% | 16MB/sec | 1.35% | 2MB/sec | 3.38% | 0.8MB/sec | 2.19% | 90MB/sec | 1.76% |
-| Types: Array, Inline | 4.9MB/sec | 1.98% | 2.6MB/sec | 0.92% | 0.1MB/sec | 3.52% | 1.4MB/sec | 2.59% | 3.1MB/sec | 21.97% |
-| Types: Array | 6.5MB/sec | 0.89% | 5.6MB/sec | 0.70% | 0.1MB/sec | 6.68% | 1.2MB/sec | 3.51% | 4.8MB/sec | 0.36% |
-| Types: Boolean, | 9.8MB/sec | 0.99% | 5.7MB/sec | 0.82% | 0.2MB/sec | 3.97% | 1.9MB/sec | 3.42% | 5.2MB/sec | 0.53% |
-| Types: Datetime | 9.8MB/sec | 1.28% | 7.2MB/sec | 1.14% | 0.3MB/sec | 3.38% | 1.1MB/sec | 12.56% | 8.1MB/sec | 0.52% |
-| Types: Float | 6.3MB/sec | 0.90% | 4MB/sec | 0.85% | 0.3MB/sec | 4.13% | 2MB/sec | 4.68% | 4.3MB/sec | 0.48% |
-| Types: Int | 4.3MB/sec | 1.32% | 3MB/sec | 1.66% | 0.1MB/sec | 7.52% | 1.5MB/sec | 5.14% | crashed | |
-| Types: Literal String, 7 char | 12MB/sec | 1.02% | 5.8MB/sec | 1.09% | 0.3MB/sec | 1.57% | 2.3MB/sec | 4.37% | 6.7MB/sec | 0.61% |
-| Types: Literal String, 92 char | 15MB/sec | 0.80% | 10MB/sec | 1.19% | 0.4MB/sec | 2.61% | 12MB/sec | 4.39% | 35MB/sec | 0.41% |
-| Types: Literal String, Multiline, 1079 char | 12MB/sec | 4.82% | 7MB/sec | 1.56% | 1.2MB/sec | 5.79% | 49MB/sec | 2.89% | 264MB/sec | 0.78% |
-| Types: Basic String, 7 char | 12MB/sec | 1.17% | 4.8MB/sec | 1.47% | 0.2MB/sec | 1.91% | 2.1MB/sec | 3.86% | 6.5MB/sec | 0.50% |
-| Types: Basic String, 92 char | 16MB/sec | 1.01% | 7.5MB/sec | 2.37% | 0.1MB/sec | 2.22% | 11MB/sec | 3.76% | 34MB/sec | 0.45% |
-| Types: Basic String, 1079 char | 12MB/sec | 1.22% | 6.1MB/sec | 1.96% | 0.1MB/sec | 2.23% | 46MB/sec | 2.49% | 52MB/sec | 0.39% |
-| Types: Table, Inline | 5.7MB/sec | 0.92% | 3.4MB/sec | 1.24% | 0.1MB/sec | 4.94% | 1.4MB/sec | 2.73% | 3.3MB/sec | 1.52% |
-| Types: Table | 3.9MB/sec | 1.83% | 3.2MB/sec | 0.63% | 0.1MB/sec | 6.10% | 1.2MB/sec | 2.76% | 3.8MB/sec | 0.94% |
-| Scaling: Array, Inline, 1000 elements | 29MB/sec | 2.81% | 2.4MB/sec | 0.93% | 0.1MB/sec | 8.03% | 1.6MB/sec | 3.48% | 9.9MB/sec | 1.01% |
-| Scaling: Array, Nested, 1000 deep | 1.5MB/sec | 4.51% | 1.1MB/sec | 0.76% | 0.1MB/sec | 6.33% | crashed | | 0.9MB/sec | 5.12% |
-| Scaling: Literal String, 40kb | 32MB/sec | 1.06% | 11MB/sec | 4.42% | 3.4MB/sec | 7.49% | 15MB/sec | 3.09% | 469MB/sec | 0.51% |
-| Scaling: Literal String, Multiline, 40kb | 32MB/sec | 0.97% | 6.2MB/sec | 1.00% | 0.2MB/sec | 2.30% | 13MB/sec | 3.10% | 205MB/sec | 0.61% |
-| Scaling: Basic String, Multiline, 40kb | 33MB/sec | 0.81% | 7MB/sec | 2.48% | 3.4MB/sec | 7.55% | 14MB/sec | 3.81% | 719MB/sec | 0.56% |
-| Scaling: Basic String, 40kb | 33MB/sec | 1.37% | 8.6MB/sec | 0.98% | 0.2MB/sec | 3.16% | 16MB/sec | 2.83% | 367MB/sec | 0.35% |
-| Scaling: Table, Inline, 1000 elements | 12MB/sec | 0.91% | 5.5MB/sec | 2.00% | 0.3MB/sec | 5.06% | 2.4MB/sec | 4.51% | 2MB/sec | 0.84% |
-| Scaling: Table, Inline, Nested, 1000 deep | 7.2MB/sec | 2.31% | 4MB/sec | 0.76% | 0.1MB/sec | 8.18% | crashed | | 1.4MB/sec | 5.95% |
-
-## Changes
-
-I write a by hand, honest-to-god,
-[CHANGELOG](https://github.com/iarna/iarna-toml/blob/latest/CHANGELOG.md)
-for this project.  It's a description of what went into a release that you
-the consumer of the module could care about, not a list of git commits, so
-please check it out!
+| - | ----------- | - | --------- | - | ---- | - | ------------------ | - | ----------- | - |
+| Overall | 25MB/sec | 0.55% | 7MB/sec | 1.39% | 0.2MB/sec | 3.47% | - | - | 38MB/sec | 1.37% |
+| Spec Example: v0.4.0 | 23MB/sec | 0.87% | 10MB/sec | 0.62% | 1MB/sec | 1.89% | 1.7MB/sec | 1.03% | 35MB/sec | 1.32% |
+| Spec Example: Hard Unicode | 57MB/sec | 1.46% | 16MB/sec | 0.66% | 2MB/sec | 2.25% | 0.8MB/sec | 0.57% | 93MB/sec | 1.79% |
+| Types: Array, Inline | 7.2MB/sec | 1.60% | 3.2MB/sec | 0.77% | 0.1MB/sec | 1.84% | 1.7MB/sec | 0.56% | 4.1MB/sec | 14.48% |
+| Types: Array | 6.9MB/sec | 0.47% | 5.8MB/sec | 0.46% | 0.1MB/sec | 3.67% | 1.4MB/sec | 0.76% | 2.5MB/sec | 8.19% |
+| Types: Boolean, | 22MB/sec | 0.85% | 8.5MB/sec | 0.55% | 0.2MB/sec | 1.83% | 2.1MB/sec | 1.29% | 5.6MB/sec | 0.58% |
+| Types: Datetime | 18MB/sec | 0.56% | 11MB/sec | 0.80% | 0.3MB/sec | 1.55% | 0.8MB/sec | 0.51% | 4.5MB/sec | 0.66% |
+| Types: Float | 9.2MB/sec | 0.71% | 5.2MB/sec | 1.12% | 0.3MB/sec | 2.04% | 2.6MB/sec | 0.86% | 3.7MB/sec | 0.61% |
+| Types: Int | 6.4MB/sec | 0.44% | 3.9MB/sec | 0.56% | 0.1MB/sec | 1.65% | 1.7MB/sec | 1.15% | 1.5MB/sec | 4.06% |
+| Types: Literal String, 7 char | 26MB/sec | 0.62% | 8.1MB/sec | 1.00% | 0.3MB/sec | 1.48% | 2.9MB/sec | 0.58% | 6MB/sec | 0.52% |
+| Types: Literal String, 92 char | 41MB/sec | 0.80% | 11MB/sec | 1.20% | 0.4MB/sec | 2.38% | 15MB/sec | 0.84% | 23MB/sec | 0.58% |
+| Types: Literal String, Multiline, 1079 char | 21MB/sec | 0.28% | 7.2MB/sec | 1.62% | 1.3MB/sec | 3.05% | 55MB/sec | 0.53% | 332MB/sec | 0.46% |
+| Types: Basic String, 7 char | 26MB/sec | 0.56% | 6.6MB/sec | 0.61% | 0.2MB/sec | 4.70% | 2.7MB/sec | 0.68% | 3.3MB/sec | 0.47% |
+| Types: Basic String, 92 char | 41MB/sec | 0.63% | 8MB/sec | 0.51% | 0.1MB/sec | 1.57% | 14MB/sec | 0.66% | 21MB/sec | 0.43% |
+| Types: Basic String, 1079 char | 21MB/sec | 0.36% | 6MB/sec | 0.81% | 0.1MB/sec | 1.81% | 51MB/sec | 0.53% | 13MB/sec | 0.62% |
+| Types: Table, Inline | 9.8MB/sec | 0.47% | 4.6MB/sec | 0.81% | 0.1MB/sec | 1.82% | 1.7MB/sec | 0.75% | 2.9MB/sec | 4.82% |
+| Types: Table | 6.9MB/sec | 0.43% | 4.9MB/sec | 0.46% | 0.1MB/sec | 3.59% | 1.6MB/sec | 0.88% | 4.4MB/sec | 0.53% |
+| Scaling: Array, Inline, 1000 elements | 33MB/sec | 2.15% | 2.5MB/sec | 1.07% | 0.1MB/sec | 3.57% | 1.8MB/sec | 0.64% | 8.7MB/sec | 4.12% |
+| Scaling: Array, Nested, 1000 deep | 1.6MB/sec | 2.50% | 1.2MB/sec | 0.49% | 0.1MB/sec | 3.62% | - | - | 1MB/sec | 3.79% |
+| Scaling: Literal String, 40kb | 56MB/sec | 0.58% | 12MB/sec | 1.03% | 3.6MB/sec | 4.00% | 17MB/sec | 0.54% | 498MB/sec | 0.52% |
+| Scaling: Literal String, Multiline, 40kb | 58MB/sec | 0.38% | 6.4MB/sec | 0.54% | 0.2MB/sec | 1.72% | 15MB/sec | 0.74% | 197MB/sec | 0.54% |
+| Scaling: Basic String, Multiline, 40kb | 57MB/sec | 1.03% | 7.2MB/sec | 1.22% | 3.4MB/sec | 4.24% | 15MB/sec | 0.75% | 840MB/sec | 0.52% |
+| Scaling: Basic String, 40kb | 57MB/sec | 0.43% | 8.6MB/sec | 0.57% | 0.2MB/sec | 1.71% | 17MB/sec | 0.51% | 394MB/sec | 0.54% |
+| Scaling: Table, Inline, 1000 elements | 27MB/sec | 0.46% | 7.5MB/sec | 0.71% | 0.3MB/sec | 2.24% | 3MB/sec | 0.74% | 2.3MB/sec | 0.81% |
+| Scaling: Table, Inline, Nested, 1000 deep | 7.8MB/sec | 0.61% | 4.3MB/sec | 0.83% | 0.1MB/sec | 2.93% | - | - | 1.2MB/sec | 13.45% |
 
 ## Tests
 
@@ -286,3 +281,15 @@ And finally, many more stringification tests were borrowed from [@othiym23](http
 [toml-stream](https://npmjs.com/package/toml-stream) module. They were fetched as of
 [b6f1e26b572d49742d49fa6a6d11524d003441fa](https://github.com/othiym23/toml-stream/tree/b6f1e26b572d49742d49fa6a6d11524d003441fa/test) and live in
 [test/toml-stream](https://github.com/iarna/iarna-toml/blob/latest/test/toml-stream/).
+
+## Improvements to make
+
+* In stringify:
+  * Any way to produce comments.  As a JSON stand-in I'm not too worried
+    about this.  That said, a document orientated fork is something I'd like
+    to look at eventually…
+  * Stringification could use some work on its error reporting.  It reports
+    _what's_ wrong, but not where in your data structure it was.
+* Further optimize the parser:
+  * There are some debugging assertions left in the main parser, these should be moved to a subclass.
+  * Make the whole debugging parser thing work as a mixin instead of as a superclass.
