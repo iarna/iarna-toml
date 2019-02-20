@@ -121,7 +121,15 @@ fixtures.forEach(fixture => {
         }
       })
     } catch (_) {
-      console.error(fixture.name, 'Skipping', name, 'due to:', _.message)
+      console.error('Skipping', name + ':', 'failed')
+      suite.add(name, {
+        maxTime: 15,
+        onCycle,
+        onComplete,
+        fn () {
+          throw new Error('skipping')
+        }
+      })
     }
   })
 

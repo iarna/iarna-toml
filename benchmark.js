@@ -46,7 +46,7 @@ function parseLtdToml (str) {
 const fixtures = glob(`${__dirname}/benchmark/*.toml`)
   .concat(glob(`${__dirname}/test/spec-test/*toml`))
 /* eslint-disable security/detect-non-literal-fs-filename */
-  .map(_ => ({data: fs.readFileSync(_, {encoding: 'utf8'})}))
+  .map(_ => ({name: _, data: fs.readFileSync(_, {encoding: 'utf8'})}))
 /* eslint-enable security/detect-non-literal-fs-filename */
 fixtures.forEach(_ => { _.answer = parseIarnaToml(_.data) })
 var results
@@ -105,8 +105,10 @@ const tests = {
 
 Object.keys(tests).forEach(name => {
   const parse = tests[name]
+  let lastFixture
   try {
     fixtures.forEach(_ => {
+      lastFixture = _
       assertIsDeeply(parse(_.data), _.answer)
     })
     suite.add(name, {
@@ -120,7 +122,15 @@ Object.keys(tests).forEach(name => {
       }
     })
   } catch (_) {
-    console.error('Skipping', name, 'due to:', _.message)
+    console.error('Skipping', name, lastFixture.name + ':', 'failed')
+    suite.add(name, {
+      maxTime: 15,
+      onCycle,
+      onComplete,
+      fn () {
+        throw new Error('skipping')
+      }
+    })
   }
 })
 
