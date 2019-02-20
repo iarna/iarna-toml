@@ -43,13 +43,21 @@ function fileSize (name) {
   }
 }
 
+function repeat (str, count) {
+  let result = ''
+  for (let ii = 0; ii < count; ++ii) result += str
+  return result
+}
+
 for (let nodev in results) {
   console.log(`### ${nodev}`)
+  const tests = Object.keys(results[nodev])
+  const libs = Object.keys(results[nodev][tests[0]])
   console.log('')
-  console.log('|   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   | @ltd/j-toml |   |')
-  console.log('| - | ----------- | - | --------- | - | ---- | - | -------------------| - | ----------- | - |')
+  console.log('|   |' + libs.map(_ => ` ${_} |   |`).join(''))
+  console.log('| - |' + libs.map(_ => ` ${repeat('-', _.length)} | - |`).join(''))
 
-  for (let name in results[nodev]) {
+  for (let name of tests) {
     if (!size[name]) {
       try {
         size[name] = fileSize(name)
@@ -59,9 +67,9 @@ for (let nodev in results) {
     }
     const bench = results[nodev][name]
     let line = `| ${testName[name] || name} |`
-    for (let lib in bench) {
-      if (bench[lib].crashed) {
-        line += ` crashed | |`
+    for (let lib of libs) {
+      if (!bench[lib] || bench[lib].crashed) {
+        line += ` - | - |`
       } else {
         const speed = bench[lib].opsec * size[name]
         const mb = speed / 1000000
