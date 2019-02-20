@@ -45,7 +45,9 @@ function parseLtdToml (str) {
 }
 const fixtures = glob(`${__dirname}/benchmark/*.toml`)
   .concat(glob(`${__dirname}/test/spec-test/*toml`))
+/* eslint-disable security/detect-non-literal-fs-filename */
   .map(_ => ({data: fs.readFileSync(_, {encoding: 'utf8'})}))
+/* eslint-enable security/detect-non-literal-fs-filename */
 fixtures.forEach(_ => { _.answer = parseIarnaToml(_.data) })
 var results
 
@@ -98,7 +100,7 @@ const tests = {
   'toml-j0.4': parseTomlj04,
   'toml': parseToml,
   '@sgarciac/bombadil': parseBombadil,
-  '@ltd/j-toml': parseLtdToml,
+  '@ltd/j-toml': parseLtdToml
 }
 
 Object.keys(tests).forEach(name => {

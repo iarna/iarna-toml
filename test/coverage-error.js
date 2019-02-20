@@ -76,9 +76,9 @@ test('should be errors', t => {
     try {
       t.comment(TOML.parse(errors[msg]))
       t.fail(msg)
-    } catch (ex) {
-      t.comment(ex.message)
-      t.ok(ex instanceof TomlError, msg)
+    } catch (err) {
+      t.comment(err.message)
+      t.ok(err instanceof TomlError, msg)
     }
   })
   t.end()

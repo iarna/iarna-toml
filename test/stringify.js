@@ -45,8 +45,8 @@ test('stringify', t => {
       const result = TOML.stringify(bad[msg])
       t.comment(result)
       t.fail(msg)
-    } catch (ex) {
-      t.comment(ex.message)
+    } catch (err) {
+      t.comment(err.message)
       t.pass(msg)
     }
   })
@@ -54,8 +54,8 @@ test('stringify', t => {
     try {
       const result = TOML.stringify(good[msg].obj)
       t.is(result, good[msg].toml, msg)
-    } catch (ex) {
-      t.comment(ex.message)
+    } catch (err) {
+      t.comment(err.message)
       t.fail(msg)
     }
   })
@@ -64,8 +64,8 @@ test('stringify', t => {
       const result = TOML.stringify(roundtrip[msg].obj)
       t.is(result, roundtrip[msg].toml, msg)
       t.isDeeply(TOML.parse(result), roundtrip[msg].obj, msg + ' roundtrip')
-    } catch (ex) {
-      t.comment(ex.message)
+    } catch (err) {
+      t.comment(err.message)
       t.fail(msg)
     }
   })

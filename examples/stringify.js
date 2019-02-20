@@ -17,6 +17,6 @@ testobj = {a: [1.1, true]}
 console.log('Data:\n' + dump(testobj) + '\n')
 try {
   console.log('TOML:\n' + TOML.stringify(testobj))
-} catch (ex) {
-  console.log('Error:\n' + ex.message)
+} catch (err) {
+  console.log('Error:\n' + err.message)
 }

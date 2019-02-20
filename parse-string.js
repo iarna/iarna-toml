@@ -12,7 +12,7 @@ function parseString (str) {
   try {
     parser.parse(str)
     return parser.finish()
-  } catch (ex) {
-    throw prettyError(ex, str)
+  } catch (err) {
+    throw prettyError(err, str)
   }
 }

@@ -16,15 +16,15 @@ function parseAsync (str, opts) {
     if (index >= str.length) {
       try {
         return resolve(parser.finish())
-      } catch (ex) {
-        return reject(prettyError(ex, str))
+      } catch (err) {
+        return reject(prettyError(err, str))
       }
     }
     try {
       parser.parse(str.slice(index, index + blocksize))
       setImmediate(parseAsyncNext, index + blocksize, blocksize, resolve, reject)
-    } catch (ex) {
-      reject(prettyError(ex, str))
+    } catch (err) {
+      reject(prettyError(err, str))
     }
   }
 }

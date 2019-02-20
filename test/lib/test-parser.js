@@ -8,6 +8,7 @@ const glob = require('glob').sync
 const getExpected = require('./get-expected.js')
 
 function runTests (parsers, valid, error) {
+  /* eslint-disable security/detect-non-literal-fs-filename */
   const tests = glob(`${valid}/*toml`)
   const errorAsserts = glob(`${error}/*toml`)
   parsers.forEach(parser => {
@@ -20,8 +21,8 @@ function runTests (parsers, valid, error) {
           const name = path.basename(spec, '.toml')
           try {
             t.deeplyObjectIs(parser.parse(rawToml), expected, name)
-          } catch (ex) {
-            t.error(ex, name)
+          } catch (err) {
+            t.error(err, name)
           }
         }
       })

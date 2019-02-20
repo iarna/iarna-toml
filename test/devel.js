@@ -11,8 +11,8 @@ test('devel', t => {
   try {
     parser.parse(testtoml)
     t.isDeeply(parser.finish(), {a: [[1], [1], [{}], ['abc']], b: [{}], c: {}}, 'parsed with debugging')
-  } catch (ex) {
-    t.comment(ex)
+  } catch (err) {
+    t.comment(err)
     t.fail('parsed with debugging')
   }
 })

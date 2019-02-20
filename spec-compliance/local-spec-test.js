@@ -11,7 +11,12 @@ function parseLtdToml (str) {
   return ltdToml.parse(str, 0.5, '\n')
 }
 
-class BombadilError extends Error {}
+class BombadilError extends Error {
+  constructor () {
+    super()
+    this.name = 'BombadilError'
+  }
+}
 
 const toTest = [
   {

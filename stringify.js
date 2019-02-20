@@ -55,8 +55,8 @@ function stringifyObject (prefix, indent, obj) {
       result.push(inlineIndent + stringifyKey(key) + ' = ' + stringifyAnyInline(obj[key], true))
     }
   })
-  if (result.length) result.push('')
-  var complexIndent = prefix && inlineKeys.length ? indent + '  ' : ''
+  if (result.length > 0) result.push('')
+  var complexIndent = prefix && inlineKeys.length > 0 ? indent + '  ' : ''
   complexKeys.forEach(key => {
     result.push(stringifyComplex(prefix, complexIndent, key, obj[key]))
   })
@@ -75,9 +75,9 @@ function isInline (value) {
     case 'datetime':
       return true
     case 'array':
-      return !value.length || tomlType(value[0]) !== 'table'
+      return value.length === 0 || tomlType(value[0]) !== 'table'
     case 'table':
-      return !(Object.keys(value).length)
+      return Object.keys(value).length === 0
     /* istanbul ignore next */
     default:
       return false
@@ -136,7 +136,9 @@ function escapeString (str) {
     .replace(/\n/g, '\\n')
     .replace(/\f/g, '\\f')
     .replace(/\r/g, '\\r')
+    /* eslint-disable no-control-regex */
     .replace(/([\u0000-\u001f\u007f])/, c => '\\u' + numpad(4, c.codePointAt(0).toString(16)))
+    /* eslint-enable no-control-regex */
 }
 
 function stringifyMultilineString (str) {
@@ -188,6 +190,7 @@ function stringifyInline (value, type) {
 }
 
 function stringifyInteger (value) {
+  /* eslint-disable security/detect-unsafe-regex */
   return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, '_')
 }
 
@@ -241,7 +244,7 @@ function stringifyInlineArray (values) {
   if (stringified.join(', ').length > 60 || /\n/.test(stringified)) {
     result += '\n  ' + stringified.join(',\n  ') + '\n'
   } else {
-    result += ' ' + stringified.join(', ') + (stringified.length ? ' ' : '')
+    result += ' ' + stringified.join(', ') + (stringified.length > 0 ? ' ' : '')
   }
   return result + ']'
 }
@@ -252,7 +255,7 @@ function stringifyInlineTable (value) {
   Object.keys(value).forEach(key => {
     result.push(stringifyKey(key) + ' = ' + stringifyAnyInline(value[key], false))
   })
-  return '{ ' + result.join(', ') + (result.length ? ' ' : '') + '}'
+  return '{ ' + result.join(', ') + (result.length > 0 ? ' ' : '') + '}'
 }
 
 function stringifyComplex (prefix, indent, key, value) {
@@ -276,7 +279,7 @@ function stringifyArrayOfTables (prefix, indent, key, values) {
   var fullKey = prefix + stringifyKey(key)
   var result = ''
   values.forEach(table => {
-    if (result.length) result += '\n'
+    if (result.length > 0) result += '\n'
     result += indent + '[[' + fullKey + ']]\n'
     result += stringifyObject(fullKey + '.', indent, table)
   })
@@ -286,7 +289,7 @@ function stringifyArrayOfTables (prefix, indent, key, values) {
 function stringifyComplexTable (prefix, indent, key, value) {
   var fullKey = prefix + stringifyKey(key)
   var result = ''
-  if (getInlineKeys(value).length) {
+  if (getInlineKeys(value).length > 0) {
     result += indent + '[' + fullKey + ']\n'
   }
   return result + stringifyObject(fullKey + '.', indent, value)

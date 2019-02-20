@@ -12,8 +12,8 @@ function success () {
   console.log('Parsing:', testtoml)
   try {
     console.log('Result:', dump(TOML.parse(testtoml)))
-  } catch (ex) {
-    console.error('Error:', ex.message)
+  } catch (err) {
+    console.error('Error:', err.message)
   }
 }
 
@@ -23,7 +23,7 @@ function failure () {
   console.log('Parsing:', testtoml)
   try {
     console.log('Result:', dump(TOML.parse(testtoml)))
-  } catch (ex) {
-    console.error('Error:', ex.message)
+  } catch (err) {
+    console.error('Error:', err.message)
   }
 }

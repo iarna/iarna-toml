@@ -24,8 +24,8 @@ function parseReadable (stm) {
       if (readable) return
       try {
         resolve(parser.finish())
-      } catch (ex) {
-        reject(ex)
+      } catch (err) {
+        reject(err)
       }
     }
     function error (err) {

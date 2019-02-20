@@ -35,6 +35,7 @@ const testName = {
 }
 
 function fileSize (name) {
+  /* eslint-disable security/detect-non-literal-fs-filename */
   try {
     return fs.readFileSync('benchmark/' + name + '.toml').length
   } catch (_) {

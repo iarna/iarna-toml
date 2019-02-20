@@ -15,8 +15,8 @@ function success () {
   try {
     parser.parse(testtoml)
     console.log('Result:', dump(parser.finish()))
-  } catch (ex) {
-    console.error('Error:', prettyError(ex, testtoml).message)
+  } catch (err) {
+    console.error('Error:', prettyError(err, testtoml).message)
   }
 }
 
@@ -28,7 +28,7 @@ function failure () {
   try {
     parser.parse(testtoml)
     console.log('Result:', dump(parser.finish()))
-  } catch (ex) {
-    console.error('Error:', prettyError(ex, testtoml).message)
+  } catch (err) {
+    console.error('Error:', prettyError(err, testtoml).message)
   }
 }

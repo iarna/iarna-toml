@@ -19,8 +19,8 @@ function runTests (parsers, valid) {
           const name = path.basename(spec, '.toml')
           try {
             t.deeplyObjectIs(TOML.parse(parser.stringify(expected)), expected, name)
-          } catch (ex) {
-            t.error(ex, name)
+          } catch (err) {
+            t.error(err, name)
           }
         }
       })

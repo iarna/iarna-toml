@@ -66,7 +66,7 @@ and here"
   'empty mid-dot': '[abc..def]',
   'empty obj name': '[]',
   'unterminated name': '["abc\n"]',
-  'no control chars': 'a = "\u001f"',
+  'no control chars': 'a = "\u001F"',
   'no control chars2': 'a = "\u0000"',
   'no multi control chars': 'a = """\u0000"""',
   'no literal multi control chars': "a = '''\u0000'''",
@@ -79,8 +79,8 @@ and here"
   'multi-line sstrs can only start at start': "a = 'abc''defghi'''",
   'multi-line dstrs can only start at start': 'a = "abc""defghi"""',
   'abort single-quoted string': "a = '",
-  'no delete strs': 'a = "\u007f"',
-  'no delete in keys': '"\u007f" = 1',
+  'no delete strs': 'a = "\u007F"',
+  'no delete in keys': '"\u007F" = 1',
   '0 leading numbers 2': 'a = 001',
   'time incomplete 2': 'a = 11:22'
 }
@@ -90,9 +90,9 @@ test('should be errors', t => {
     try {
       t.comment(TOML.parse(errors[msg]))
       t.fail(msg)
-    } catch (ex) {
-      t.comment(ex.message)
-      t.ok(ex instanceof TomlError, msg)
+    } catch (err) {
+      t.comment(err.message)
+      t.ok(err instanceof TomlError, msg)
     }
   })
   t.end()
