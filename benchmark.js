@@ -93,58 +93,33 @@ const onCycle = event => {
 }
 const onComplete = () => cursor.write('\n')
 
-suite.add('@iarna/toml', {
-  fn: function () {
-    fixtures.forEach(_ => {
-      assertIsDeeply(parseIarnaToml(_.data), _.answer)
-    })
-  },
-  maxTime: 15,
-  onCycle: onCycle,
-  onComplete: onComplete
-})
+const tests = {
+  '@iarna/toml': parseIarnaToml,
+  'toml-j0.4': parseTomlj04,
+  'toml': parseToml,
+  '@sgarciac/bombadil': parseBombadil,
+  '@ltd/j-toml': parseLtdToml,
+}
 
-suite.add('toml-j0.4', {
-  fn: function () {
+Object.keys(tests).forEach(name => {
+  const parse = tests[name]
+  try {
     fixtures.forEach(_ => {
-      assertIsDeeply(parseTomlj04(_.data), _.answer)
+      assertIsDeeply(parse(_.data), _.answer)
     })
-  },
-  maxTime: 15,
-  onCycle: onCycle,
-  onComplete: onComplete
-})
-
-suite.add('toml', {
-  fn: function () {
-    fixtures.forEach(_ => {
-      assertIsDeeply(parseToml(_.data), _.answer)
+    suite.add(name, {
+      maxTime: 15,
+      onCycle,
+      onComplete,
+      fn () {
+        fixtures.forEach(_ => {
+          parse(_.data)
+        })
+      }
     })
-  },
-  maxTime: 15,
-  onCycle: onCycle,
-  onComplete: onComplete
-})
-
-suite.add('bombadil', {
-  fn: function () {
-    fixtures.forEach(_ => {
-      assertIsDeeply(parseBombadil(_.data), _.answer)
-    })
-  },
-  maxTime: 15,
-  onCycle: onCycle,
-  onComplete: onComplete
-})
-suite.add('@ltd/j-toml', {
-  fn: function () {
-    fixtures.forEach(_ => {
-      assertIsDeeply(parseLtdToml(_.data), _.answer)
-    })
-  },
-  maxTime: 15,
-  onCycle: onCycle,
-  onComplete: onComplete
+  } catch (_) {
+    console.error('Skipping', name, 'due to:', _.message)
+  }
 })
 
 suite.run()
