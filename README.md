@@ -206,7 +206,7 @@ more consistent performance.
 The percentage after average results is the margin of error.
 
 As this table is getting a little wide, with how npm and github display it,
-you can also view it seperately in the [BENCHMARK](https://shared.by.re-becca.org/misc/benchmark.html) document.
+you can also view it seperately in the [BENCHMARK](https://shared.by.re-becca.org/misc/BENCHMARK.html) document.
 
 |   | @iarna/toml |   | toml-j0.4 |   | toml |   | @sgarciac/bombadil |   | @ltd/j-toml |   |
 | - | ----------- | - | --------- | - | ---- | - | ------------------ | - | ----------- | - |
