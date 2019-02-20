@@ -1,3 +1,8 @@
+# 2.2.3
+
+This release just updates the spec compliance tests and benchmark data to
+better represent @ltd/j-toml.
+
 # 2.2.2
 
 ## Fixes
