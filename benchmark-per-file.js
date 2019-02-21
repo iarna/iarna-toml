@@ -56,7 +56,7 @@ const tests = {
 let results
 
 try {
-  results = require('./benchmark-results.json')
+  results = JSON.parse(fs.readFileSync('./benchmark-results.json'))
 } catch (_) {
   results = {}
 }

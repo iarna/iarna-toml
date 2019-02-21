@@ -53,7 +53,7 @@ var results
 
 console.error(fixtures.reduce((acc, _) => acc + _.data.length, 0))
 try {
-  results = require('./benchmark-results.json')
+  results = JSON.parse(fs.readFileSync('./benchmark-results.json'))
 } catch (_) {
   results = {}
 }

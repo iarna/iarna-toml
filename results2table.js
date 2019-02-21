@@ -1,7 +1,7 @@
 'use strict'
-const results = require('./benchmark-results.json')
 const approx = require('approximate-number')
 const fs = require('fs')
+const results = JSON.parse(fs.readFileSync('./benchmark-results.json'))
 
 const size = {
   'overall': 1124628
