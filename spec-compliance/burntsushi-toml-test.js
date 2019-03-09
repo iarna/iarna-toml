@@ -15,7 +15,7 @@ const bombadilVersion = require('@sgarciac/bombadil/package.json').version
 const ltdToml = require('@ltd/j-toml')
 const ltdTomlVersion = require('@ltd/j-toml/package.json').version
 function parseLtdToml (str) {
-  return ltdToml.parse(str, 0.5, '\n', Number.MAX_SAFE_INTEGER)
+  return ltdToml.parse(str, 0.5, '\n', Number.MAX_SAFE_INTEGER, {open: true})
 }
 
 class BombadilError extends Error {
