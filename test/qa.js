@@ -35,7 +35,8 @@ const tests = {
   datetimeWithoutT: {toml: 'a = 2017-12-01 11:00:17Z', data: {a: new Date('2017-12-01T11:00:17Z')}},
   trailingCommas: {toml: 'a = [ 1, 2, 3, ]', data: {a: [1, 2, 3]}},
   jsmethods: {toml: 'toString = 1', data: {toString: 1}},
-  jsmethods_proto: {toml: '__proto__ = 1', data: {['__proto__']: 1}}
+  jsmethods_proto: {toml: '__proto__ = 1', data: {['__proto__']: 1}},
+  hexLiteralWithFalseScientificNotation: {toml: 'a = 0x1E10', data: {a: 7696}}
 }
 
 test('spec', t => {
