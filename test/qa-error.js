@@ -84,9 +84,17 @@ and here"
   '0 leading numbers 2': 'a = 001',
   'time incomplete 2': 'a = 11:22',
   'hex leading under': 'a = 0x_a',
-  'hex leading period': 'a= 0x.',
+  'hex leading period': 'a= 0x.23',
   'hex decimal point': 'a=0x0.23',
-  'hex under end': 'a=0xa_'
+  'hex under end': 'a=0xa_',
+  'octal leading under': 'a = 0o_4',
+  'octal leading period': 'a= 0o.4',
+  'octal decimal point': 'a=0o0.4',
+  'octal under end': 'a=0o4_',
+  'binary leading under': 'a = 0b_1',
+  'binary leading period': 'a= 0b.1',
+  'binary decimal point': 'a=0b0.1',
+  'binary under end': 'a=0b1_'
 }
 
 test('should be errors', t => {
