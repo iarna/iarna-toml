@@ -39,7 +39,8 @@ const tests = {
   hexWithLeadingE: {toml: 'a = 0xe', data: {a: 14}},
   hexWithoutLeadingE: {toml: 'a = 0x0e', data: {a: 14}},
   hexWithUnderbarE: {toml: 'a = 0x0_e', data: {a: 14}},
-  hexWithUnderbarF: {toml: 'a = 0x0_f', data: {a: 15}}
+  hexWithUnderbarF: {toml: 'a = 0x0_f', data: {a: 15}},
+  dateThenValue: {toml: 'foo = 2019-07-14\nbar = "lorem"', data: {foo: new Date('2019-07-14'), bar: 'lorem'}}
 }
 
 test('spec', t => {
