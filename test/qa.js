@@ -36,7 +36,10 @@ const tests = {
   trailingCommas: {toml: 'a = [ 1, 2, 3, ]', data: {a: [1, 2, 3]}},
   jsmethods: {toml: 'toString = 1', data: {toString: 1}},
   jsmethods_proto: {toml: '__proto__ = 1', data: {['__proto__']: 1}},
-  hexLiteralWithFalseScientificNotation: {toml: 'a = 0x1E10', data: {a: 7696}}
+  hexWithLeadingE: {toml: 'a = 0xe', data: {a: 14}},
+  hexWithoutLeadingE: {toml: 'a = 0x0e', data: {a: 14}},
+  hexWithUnderbarE: {toml: 'a = 0x0_e', data: {a: 14}},
+  hexWithUnderbarF: {toml: 'a = 0x0_f', data: {a: 15}}
 }
 
 test('spec', t => {
