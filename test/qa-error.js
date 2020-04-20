@@ -82,7 +82,11 @@ and here"
   'no delete strs': 'a = "\u007F"',
   'no delete in keys': '"\u007F" = 1',
   '0 leading numbers 2': 'a = 001',
-  'time incomplete 2': 'a = 11:22'
+  'time incomplete 2': 'a = 11:22',
+  'hex leading under': 'a = 0x_a',
+  'hex leading period': 'a= 0x.',
+  'hex decimal point': 'a=0x0.23',
+  'hex under end': 'a=0xa_'
 }
 
 test('should be errors', t => {
