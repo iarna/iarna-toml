@@ -20,7 +20,7 @@ const good = {
   'NaN is NOT removed': {obj: {a: NaN, b: 'hi'}, toml: `a = nan\nb = "hi"\n`},
   'null is removed from arrays': {obj: {a: [null]}, toml: `a = [ ]\n`},
   'undefined is removed from arrays': {obj: {a: [23, undefined]}, toml: `a = [ 23 ]\n`},
-  'NaN is NOT removed from arrays': {obj: {a: [NaN, 23]}, toml: `a = [ nan, 23.0 ]\n`},
+  'NaN is NOT removed from arrays': {obj: {a: [NaN, 23]}, toml: `a = [ nan, 23 ]\n`},
   'Invalid Date in scalar': {obj: {a: 1, b: new Date('BAD')}, toml: 'a = 1\n'},
   'Invalid Date in list': {obj: {a: [new Date('nope')]}, toml: `a = [ ]\n`},
   'infinity': {obj: {a: Infinity}, toml: `a = inf\n`},
@@ -29,14 +29,12 @@ const good = {
   'multiline': {obj: {a: [ 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc' ]}, toml: 'a = [\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc"\n]\n'}
 }
 const bad = {
-  'mixed types': {a: [123, 'abc']},
   'stringify null': null,
   'stringify undefined': undefined,
   'stringify number': 23,
   'stringify date': new Date(),
   'stringify bool': true,
-  'stringify array': [1, 2, 3],
-  'mixed array of complex': {a: [{b: 5}, [23]]}
+  'stringify array': [1, 2, 3]
 }
 
 test('stringify', t => {

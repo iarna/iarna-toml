@@ -18,10 +18,6 @@ function typeError (type) {
   return new Error('Can only stringify objects, not ' + type)
 }
 
-function arrayOneTypeError () {
-  return new Error("Array values can't have mixed types")
-}
-
 function getInlineKeys (obj) {
   return Object.keys(obj).filter(key => isInline(obj[key]))
 }
@@ -218,29 +214,10 @@ function stringifyDatetime (value) {
   return value.toISOString()
 }
 
-function isNumber (type) {
-  return type === 'float' || type === 'integer'
-}
-function arrayType (values) {
-  var contentType = tomlType(values[0])
-  if (values.every(_ => tomlType(_) === contentType)) return contentType
-  // mixed integer/float, emit as floats
-  if (values.every(_ => isNumber(tomlType(_)))) return 'float'
-  return 'mixed'
-}
-function validateArray (values) {
-  const type = arrayType(values)
-  if (type === 'mixed') {
-    throw arrayOneTypeError()
-  }
-  return type
-}
-
 function stringifyInlineArray (values) {
   values = toJSON(values)
-  const type = validateArray(values)
   var result = '['
-  var stringified = values.map(_ => stringifyInline(_, type))
+  var stringified = values.map(_ => stringifyInline(_))
   if (stringified.join(', ').length > 60 || /\n/.test(stringified)) {
     result += '\n  ' + stringified.join(',\n  ') + '\n'
   } else {
@@ -272,7 +249,6 @@ function stringifyComplex (prefix, indent, key, value) {
 
 function stringifyArrayOfTables (prefix, indent, key, values) {
   values = toJSON(values)
-  validateArray(values)
   var firstValueType = tomlType(values[0])
   /* istanbul ignore if */
   if (firstValueType !== 'table') throw typeError(firstValueType)

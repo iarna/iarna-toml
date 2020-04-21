@@ -36,7 +36,6 @@ const errors = {
   'incomplete table2': 'a = { a=1 ',
   'invalid table': 'a = { a=1 A',
   'signed leading underscores': `a = -__12`,
-  'mixed date bool': 'a = [ 2018-01-01T00:00:00Z, false ]',
   'invalid unicode': 'a = "\\uD800"',
   'empty pre-dot': '[.abc]',
   'partial month': 'a = 2013-1-12T00:00:00Z',
