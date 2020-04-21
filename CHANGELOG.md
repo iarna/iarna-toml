@@ -1,3 +1,10 @@
+# 2.2.4
+	
+* Bug fix: Plain date literals (not datetime) immediately followed by another statement (no whitespace or blank line) would crash. Fixes [#19](https://github.com/iarna/iarna-toml/issues/19) and [#23](https://github.com/iarna/iarna-toml/issues/23), thank you [@arnau](https://github.com/arnau) and [@jschaf](https://github.com/jschaf) for reporting this!
+* Bug fix: Hex literals with lowercase Es would throw errors. (Thank you [@DaeCatt](https://github.com/DaeCatt) for this fix!) Fixed [#20](https://github.com/iarna/iarna-toml/issues/20)
+* Some minor doc tweaks
+* Added Node 12 and 13 to Travis. (Node 6 is failing there now, mysteriously. It works on my machine™, shipping anyway. 🙃)
+
 # 2.2.3
 
 This release just updates the spec compliance tests and benchmark data to
