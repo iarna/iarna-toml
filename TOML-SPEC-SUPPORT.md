@@ -4,7 +4,7 @@ BurntSushi tests are for TOML 0.4.0 and are from <a href="https://github.com/Bur
 iarna tests are for TOML 0.5.0 and are from <a href="https://github.com/iarna/toml-spec-tests">here</a>.<br>
 <br>
 <table>
-<tr><th>Test</th><th>@iarna/toml @2.2.3</th><th>toml @3.0.0</th><th>toml-j0.4 @1.1.1</th><th>@sgarciac/bombadil @2.1.0</th><th>@ltd/j-toml @0.5.47</th></tr>
+<tr><th>Test</th><th>@iarna/toml @2.2.4</th><th>toml @3.0.0</th><th>toml-j0.4 @1.1.1</th><th>@sgarciac/bombadil @2.1.0</th><th>@ltd/j-toml @0.5.47</th></tr>
 
 <tr><td>BurntSushi 0.4.0: array-empty</td>
 <td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td><td class="pass">pass</td>
