@@ -7,8 +7,11 @@ const glob = require('glob').sync
 const TOML = require('../..')
 const getExpected = require('./get-expected.js')
 
-function runTests (parsers, valid) {
+function runTests (parsers, valid, skip) {
+  /* eslint-disable security/detect-non-literal-regexp */
+  const skipre = skip && new RegExp(skip.join('|'))
   const tests = glob(`${valid}/*toml`)
+    .filter(_ => !skipre || !skipre.test(_))
 
   parsers.forEach(parser => {
     t.test(parser.name, t => {

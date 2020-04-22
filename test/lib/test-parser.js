@@ -7,10 +7,14 @@ const t = require('./tap-is-deeply.js')
 const glob = require('glob').sync
 const getExpected = require('./get-expected.js')
 
-function runTests (parsers, valid, error) {
+function runTests (parsers, valid, error, skip) {
+  /* eslint-disable security/detect-non-literal-regexp */
+  const skipre = skip && new RegExp(skip.join('|'))
   /* eslint-disable security/detect-non-literal-fs-filename */
   const tests = glob(`${valid}/*toml`)
+    .filter(_ => !skipre || !skipre.test(_))
   const errorAsserts = glob(`${error}/*toml`)
+    .filter(_ => !skipre || !skipre.test(_))
   parsers.forEach(parser => {
     t.test(parser.name, t => {
       t.test('spec-asserts', t => {
