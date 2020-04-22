@@ -67,7 +67,8 @@ const errors = {
   'time fract 1': 'a = 11:22:00.',
   'time fract 2': 'a = 11:22:00.1n',
   'dotted inline tables 1': 'a = {b.c = 23, b.c = 42}',
-  'dotted inline tables 2': 'a = {b.c = 23, b.c.d = 42}'
+  'dotted inline tables 2': 'a = {b.c = 23, b.c.d = 42}',
+  'empty-inline-table-element': 'a = {a = 1,,b = 2}'
 }
 
 test('should be errors', t => {

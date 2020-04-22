@@ -15,7 +15,8 @@ const tests = {
   dateTrailingSpaces: {toml: 'a = 2012-01-01  ', data: {a: new Date('2012-01-01')}},
   bitsWithUnders: {toml: 'a = 0b1_0', data: {a: 2}},
   octWithUnders: {toml: 'a = 0o1_2', data: {a: 10}},
-  lessThanOne: {toml: 'a = 0.1', data: {a: 0.1}}
+  lessThanOne: {toml: 'a = 0.1', data: {a: 0.1}},
+  endOfManyQuotes: {toml: 'a = """test"""""', data: {a: 'test""'}}
 }
 
 test('coverage', t => {
