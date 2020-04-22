@@ -39,12 +39,12 @@ function toJSON (obj) {
 
 function stringifyObject (prefix, indent, obj) {
   obj = toJSON(obj)
-  var inlineKeys
-  var complexKeys
+  let inlineKeys
+  let complexKeys
   inlineKeys = getInlineKeys(obj)
   complexKeys = getComplexKeys(obj)
-  var result = []
-  var inlineIndent = indent || ''
+  const result = []
+  const inlineIndent = indent || ''
   inlineKeys.forEach(key => {
     var type = tomlType(obj[key])
     if (type !== 'undefined' && type !== 'null') {
@@ -52,7 +52,7 @@ function stringifyObject (prefix, indent, obj) {
     }
   })
   if (result.length > 0) result.push('')
-  var complexIndent = prefix && inlineKeys.length > 0 ? indent + '  ' : ''
+  const complexIndent = prefix && inlineKeys.length > 0 ? indent + '  ' : ''
   complexKeys.forEach(key => {
     result.push(stringifyComplex(prefix, complexIndent, key, obj[key]))
   })
@@ -104,7 +104,7 @@ function tomlType (value) {
 }
 
 function stringifyKey (key) {
-  var keyStr = String(key)
+  const keyStr = String(key)
   if (/^[-A-Za-z0-9_]+$/.test(keyStr)) {
     return keyStr
   } else {
@@ -200,9 +200,7 @@ function stringifyFloat (value) {
   } else if (Object.is(value, -0)) {
     return '-0.0'
   }
-  var chunks = String(value).split('.')
-  var int = chunks[0]
-  var dec = chunks[1] || 0
+  const [int, dec] = String(value).split('.')
   return stringifyInteger(int) + '.' + dec
 }
 
@@ -216,8 +214,8 @@ function stringifyDatetime (value) {
 
 function stringifyInlineArray (values) {
   values = toJSON(values)
-  var result = '['
-  var stringified = values.map(_ => stringifyInline(_))
+  let result = '['
+  const stringified = values.map(_ => stringifyInline(_))
   if (stringified.join(', ').length > 60 || /\n/.test(stringified)) {
     result += '\n  ' + stringified.join(',\n  ') + '\n'
   } else {
@@ -228,7 +226,7 @@ function stringifyInlineArray (values) {
 
 function stringifyInlineTable (value) {
   value = toJSON(value)
-  var result = []
+  const result = []
   Object.keys(value).forEach(key => {
     result.push(stringifyKey(key) + ' = ' + stringifyAnyInline(value[key], false))
   })
@@ -236,7 +234,7 @@ function stringifyInlineTable (value) {
 }
 
 function stringifyComplex (prefix, indent, key, value) {
-  var valueType = tomlType(value)
+  const valueType = tomlType(value)
   /* istanbul ignore else */
   if (valueType === 'array') {
     return stringifyArrayOfTables(prefix, indent, key, value)
@@ -249,11 +247,11 @@ function stringifyComplex (prefix, indent, key, value) {
 
 function stringifyArrayOfTables (prefix, indent, key, values) {
   values = toJSON(values)
-  var firstValueType = tomlType(values[0])
+  const firstValueType = tomlType(values[0])
   /* istanbul ignore if */
   if (firstValueType !== 'table') throw typeError(firstValueType)
-  var fullKey = prefix + stringifyKey(key)
-  var result = ''
+  const fullKey = prefix + stringifyKey(key)
+  let result = ''
   values.forEach(table => {
     if (result.length > 0) result += '\n'
     result += indent + '[[' + fullKey + ']]\n'
@@ -263,8 +261,8 @@ function stringifyArrayOfTables (prefix, indent, key, values) {
 }
 
 function stringifyComplexTable (prefix, indent, key, value) {
-  var fullKey = prefix + stringifyKey(key)
-  var result = ''
+  const fullKey = prefix + stringifyKey(key)
+  let result = ''
   if (getInlineKeys(value).length > 0) {
     result += indent + '[' + fullKey + ']\n'
   }
