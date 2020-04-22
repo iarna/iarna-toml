@@ -32,7 +32,7 @@
   "description": "Better TOML parsing and stringifying all in that familiar JSON interface.",
   "dependencies": {},
   "devDependencies": {
-    "@iarna/standard": "^2.0.1",
+    "@iarna/standard": "^2.0.2",
     "@ltd/j-toml": "^0.5.107",
     "@perl/qx": "^1.0.2",
     "@sgarciac/bombadil": "^2.3.0",
