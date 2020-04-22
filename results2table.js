@@ -54,8 +54,8 @@ for (let nodev in results) {
   const tests = Object.keys(results[nodev])
   const libs = Object.keys(results[nodev][tests[0]])
   console.log('')
-  console.log('|   |' + libs.map(_ => ` ${_} |   |`).join(''))
-  console.log('| - |' + libs.map(_ => ` ${repeat('-', _.length)} | - |`).join(''))
+  console.log('|   |' + libs.map(_ => ` ${_.replace(/[/]/, '/<wbr>')} |`).join(''))
+  console.log('| - |' + libs.map(_ => ` :${repeat('-', _.length - 2)}: |`).join(''))
 
   for (let name of tests) {
     if (!size[name]) {
@@ -66,14 +66,14 @@ for (let nodev in results) {
       }
     }
     const bench = results[nodev][name]
-    let line = `| ${testName[name] || name} |`
+    let line = `| **${testName[name] || name}** |`
     for (let lib of libs) {
       if (!bench[lib] || bench[lib].crashed) {
-        line += ` - | - |`
+        line += ` - |`
       } else {
         const speed = bench[lib].opsec * size[name]
         const mb = speed / 1000000
-        line += ` ${approx(mb)}MB/sec | ${bench[lib].errmargin}% |`
+        line += ` ${approx(mb)}MB/sec<br><small>${bench[lib].errmargin}%</small> |`
       }
     }
     console.log(line)
