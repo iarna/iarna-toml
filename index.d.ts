@@ -1,6 +1,7 @@
 import { Transform } from "stream";
 
-type JsonArray = boolean[] | number[] | string[] | JsonMap[] | Date[]
+type JsonValue = boolean | number | string | JsonMap | JsonArray | Date
+type JsonArray = JsonValue[]
 type AnyJson = boolean | number | string | JsonMap | Date | JsonArray | JsonArray[]
 
 interface JsonMap {
