@@ -124,13 +124,12 @@ Object.keys(tests).forEach(name => {
       }
     })
   } catch (_) {
-    console.error('Skipping', name, lastFixture.name + ':', 'failed')
     suite.add(name, {
       maxTime: 15,
       onCycle,
       onComplete,
       fn () {
-        throw new Error('skipping')
+        throw 'skipping: crashed or did not produce valid results'
       }
     })
   }
