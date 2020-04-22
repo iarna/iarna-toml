@@ -11,5 +11,12 @@ const toTest = {
   ErrorClass: TomlError
 }
 
-testParser([toTest], `${__dirname}/burntsushi-toml-test/tests/valid`, `${__dirname}/burntsushi-toml-test/tests/invalid`)
-testStringifier([toTest], `${__dirname}/burntsushi-toml-test/tests/valid`)
+// these test are not valid for TOML v1.0RC1
+const SKIP = [
+  'array-mixed-types-strings-and-ints',
+  'array-mixed-types-arrays-and-ints',
+  'array-mixed-types-ints-and-floats'
+]
+
+testParser([toTest], `${__dirname}/burntsushi-toml-test/tests/valid`, `${__dirname}/burntsushi-toml-test/tests/invalid`, SKIP)
+testStringifier([toTest], `${__dirname}/burntsushi-toml-test/tests/valid`, SKIP)
