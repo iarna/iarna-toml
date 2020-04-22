@@ -55,7 +55,7 @@ for (let nodev in results) {
   const libs = Object.keys(results[nodev][tests[0]])
   console.log('')
   console.log('|   |' + libs.map(_ => ` ${_.replace(/[/]/, '/<wbr>')} |`).join(''))
-  console.log('| - |' + libs.map(_ => ` :${repeat('-', _.length-2)}: |`).join(''))
+  console.log('| - |' + libs.map(_ => ` :${repeat('-', _.length - 2)}: |`).join(''))
 
   for (let name of tests) {
     if (!size[name]) {
