@@ -44,13 +44,15 @@ const ltdToml = require('@ltd/j-toml')
 function parseLtdToml (str) {
   return ltdToml.parse(str, 0.5, '\n')
 }
+const parseFastToml = require('fast-toml').parse
 
 const tests = {
   '@iarna/toml': parseIarnaToml,
   'toml-j0.4': parseTomlj04,
   'toml': parseToml,
   '@sgarciac/bombadil': parseBombadil,
-  '@ltd/j-toml': parseLtdToml
+  '@ltd/j-toml': parseLtdToml,
+  'fast-toml': parseFastToml
 }
 
 let results

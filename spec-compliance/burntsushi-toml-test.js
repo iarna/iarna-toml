@@ -14,6 +14,8 @@ const bombadil = require('@sgarciac/bombadil')
 const bombadilVersion = require('@sgarciac/bombadil/package.json').version
 const ltdToml = require('@ltd/j-toml')
 const ltdTomlVersion = require('@ltd/j-toml/package.json').version
+const parseFastToml = require('fast-toml').parse
+const fastTomlVersion = require('fast-toml/package.json').version
 function parseLtdToml (str) {
   return ltdToml.parse(str, 0.5, '\n', Number.MAX_SAFE_INTEGER)
 }
@@ -55,6 +57,10 @@ const toTest = [
   {
     name: `@ltd/j-toml@${ltdTomlVersion}`,
     parse: parseLtdToml
+  },
+  {
+    name: `fast-toml@${fastTomlVersion}`,
+    parse: parseFastToml
   }
 ]
 

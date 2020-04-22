@@ -43,6 +43,7 @@ const ltdToml = require('@ltd/j-toml')
 function parseLtdToml (str) {
   return ltdToml.parse(str, 0.5, '\n')
 }
+const parseFastToml = require('fast-toml').parse
 const fixtures = glob(`${__dirname}/benchmark/*.toml`)
   .concat(glob(`${__dirname}/test/spec-test/*toml`))
 /* eslint-disable security/detect-non-literal-fs-filename */
@@ -100,7 +101,8 @@ const tests = {
   'toml-j0.4': parseTomlj04,
   'toml': parseToml,
   '@sgarciac/bombadil': parseBombadil,
-  '@ltd/j-toml': parseLtdToml
+  '@ltd/j-toml': parseLtdToml,
+  'fast-toml': parseFastToml
 }
 
 Object.keys(tests).forEach(name => {

@@ -39,6 +39,7 @@
     "ansi": "^0.3.1",
     "approximate-number": "^2.0.0",
     "benchmark": "^2.1.4",
+    "fast-toml": "^0.5.4",
     "funstream": "^3.0.0",
     "glob": "^7.1.2",
     "js-yaml": "^3.12.0",
