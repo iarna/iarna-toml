@@ -44,17 +44,6 @@ test('arrays to TOML', function (t) {
     })
   })
 
-  t.test('with a type-inconsistent array of primitive values', function (t) {
-    var input = {irksome: [0, false, 2]}
-
-    toTOMLString(input, function (er, output) {
-      t.ok(er, 'got expected error')
-      t.is(output, undefined, "shouldn't have gotten any output from the stream")
-
-      t.end()
-    })
-  })
-
   t.test('with an array of arrays of primitive values', function (t) {
     var input = {
       airy: [
@@ -81,21 +70,6 @@ test('arrays to TOML', function (t) {
         t.equals(output, expected, 'serialized array properly')
         t.same(TOML.parse(output), input, 'round trip test worked')
       }
-      t.end()
-    })
-  })
-
-  t.test('with an array of arrays of inconsistent values', function (t) {
-    var input = {
-      eerie: [
-        [ 1, 'ham', true ]
-      ]
-    }
-
-    toTOMLString(input, function (er, output) {
-      t.ok(er, 'got expected error')
-      t.is(output, undefined, "shouldn't have gotten any output from the stream")
-
       t.end()
     })
   })
