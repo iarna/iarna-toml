@@ -1,3 +1,9 @@
+# 2.2.5
+
+* Docs: Updated benchmark results. Add fast-toml to result list. Improved benchmark layout.
+* Update @sgarciac/bombadil and @ltd/j-toml in benchmarks and compliance tests.
+* Dev: Some dev dep updates that shouldn't have any impact.
+
 # 2.2.4
 	
 * Bug fix: Plain date literals (not datetime) immediately followed by another statement (no whitespace or blank line) would crash. Fixes [#19](https://github.com/iarna/iarna-toml/issues/19) and [#23](https://github.com/iarna/iarna-toml/issues/23), thank you [@arnau](https://github.com/arnau) and [@jschaf](https://github.com/jschaf) for reporting this!
