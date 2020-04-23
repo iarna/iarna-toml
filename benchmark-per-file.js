@@ -128,6 +128,7 @@ fixtures.forEach(fixture => {
         onCycle,
         onComplete,
         fn () {
+          /* eslint-disable no-throw-literal */
           throw 'skipping: crashed or did not produce valid results'
         }
       })

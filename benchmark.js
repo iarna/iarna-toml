@@ -107,10 +107,8 @@ const tests = {
 
 Object.keys(tests).forEach(name => {
   const parse = tests[name]
-  let lastFixture
   try {
     fixtures.forEach(_ => {
-      lastFixture = _
       assertIsDeeply(parse(_.data), _.answer)
     })
     suite.add(name, {
@@ -129,6 +127,7 @@ Object.keys(tests).forEach(name => {
       onCycle,
       onComplete,
       fn () {
+        /* eslint-disable no-throw-literal */
         throw 'skipping: crashed or did not produce valid results'
       }
     })

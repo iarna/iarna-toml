@@ -3,7 +3,7 @@ const data = JSON.parse(qx`npx tap ${__dirname}/local-spec-test.js -R json`)
 
 const labels = {
   'local-spec-test spec-asserts': 'TOML 1.0.0-rc.1',
-  'local-spec-test spec-error-asserts': 'TOML 1.0.0-rc.1',
+  'local-spec-test spec-error-asserts': 'TOML 1.0.0-rc.1'
 }
 const result = {}
 
