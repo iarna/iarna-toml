@@ -10,6 +10,14 @@ Better TOML parsing and stringifying all in that familiar JSON interface.
 
 The most recent version as of 2019-04-21: [1.0.0-rc.1](https://github.com/toml-lang/toml/blob/master/versions/en/toml-v1.0.0-rc.1.md)
 
+### Other Versions
+
+1.0.0-rc.1 parsers can load almost any TOML 0.4 and TOML 0.5 document, but
+TOML 1.0.0-rc.1 docs are not always compatible with TOML 0.4 and TOML 0.5
+parsers.  If you're using this to generate TOML documents and you want an
+older parser to be able to read them you may want to use the
+[latest TOML 0.5 version of this module](https://www.npmjs.com/package/@iarna/toml/v/toml-0.5).
+
 ### Example
 
 ```js
