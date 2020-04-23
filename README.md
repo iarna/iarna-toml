@@ -4,11 +4,11 @@ Better TOML parsing and stringifying all in that familiar JSON interface.
 
 [![Coverage Status](https://coveralls.io/repos/github/iarna/iarna-toml/badge.svg)](https://coveralls.io/github/iarna/iarna-toml)
 
-# ** TOML 0.5.0 **
+# ** TOML 1.0.0-rc.1 **
 
 ### TOML Spec Support
 
-The most recent version as of 2018-07-26: [v0.5.0](https://github.com/mojombo/toml/blob/master/versions/en/toml-v0.5.0.md)
+The most recent version as of 2019-04-21: [1.0.0-rc.1](https://github.com/toml-lang/toml/blob/master/versions/en/toml-v1.0.0-rc.1.md)
 
 ### Example
 
@@ -33,20 +33,14 @@ Visit the project github [for more examples](https://github.com/iarna/iarna-toml
 
 ## Why @iarna/toml
 
-* See [TOML-SPEC-SUPPORT](https://shared.by.re-becca.org/misc/TOML-SPEC-SUPPORT.html)
-  for a comparison of which TOML features are supported by the various
-  Node.js TOML parsers.
+* Support for TOML 1.0.0-rc.1!
+* Highly correct! Careful adherence to spec.
+* See [TOML-SPEC-SUPPORT](https://shared.by.re-becca.org/misc/TOML-SPEC-SUPPORT-v1.html) for a comparison of which TOML features
+  are supported by the various Node.js TOML parsers.
+* Speedy! See benchmarks at end.
 * BigInt support on Node 10!
 * 100% test coverage.
-* Fast parsing. It's as much as 100 times
-  faster than `toml` and 3 times faster than `toml-j0.4`.  However a recent
-  newcomer [`@ltd/j-toml`](https://www.npmjs.com/package/@ltd/j-toml) has
-  appeared with 0.5 support and astoundingly fast parsing speeds for large
-  text blocks. All I can say is you'll have to test your specific work loads
-  if you want to know which of @iarna/toml and @ltd/j-toml is faster for
-  you, as we currently excell in different areas.
-* Careful adherence to spec. Tests go beyond simple coverage.
-* Smallest parser bundle (if you use `@iarna/toml/parse-string`).
+* Small parser bundle (if you use `@iarna/toml/parse-string`).
 * No deps.
 * Detailed and easy to read error messages‼
 
@@ -154,11 +148,8 @@ const newErr = prettyError(err, sourceString)
 
 ## What's Different
 
-Version 2 of this module supports TOML 0.5.0.  Other modules currently
-published to the npm registry support 0.4.0.  0.5.0 is mostly backwards
-compatible with 0.4.0, but if you have need, you can install @iarna/toml@1
-to get a version of this module that supports 0.4.0.  Please see the
-[CHANGELOG](CHANGELOG.md#2.0.0) for details on exactly whats changed.
+Version 3 of this module supports TOML 1.0.0-rc.1. Please see the
+[CHANGELOG](CHANGELOG.md#3.0.0) for details on exactly whats changed.
 
 ## TOML we can't do
 
@@ -175,7 +166,7 @@ to get a version of this module that supports 0.4.0.  Please see the
   objects, which don't actually support these concepts. The objects
   returned have been modified so that you can determine what kind of thing
   they are (with `isFloating`, `isDate`, `isTime` properties) and that
-  their ISO representation (via `toISOString`) is representative of their
+  their ISO representation (via `toISOString`) are representative of their
   TOML value.  They will correctly round trip if you pass them to
   `TOML.stringify`.
 * Binary, hexadecimal and octal values are converted to ordinary integers and
@@ -198,10 +189,11 @@ $ npm run benchmark
 ```
 
 The results below are from my desktop using Node 13.13.0.  The library
-versions tested were `@iarna/toml@2.2.4`, `toml-j0.4@1.1.1`, `toml@3.0.0`,
-`@sgarciac/bombadil@2.3.0`, `@ltd/j-toml@0.5.107`, and `fast-toml@0.5.4`.  The speed value is
-megabytes-per-second that the parser can process of that document type.
-Bigger is better. The percentage after average results is the margin of error.
+versions tested were `@iarna/toml@3.0.0`, `toml-j0.4@1.1.1`, `toml@3.0.0`,
+`@sgarciac/bombadil@2.3.0`, `@ltd/j-toml@0.5.107`, and `fast-toml@0.5.4`. 
+The speed value is megabytes-per-second that the parser can process of that
+document type.  Bigger is better.  The percentage after average results is
+the margin of error.
 
 New here is fast-toml. fast-toml is very fast, for some datatypes, but it
 also is missing most error checking demanded by the spec.  For 0.4, it is
@@ -250,10 +242,7 @@ The test suite is maintained at 100% coverage: [![Coverage Status](https://cover
 The spec was carefully hand converted into a series of test framework
 independent (and mostly language independent) assertions, as pairs of TOML
 and YAML files.  You can find those files here:
-[spec-test](https://github.com/iarna/iarna-toml/blob/latest/test/spec-test/). 
-A number of examples of invalid Unicode were also written, but are difficult
-to make use of in Node.js where Unicode errors are silently hidden.  You can
-find those here: [spec-test-disabled](https://github.com/iarna/iarna-toml/blob/latest/test/spec-test-disabled/).
+[spec-test](https://github.com/iarna/toml-spec-test/). 
 
 Further tests were written to increase coverage to 100%, these may be more
 implementation specific, but they can be found in [coverage](https://github.com/iarna/iarna-toml/blob/latest/test/coverage.js) and
@@ -282,7 +271,7 @@ There are also some tests written to complete coverage from stringification in:
 
 Tests for the async and streaming interfaces are in [test/async.js](https://github.com/iarna/iarna-toml/blob/latest/test/async.js) and [test/stream.js](https://github.com/iarna/iarna-toml/blob/latest/test/stream.js) respectively.
 
-Tests for the parsers debugging mode live in [test/devel.js](https://github.com/iarna/iarna-toml/blob/latest/test/devel.js).
+Tests for the parser's debugging mode live in [test/devel.js](https://github.com/iarna/iarna-toml/blob/latest/test/devel.js).
 
 And finally, many more stringification tests were borrowed from [@othiym23](https://github.com/othiym23)'s
 [toml-stream](https://npmjs.com/package/toml-stream) module. They were fetched as of

@@ -1,3 +1,22 @@
+# 3.0.0
+
+[TOML v1.0.0-rc.1](https://github.com/toml-lang/toml/blob/master/versions/en/toml-v1.0.0-rc.1.md)
+has been released! This update brings support for it! It's not a huge
+update, an evening of tests and an evening of parser updates, but the
+changes as a consumer of TOML are actually pretty impactful:
+
+* Inline arrays can have mixed types now!!
+* Inline tables MAY NOT have trailing commas. (Inline arrays are still allowed to have trailing commas.)
+* Control chars are no longer allowed in comments. Only tabs may be used in comments.
+* Multiline basic and literal strings can have quotes nestled up next to the closing triplet, that is:
+  `""""Hello," she said, "this is a thing.""""` is the equivalent of the JSON `"\"Hello,\" she said, \"this is a thing.\""`.
+* Subtables may not extend tables created via dotted keys, that is, the following is invalid:```
+[a]
+x.y = 1
+[a.x]
+z = 2
+```
+
 # 2.2.4
 	
 * Bug fix: Plain date literals (not datetime) immediately followed by another statement (no whitespace or blank line) would crash. Fixes [#19](https://github.com/iarna/iarna-toml/issues/19) and [#23](https://github.com/iarna/iarna-toml/issues/23), thank you [@arnau](https://github.com/arnau) and [@jschaf](https://github.com/jschaf) for reporting this!
