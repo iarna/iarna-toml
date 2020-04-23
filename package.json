@@ -1,6 +1,6 @@
 {
   "name": "@iarna/toml",
-  "version": "2.2.4",
+  "version": "3.0.0",
   "main": "toml.js",
   "scripts": {
     "test": "tap -J --100 test/*.js test/toml-stream/*.js",
