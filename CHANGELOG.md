@@ -10,7 +10,8 @@ changes as a consumer of TOML are actually pretty impactful:
 * Control chars are no longer allowed in comments. Only tabs may be used in comments.
 * Multiline basic and literal strings can have quotes nestled up next to the closing triplet, that is:
   `""""Hello," she said, "this is a thing.""""` is the equivalent of the JSON `"\"Hello,\" she said, \"this is a thing.\""`.
-* Subtables may not extend tables created via dotted keys, that is, the following is invalid:```
+* Subtables may not extend tables created via dotted keys, that is, the following is invalid:
+```
 [a]
 x.y = 1
 [a.x]
