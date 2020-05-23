@@ -70,7 +70,7 @@ Synchronously parse a TOML string and return an object.
 
 ## TOML.stringify(obj) → String [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/stringify.js)
 
-Also available with: `require('@iarna/toml/stringify)`
+Also available with: `require('@iarna/toml/stringify')`
 
 Serialize an object as TOML.
 
