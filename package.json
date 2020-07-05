@@ -1,7 +1,17 @@
 {
   "name": "@iarna/toml",
   "version": "3.0.0",
-  "main": "toml.js",
+  "main": "./toml.js",
+  "exports": {
+    ".": [
+      {
+        "require": "./toml.js",
+        "import": "./toml-esm.mjs"
+      },
+      "./toml.js"
+    ],
+    "./esm": "./toml-esm.mjs"
+  },
   "scripts": {
     "test": "tap -J --100 test/*.js test/toml-stream/*.js",
     "benchmark": "node benchmark.js && node benchmark-per-file.js && node results2table.js",
