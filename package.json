@@ -1,6 +1,7 @@
 {
   "name": "@iarna/toml",
   "version": "3.0.0",
+  "type": "commonjs",
   "main": "./toml.js",
   "exports": {
     ".": [
