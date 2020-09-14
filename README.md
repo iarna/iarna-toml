@@ -250,7 +250,7 @@ The test suite is maintained at 100% coverage: [![Coverage Status](https://cover
 The spec was carefully hand converted into a series of test framework
 independent (and mostly language independent) assertions, as pairs of TOML
 and YAML files.  You can find those files here:
-[spec-test](https://github.com/iarna/toml-spec-test/). 
+[spec-tests](https://github.com/iarna/toml-spec-tests/). 
 
 Further tests were written to increase coverage to 100%, these may be more
 implementation specific, but they can be found in [coverage](https://github.com/iarna/iarna-toml/blob/latest/test/coverage.js) and
