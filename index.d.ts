@@ -19,17 +19,17 @@ interface FuncParse {
   /**
    * Synchronously parse a TOML string and return an object.
    */
-  (toml: string): JsonMap
+  <Parsed = JsonMap>(toml: string): Parsed
 
   /**
    * Asynchronously parse a TOML string and return a promise of the resulting object.
    */
-  async (toml: string, options?: ParseOptions): Promise<JsonMap>
+  async <Parsed = JsonMap>(toml: string, options?: ParseOptions): Promise<Parsed>
 
   /**
    * Given a readable stream, parse it as it feeds us data. Return a promise of the resulting object.
    */
-  stream (readable: NodeJS.ReadableStream): Promise<JsonMap>
+  stream <Parsed = JsonMap>(readable: NodeJS.ReadableStream): Promise<Parsed>
   stream (): Transform
 }
 
