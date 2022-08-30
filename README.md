@@ -211,8 +211,7 @@ tests.  Its support for 0.5 is incomplete.  Check out the
 for details.
 
 As this table is getting a little wide, with how npm and github display it,
-you can also view it seperately in the
-[BENCHMARK](https://shared.by.re-becca.org/misc/BENCHMARK.html) document.
+you can also view it separately in the [BENCHMARK](https://shared.by.re-becca.org/misc/BENCHMARK.html) document.
 
 |   | @iarna/<wbr>toml | toml-j0.4 | toml | @sgarciac/<wbr>bombadil | @ltd/<wbr>j-toml | fast-toml |
 | - | :---------: | :-------: | :--: | :----------------: | :---------: | :-------: |
