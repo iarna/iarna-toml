@@ -26,7 +26,9 @@ const good = {
   'infinity': {obj: {a: Infinity}, toml: `a = inf\n`},
   '-infinity': {obj: {a: -Infinity}, toml: `a = -inf\n`},
   '-0': {obj: {a: -0}, toml: 'a = -0.0\n'},
-  'multiline': {obj: {a: [ 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc' ]}, toml: 'a = [\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc"\n]\n'}
+  'multiline': {obj: {a: [ 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc' ]}, toml: 'a = [\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc"\n]\n'},
+  'number separator': {obj: {a: 10000}, toml: 'a = 10_000\n'},
+  'no number separator': {obj: {a: 10000}, options: {skipThousandsSeparator: true}, toml: 'a = 10000\n'}
 }
 const bad = {
   'stringify null': null,
@@ -50,7 +52,7 @@ test('stringify', t => {
   })
   Object.keys(good).forEach(msg => {
     try {
-      const result = TOML.stringify(good[msg].obj)
+      const result = TOML.stringify(good[msg].obj, good[msg].options)
       t.is(result, good[msg].toml, msg)
     } catch (err) {
       t.comment(err.message)
@@ -67,5 +69,26 @@ test('stringify', t => {
       t.fail(msg)
     }
   })
+  t.done()
+})
+
+// This test is basically just to test that the stringifier is being properly invoked.
+test('stringify.value', t => {
+  try {
+    const result = TOML.stringify.value(42)
+    t.is(result, '42', '42')
+  } catch (err) {
+    t.comment(err.message)
+    t.fail('42')
+  }
+
+  try {
+    const result = TOML.stringify.value({ a: 'hello', b: 42 })
+    t.is(result, '{ a = "hello", b = 42 }', 'obj')
+  } catch (err) {
+    t.comment(err.message)
+    t.fail('obj')
+  }
+
   t.done()
 })

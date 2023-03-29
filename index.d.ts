@@ -33,6 +33,13 @@ interface FuncParse {
   stream (): Transform
 }
 
+interface StringifyOptions {
+  /**
+   * Skip inserting thousands separators when stringifying numbers. Defaults to false.
+   */
+  skipThousandsSeparator?: boolean
+}
+
 interface FuncStringify {
   /**
    * Serialize an object as TOML.
@@ -46,12 +53,12 @@ interface FuncStringify {
    *
    * `moment` objects are treated the same as native `Date` objects, in this respect.
    */
-  (obj: JsonMap): string
+  (obj: JsonMap, options?: StringifyOptions): string
 
   /**
    * Serialize a value as TOML would. This is a fragment and not a complete valid TOML document.
    */
-  value (any: AnyJson): string
+  value (any: AnyJson, options?: StringifyOptions): string
 }
 
 export const parse: FuncParse
