@@ -68,9 +68,12 @@ Also available with: `require('@iarna/toml/parse-string')`
 Synchronously parse a TOML string and return an object.
 
 
-## TOML.stringify(obj) → String [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/stringify.js)
+## TOML.stringify(obj[, opts]) → String [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/stringify.js)
 
 Also available with: `require('@iarna/toml/stringify')`
+
+`opts.skipThousandsSeparator` controls if inserting thousands separators should
+be skipped when stringifying numbers. Defaults to false.
 
 Serialize an object as TOML.
 
@@ -86,9 +89,12 @@ because `JSON` represents dates as strings and TOML can represent them natively.
 [`moment`](https://www.npmjs.com/package/moment) objects are treated the
 same as native `Date` objects, in this respect.
 
-## TOML.stringify.value(obj) -> String
+## TOML.stringify.value(obj[, opts]) -> String
 
 Also available with: `require('@iarna/toml/stringify').value`
+
+`opts.skipThousandsSeparator` controls if inserting thousands separators should
+be skipped when stringifying numbers. Defaults to false.
 
 Serialize a value as TOML would.  This is a fragment and not a complete
 valid TOML document.
