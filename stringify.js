@@ -201,6 +201,9 @@ function stringifyFloat (value) {
     return '-0.0'
   }
   const [int, dec] = String(value).split('.')
+  if (dec === undefined) {
+    return String(value)
+  }
   return stringifyInteger(int) + '.' + dec
 }
 
