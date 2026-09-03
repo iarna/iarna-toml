@@ -83,3 +83,27 @@ test('should be errors', t => {
   })
   t.end()
 })
+
+// A lone \r (not paired with a following \n) inside a multiline string is
+// tested separately: the error message echoes the offending source line
+// verbatim, and a raw \r embedded in that echoed text confuses the TAP
+// output stream, so these compare a sanitized copy of the message instead.
+const loneCrErrors = {
+  'lone CR at start of multiline literal string': "a = '''\rabc'''",
+  'lone CR in middle of multiline literal string': "a = '''ab\rcd'''",
+  'lone CR at start of multiline basic string': 'a = """\rabc"""',
+  'lone CR in middle of multiline basic string': 'a = """ab\rcd"""'
+}
+
+test('lone CR in multiline strings should be errors', t => {
+  Object.keys(loneCrErrors).forEach(msg => {
+    try {
+      TOML.parse(loneCrErrors[msg])
+      t.fail(msg)
+    } catch (err) {
+      t.comment(err.message.replace(/\r/g, '\\r'))
+      t.ok(err instanceof TomlError, msg)
+    }
+  })
+  t.end()
+})
