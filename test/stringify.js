@@ -9,7 +9,8 @@ const roundtrip = {
     'array of tables': {obj: {a: [{b: 5}, {b: 23}]}, toml: '[[a]]\nb = 5\n\n[[a]]\nb = 23\n'}},
   'inline objects': {obj: {a: [[{a: 23}, {}]]}, toml: `a = [ [ { a = 23 }, { } ] ]\n`},
   'keys with quotes': {obj: {'a"b': 123}, toml: `"a\\"b" = 123\n`},
-  'multiline values ending in quotes': {obj: {a: 'abc\n"def"'}, toml: `a = """\nabc\n"def"\\\n"""\n`}
+  'multiline values ending in quotes': {obj: {a: 'abc\n"def"'}, toml: `a = """\nabc\n"def"\\\n"""\n`},
+  'multiple control characters in a string': {obj: {a: String.fromCharCode(1, 2, 3)}, toml: `a = "\\u0001\\u0002\\u0003"\n`}
 }
 const good = {
   'toJSON overrides': {obj: {a: {toJSON: () => 'EXAMPLE'}}, toml: `a = "EXAMPLE"\n`},
