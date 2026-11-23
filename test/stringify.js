@@ -9,6 +9,10 @@ const roundtrip = {
     'array of tables': {obj: {a: [{b: 5}, {b: 23}]}, toml: '[[a]]\nb = 5\n\n[[a]]\nb = 23\n'}},
   'inline objects': {obj: {a: [[{a: 23}, {}]]}, toml: `a = [ [ { a = 23 }, { } ] ]\n`},
   'keys with quotes': {obj: {'a"b': 123}, toml: `"a\\"b" = 123\n`},
+  'repeated control characters': {obj: {a: '\u001B\u007F\u001B\u0000\u0001\u001F'}, toml: 'a = "\\u001b\\u007f\\u001b\\u0000\\u0001\\u001f"\n'},
+  'keys with control characters': {obj: {'\u001B\u007F': 123}, toml: '"\\u001b\\u007f" = 123\n'},
+  'array values with control characters': {obj: {a: ['\u001B\u007F']}, toml: 'a = [ "\\u001b\\u007f" ]\n'},
+  'multiline values with control characters': {obj: {a: '\u001B\u007F\nend'}, toml: 'a = """\n\\u001b\\u007f\nend"""\n'},
   'multiline values ending in quotes': {obj: {a: 'abc\n"def"'}, toml: `a = """\nabc\n"def"\\\n"""\n`}
 }
 const good = {

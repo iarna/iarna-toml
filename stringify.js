@@ -133,7 +133,7 @@ function escapeString (str) {
     .replace(/\f/g, '\\f')
     .replace(/\r/g, '\\r')
     /* eslint-disable no-control-regex */
-    .replace(/([\u0000-\u001f\u007f])/, c => '\\u' + numpad(4, c.codePointAt(0).toString(16)))
+    .replace(/([\u0000-\u001f\u007f])/g, c => '\\u' + numpad(4, c.codePointAt(0).toString(16)))
     /* eslint-enable no-control-regex */
 }
 
