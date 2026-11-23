@@ -36,6 +36,7 @@
     "@ltd/j-toml": "^0.5.107",
     "@perl/qx": "^1.0.2",
     "@sgarciac/bombadil": "^2.3.0",
+    "@types/node": "8.10.66",
     "ansi": "^0.3.1",
     "approximate-number": "^2.0.0",
     "benchmark": "^2.1.4",
