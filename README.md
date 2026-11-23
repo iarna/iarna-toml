@@ -65,7 +65,7 @@ Error: Unexpected character, expecting string, number, datetime, boolean, inline
 
 Also available with: `require('@iarna/toml/parse-string')`
 
-Synchronously parse a TOML string and return an object.
+Synchronously parse a TOML string or UTF-8 Buffer and return an object.
 
 
 ## TOML.stringify(obj) → String [(example)](https://github.com/iarna/iarna-toml/blob/latest/examples/stringify.js)

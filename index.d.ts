@@ -17,9 +17,9 @@ interface ParseOptions {
 
 interface FuncParse {
   /**
-   * Synchronously parse a TOML string and return an object.
+   * Synchronously parse a TOML string or UTF-8 Buffer and return an object.
    */
-  <Parsed = JsonMap>(toml: string): Parsed
+  <Parsed = JsonMap>(toml: string | Buffer): Parsed
 
   /**
    * Asynchronously parse a TOML string and return a promise of the resulting object.
