@@ -71,6 +71,16 @@ const errors = {
   'empty-inline-table-element': 'a = {a = 1,,b = 2}'
 }
 
+const loneCRs = {
+  'lone CR in literal multi': "a = '''x\ry'''",
+  'lone CR in basic multi': 'a = """x\ry"""',
+  'lone CR after literal multi open': "a = '''\rx'''",
+  'lone CR after basic multi open': 'a = """\rx"""',
+  'lone CR after line ending backslash': 'a = """x\\\ry"""',
+  'lone CR after backslash and space': 'a = """x\\ \ry"""',
+  'lone CR in line ending backslash trim': 'a = """x\\\n\ry"""'
+}
+
 test('should be errors', t => {
   Object.keys(errors).forEach(msg => {
     try {
@@ -79,6 +89,20 @@ test('should be errors', t => {
     } catch (err) {
       t.comment(err.message)
       t.ok(err instanceof TomlError, msg)
+    }
+  })
+  t.end()
+})
+
+// no t.comment() here: TAP treats a raw CR in comment output as a line break
+test('lone CRs should be errors', t => {
+  Object.keys(loneCRs).forEach(msg => {
+    try {
+      TOML.parse(loneCRs[msg])
+      t.fail(msg)
+    } catch (err) {
+      t.ok(err instanceof TomlError, msg)
+      t.match(err.message, /use \\u000d instead/, msg)
     }
   })
   t.end()
