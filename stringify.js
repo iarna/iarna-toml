@@ -190,6 +190,11 @@ function stringifyInteger (value) {
   return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, '_')
 }
 
+function stringifyIntegerAsFloat (value) {
+  const str = stringifyInteger(value)
+  return /e/.test(str) ? str : str + '.0'
+}
+
 function stringifyFloat (value) {
   if (value === Infinity) {
     return 'inf'
@@ -214,8 +219,13 @@ function stringifyDatetime (value) {
 
 function stringifyInlineArray (values) {
   values = toJSON(values)
+  const types = values.map(_ => tomlType(_))
+  // mixed integer/float, emit Number integers as floats so TOML 0.5 can read it
+  const floats = types.includes('float') && types.every(type => type === 'float' || type === 'integer')
   let result = '['
-  const stringified = values.map(_ => stringifyInline(_))
+  const stringified = values.map((_, ii) => {
+    return floats && typeof _ === 'number' && types[ii] === 'integer' ? stringifyIntegerAsFloat(_) : stringifyInline(_)
+  })
   if (stringified.join(', ').length > 60 || /\n/.test(stringified)) {
     result += '\n  ' + stringified.join(',\n  ') + '\n'
   } else {

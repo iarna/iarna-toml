@@ -20,13 +20,20 @@ const good = {
   'NaN is NOT removed': {obj: {a: NaN, b: 'hi'}, toml: `a = nan\nb = "hi"\n`},
   'null is removed from arrays': {obj: {a: [null]}, toml: `a = [ ]\n`},
   'undefined is removed from arrays': {obj: {a: [23, undefined]}, toml: `a = [ 23 ]\n`},
-  'NaN is NOT removed from arrays': {obj: {a: [NaN, 23]}, toml: `a = [ nan, 23 ]\n`},
+  'NaN is NOT removed from arrays': {obj: {a: [NaN, 23]}, toml: `a = [ nan, 23.0 ]\n`},
   'Invalid Date in scalar': {obj: {a: 1, b: new Date('BAD')}, toml: 'a = 1\n'},
   'Invalid Date in list': {obj: {a: [new Date('nope')]}, toml: `a = [ ]\n`},
   'infinity': {obj: {a: Infinity}, toml: `a = inf\n`},
   '-infinity': {obj: {a: -Infinity}, toml: `a = -inf\n`},
   '-0': {obj: {a: -0}, toml: 'a = -0.0\n'},
+  'integers in arrays of floats': {obj: {a: [1.1, 2]}, toml: 'a = [ 1.1, 2.0 ]\n'},
+  'large integers in arrays of floats': {obj: {a: [0.5, 1000, 1e21]}, toml: 'a = [ 0.5, 1_000.0, 1e+21 ]\n'},
+  'arrays of whole numbers': {obj: {a: [1.0, 2]}, toml: 'a = [ 1, 2 ]\n'},
+  'mixed arrays with floats': {obj: {a: [1.1, 'abc', 2]}, toml: 'a = [ 1.1, "abc", 2 ]\n'},
   'multiline': {obj: {a: [ 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc', 'ghi', 'abc' ]}, toml: 'a = [\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc",\n  "ghi",\n  "abc"\n]\n'}
+}
+if (global.BigInt) {
+  good['bigints in arrays of floats'] = {obj: {a: [1.1, global.BigInt(2)]}, toml: 'a = [ 1.1, 2 ]\n'}
 }
 const bad = {
   'stringify null': null,
