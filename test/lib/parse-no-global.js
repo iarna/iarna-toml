@@ -18,6 +18,7 @@ try {
   assert.strictEqual(result.title, 'example')
   assert.strictEqual(result.port, 8020)
   assert.ok(result.date instanceof Date)
+  assert.strictEqual(result.date.constructor.name, 'Date')
   assert.strictEqual(result.date.isDate, true)
   assert.strictEqual(result.date.toISOString(), '1979-05-27')
   assert.strictEqual(typeof result.large, hasBigInt ? 'bigint' : 'number')
