@@ -5,7 +5,7 @@ const TOMLParser = require('./lib/toml-parser.js')
 const prettyError = require('./parse-pretty-error.js')
 
 function parseString (str) {
-  if (global.Buffer && global.Buffer.isBuffer(str)) {
+  if (typeof Buffer !== 'undefined' && Buffer.isBuffer(str)) {
     str = str.toString('utf8')
   }
   const parser = new TOMLParser()
