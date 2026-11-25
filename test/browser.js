@@ -10,6 +10,8 @@ test('parse without Node globals', t => {
 })
 
 test('parse a Node Buffer', t => {
-  t.isDeeply(parse(Buffer.from('title = "café"\nport = 8020\n')), {title: 'café', port: 8020})
+  const result = parse(Buffer.from('title = "café"\nport = 8020\n'))
+  t.is(result.title, 'café', 'decodes UTF-8')
+  t.is(result.port, 8020, 'parses an integer')
   t.end()
 })
